@@ -18,35 +18,57 @@ public class Program
     #region Level 1
     public double[] Task_1_1(double[] array)
     {
-        // code here
+        double s = 0;
+        for(int i = 0;i < array.Length;i++){
+            s += array[i];
+        }
+        for(int i = 0;i < array.Length;i++){
+            array[i] = Math.Round(array[i]/s,2);
 
-        // end
+        }
 
         return array;
     }
     public double[] Task_1_2(double[] array)
     {
-        // code here
+        double sr = 0;
+        int cnt = 0;
+        for(int i = 0;i < array.Length;i++){
+            if (array[i] > 0){
+                sr += array[i];
+                cnt++;
+            }
+        }
+        sr = cnt > 0 ? Math.Round(sr/cnt,2) : 0;
+        for(int i = 0;i < array.Length;i++){
+            array[i] =  array[i] > 0 ? sr : array[i];
 
-        // end
-
+        }
+        
         return array;
     }
     public (double[], double[]) Task_1_3(double[] first, double[] second)
     {
         double[] sum = new double[first.Length], dif = new double[first.Length];
 
-        // code here
-
-        // end
+        for(int i = 0;i < first.Length;i++){
+            sum[i] = Math.Round(first[i] + second[i],1);
+            dif[i] = Math.Round(first[i] - second[i],1);
+        }
 
         return (sum, dif);
     }
     public double[] Task_1_4(double[] array)
     {
-        // code here
-
-        // end
+        double sr = 0;
+        int l = array.Length;
+        for(int i = 0; i < l;i++){
+            sr += array[i];
+        }
+        sr /= l;
+        for (int i = 0;i < l;i++){
+            array[i] = Math.Round(array[i]-sr,2);
+        }
 
         return array;
     }
@@ -54,67 +76,85 @@ public class Program
     {
         double product = 0;
 
-        // code here
+        for(int i = 0;i < vector1.Length;i++){
+            product += vector1[i] * vector2[i];
+        }
 
-        // end
-
-        return product;
+        return Math.Round(product,2);
     }
     public double Task_1_6(double[] vector)
     {
         double length = 0;
 
-        // code here
-
-        // end
-
-        return Math.Round(length, 4); ;
+        for(int i = 0;i<vector.Length;i++){
+            length += vector[i]*vector[i];
+        }
+        length = Math.Sqrt(length);
+        return Math.Round(length, 2); ;
     }
     public double[] Task_1_7(double[] array)
     {
-        // code here
-
-        // end
-
+        double sr = 0;
+        int l = array.Length;
+        for(int i = 0;i < l;i++){
+            sr += array[i];
+        }
+        sr /= l;
+        for(int i = 0;i < l;i++){
+            array[i] = array[i] > sr ? 0 : array[i];
+        }
         return array;
     }
     public int Task_1_8(double[] array)
     {
         int count = 0;
 
-        // code here
-
-        // end
+        for(int i = 0;i < array.Length;i++){
+            count += array[i] < 0 ? 1 : 0;
+        }
 
         return count;
     }
     public int Task_1_9(double[] array)
     {
         int count = 0;
-
-        // code here
-
-        // end
+                double sr = 0;
+        int l = array.Length;
+        for(int i = 0;i < l;i++){
+            sr += array[i];
+        }
+        sr /= l;
+        for(int i = 0;i < array.Length;i++){
+            count += array[i] > sr ? 1 : 0;
+        }
 
         return count;
     }
     public int Task_1_10(double[] array, int P, int Q)
     {
         int count = 0;
-
-        // code here
-
-        // end
+        for(int i = 0;i < array.Length;i++){
+            count += array[i] > P && array[i] < Q ? 1 : 0;
+        }
 
         return count;
     }
     public double[] Task_1_11(double[] array)
     {
         double[] output = null;
-
-        // code here
-
-        // end
+        int cnt = 0;
+        
+        for(int i = 0;i < array.Length;i++){
+            cnt += array[i] > 0 ? 1 : 0;
+        }
+        output = new double[cnt];
+        int j = 0,i1 = 0;
+        while(i1 != cnt ){
+            if (array[j] > 0){
+                output[i1++] = array[j];
+            }
+            j++;
+        }
 
         return output;
     }
@@ -123,9 +163,12 @@ public class Program
         double value = 0;
         int index = -1;
 
-        // code here
-
-        // end
+        for(int i = 0;i<array.Length;i++){
+            if (array[i] < 0){
+                value = array[i];
+                index = i;
+            }
+        }
 
         return (value, index);
     }
@@ -134,19 +177,21 @@ public class Program
         double[] even = new double[array.Length / 2];
         double[] odd = new double[array.Length/2];
 
-        // code here
-
-        // end
-
+        int index_odd = 0, index_even = 0;
+        for (int i = 0; i < array.Length;i++){
+            if (i % 2 == 0) even[index_even++] = array[i];
+            else odd[index_odd++] = array[i];
+        }
         return (even, odd);
     }
     public double Task_1_14(double[] array)
     {
         double sum = 0;
 
-        // code here
-
-        // end
+        for(int i = 0; i< array.Length;i++){
+            if (array[i] < 0) break;
+            sum += array[i]*array[i];
+        }
 
         return sum;
     }
@@ -154,9 +199,9 @@ public class Program
     {
         double[] y = new double[x.Length];
 
-        // code here
-
-        // end
+        for(int i = 0;i < x.Length ;i++){
+            y[i] =  x[i] > 0 ? Math.Round(0.5 * Math.Log(x[i]),2) : double.NaN;
+        }
 
         return y;
     }
