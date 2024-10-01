@@ -3,788 +3,729 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.Metrics;
-using System.Globalization;
+using System.Linq.Expressions;
+using System.Numerics;
 using System.Runtime.InteropServices;
 using System.Runtime.Intrinsics.X86;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 public class Program
 {
     public static void Main()
     {
         Program program = new Program();
-        //program.Task_1_1(0.9, 1.23);
-        //program.Task_1_2(0.9, 1.23);
-        //program.Task_1_3(0.9, 1.23);
-        //program.Task_1_4(0.9, 1.23, -0.1);
-        //program.Task_1_5(0.9, 1.23);
-        //program.Task_1_6(0.9, 1.23);
-        //program.Task_1_7(0.9);
-        //program.Task_1_8(0.9);
-        //program.Task_1_9(0.9);
-        //program.Task_1_10(0.9);
-        //program.Task_2_1(10);
-        //program.Task_2_2(5, 3, 2, 1);
-        //program.Task_2_2(5, 1.5, 1.5, 1);
-        //program.Task_2_2(5, 1, 3, 1);
-        //program.Task_2_3(10);
-        //program.Task_2_4(5, 1, 2);
-        //program.Task_2_5(10, 30);
-        //program.Task_2_6(5);
-        //program.Task_2_7(5);
-        //program.Task_2_8(10);
-        //program.Task_2_9(10);
-        //program.Task_2_10(10);
-        //program.Task_2_11(10);
-        //program.Task_2_12(10, 0);
-        //program.Task_2_13(10, 5, 0);
-        //program.Task_3_1();
-        //program.Task_3_2(3, 2, 1);
-        //program.Task_3_2(1.5, 1.5, 1);
-        //program.Task_3_2(3, 2, 1);
-        //program.Task_3_3();
-        //program.Task_3_4(1, 2);
-        //program.Task_3_5(30);
-        //program.Task_3_6();
-        //program.Task_3_7();
-        //program.Task_3_8();
-        //program.Task_3_9();
-        //program.Task_3_10();
-        program.Task_3_11();
-        //program.Task_3_12(10, 0);
-        //program.Task_3_13(10, 5, 0);
+        //program.Task_1_1(new int[] {1, 2, 3, 4, 5, 6});
     }
     #region Level 1
-    public bool Task_1_1(double x, double y)
+    public double[] Task_1_1(double[] array)
     {
-        bool answer = false;
-
         // code here
-        const double eps = 0.001;
-        answer = Math.Abs(x * x + y * y - 4.0) < eps;
-        // end
-
-        return answer;
-    }
-    public bool Task_1_2(double x, double y)
-    {
-        bool answer = false;
-
-        // code here
-        if (y <= 1 + x && y <= 1 - x && y >= 0)
-            answer = true;
-        // end
-
-        return answer;
-    }
-    public double Task_1_3(double a, double b)
-    {
-        double answer = 0;
-
-        // code here
-        if (a > 0)
+        double sm = 0;
+        for (int i = 0; i < 6; i++)
         {
-            if (a > b)
-                answer = a;
-            else
-                answer = b;
+            sm += array[i];
         }
-        else
+        if (sm == 0)
+            return array;
+        for (int i = 0; i < 6; i++)
+            array[i] = Math.Round(array[i] / sm, 2);
+        // end
+
+        return array;
+    }
+    public double[] Task_1_2(double[] array)
+    {
+        // code here
+        int posCnt = 0;
+        double posSum = 0;
+        for (int i = 0; i < 8; i++)
         {
-            if (a > b)
-                answer = b;
-            else
-                answer = a;
+            if (array[i] > 0)
+            {
+                posCnt++;
+                posSum += array[i];
+            }
+        }
+        if (posCnt == 0)
+        {
+            return array;
+        }
+        double posAvg = posSum / posCnt;
+        for (int i = 0; i < 8; i++)
+        {
+            if (array[i] > 0)
+            {
+                array[i] = Math.Round(posAvg, 2);
+            }
         }
         // end
 
-        return answer;
+        return array;
     }
-    public double Task_1_4(double a, double b, double c)
+    public (double[], double[]) Task_1_3(double[] first, double[] second)
     {
-        double answer = 0;
+        double[] sum = new double[first.Length], dif = new double[first.Length];
 
         // code here
-        answer = Math.Max(Math.Min(a, b), c);
+        for (int i = 0; i < 4; i++)
+        {
+            sum[i] = Math.Round(first[i] + second[i], 2);
+            dif[i] = Math.Round(first[i] - second[i], 2);
+        }
         // end
 
-        return answer;
+        return (sum, dif);
     }
-    public bool Task_1_5(double r, double s)
+    public double[] Task_1_4(double[] array)
     {
-        bool answer = false;
+        // code here
+        double sm = 0;
+        for (int i = 0; i < 5; i++)
+        {
+            sm += array[i];
+        }
+        double avg = sm / 5;
+        for (int i = 0; i < 5; i++)
+            array[i] = Math.Round(array[i] - avg, 4);
+        // end
+
+        return array;
+    }
+    public double Task_1_5(double[] vector1, double[] vector2)
+    {
+        double product = 0;
 
         // code here
-        double radius = Math.Sqrt(r / Math.PI);
-        double diagonal = Math.Sqrt(s) * Math.Sqrt(2) / 2.0;
-        if (diagonal <= radius)
-            answer = true;
+        for (int i = 0; i < 4; i++)
+            product += vector1[i] * vector2[i];
+        product = Math.Round(product, 4);
         // end
 
-        return answer;
+        return product;
     }
-    public bool Task_1_6(double r, double s)
+    public double Task_1_6(double[] vector)
     {
-        bool answer = false;
+        double length = 0;
 
         // code here
-        double diameter = Math.Sqrt(r / Math.PI) * 2;
-        double side = Math.Sqrt(s);
-        if (diameter <= side)
-            answer = true;
+        for (int i = 0; i < 5; i++)
+            length += vector[i] * vector[i];
+        length = Math.Round(Math.Sqrt(length), 2);
         // end
 
-        return answer;
+        return length;
     }
-    public double Task_1_7(double x)
+    public double[] Task_1_7(double[] array)
     {
-        double answer = 0;
+        // code here
+        double sm = 0;
+        for (int i = 0; i < 7; i++)
+        {
+            sm += array[i];
+        }
+        double avg = sm / 7;
+        for (int i = 0; i < 7; i++)
+            if (array[i] > avg)
+                array[i] = 0;
+        // end
+
+        return array;
+    }
+    public int Task_1_8(double[] array)
+    {
+        int count = 0;
 
         // code here
-        if (Math.Abs(x) > 1)
-            answer = 1;
-        else
-            answer = Math.Abs(x);
+        for (int i = 0; i < 6; i++)
+            if (array[i] < 0)
+                count++;
         // end
 
-        return answer;
+        return count;
     }
-    public double Task_1_8(double x)
+    public int Task_1_9(double[] array)
     {
-        double answer = 0;
+        int count = 0;
 
         // code here
-        if (Math.Abs(x) >= 1)
-            answer = 0;
-        else
-            answer = x * x - 1;
+        double sm = 0;
+        for (int i = 0; i < 8; i++)
+        {
+            sm += array[i];
+        }
+        double avg = sm / 8;
+        for (int i = 0; i < 8; i++)
+            if (array[i] > avg)
+                count++;
         // end
 
-        return answer;
+        return count;
     }
-    public double Task_1_9(double x)
+    public int Task_1_10(double[] array, int P, int Q)
     {
-        double answer = 0;
+        int count = 0;
 
         // code here
-        if (x <= -1)
-            answer = 0;
-        else if (x > 0)
-            answer = 1;
-        else
-            answer = 1 + x;
+        for (int i = 0; i < 10; i++)
+            if (array[i] > P && array[i] < Q)
+                count++;
         // end
 
-        return answer;
+        return count;
     }
-    public double Task_1_10(double x)
+    public double[] Task_1_11(double[] array)
     {
-        double answer = 0;
+        double[] output = null;
 
         // code here
-        if (x <= -1)
-            answer = 1;
-        else if (x > 1)
-            answer = -1;
-        else
-            answer = -x;
+        int posCnt = 0;
+        for (int i = 0; i < 10; i++)
+            if (array[i] > 0)
+                posCnt++;
+        output = new double[posCnt];
+        int iter = 0;
+        for (int i = 0; i < 10; i++)
+        {
+            if (array[i] > 0)
+            {
+                output[iter++] = array[i];
+            }
+        }
+
         // end
 
-        return answer;
+        return output;
+    }
+    public (double, int) Task_1_12(double[] array)
+    {
+        double value = 0;
+        int index = -1;
+
+        // code here
+        for (int i = 0; i < 8; i++)
+        {
+            if (array[i] < 0)
+            {
+                index = i;
+                value = array[i];
+            }
+        }
+        // end
+
+        return (value, index);
+    }
+    public (double[], double[]) Task_1_13(double[] array)
+    {
+        double[] even = new double[array.Length / 2];
+        double[] odd = new double[array.Length / 2];
+
+        // code here
+        for (int i = 0; i < 10; i += 2)
+        {
+            even[i / 2] = array[i];
+            odd[i / 2] = array[i + 1];
+        }
+        // end
+
+        return (even, odd);
+    }
+    public double Task_1_14(double[] array)
+    {
+        double sum = 0;
+
+        // code here
+        for (int i = 0; i < 11; i++)
+        {
+            if (array[i] < 0)
+                break;
+            sum += array[i] * array[i];
+        }
+        // end
+
+        return sum;
+    }
+    public double[] Task_1_15(double[] x)
+    {
+        double[] y = new double[x.Length];
+
+        // code here
+        for (int i = 0; i < 10; i++)
+        {
+            if (x[i] > 0)
+                y[i] = Math.Round(0.5 * Math.Log(x[i]), 2);
+            else
+                y[i] = double.NaN;
+            Console.WriteLine($"y={y[i]} x={x[i]}");
+        }
+        // end
+
+        return y;
     }
     #endregion
 
     #region Level 2
-    public double Task_2_1(int n)
+    public double[] Task_2_1(double[] array)
     {
-        double answer = 0;
-
         // code here
-        for (int i = 0; i < n; i++)
-        {
-            double height = double.Parse(Console.ReadLine());
-            answer += height;
-        }
-        answer = answer / n;
-        Console.WriteLine(answer);
+        double minElem = double.MaxValue;
+        foreach (double iter in array)
+            minElem = Math.Min(minElem, iter);
+        for (int i = 0; i < array.Length; i++)
+            if (array[i] == minElem)
+                array[i] = minElem * 2;
         // end
 
-        // for test input in console: 168, 147, 174, 154, 180, 149, 166, 160, 175, 161
-
-        return answer;
+        return array;
     }
-    public int Task_2_2(int n, double r, double a, double b)
+    public double Task_2_2(double[] array)
     {
-        int answer = 0;
-
-        // code here
-        double x, y;
-        for (int i = 0; i < n; i++)
-        {
-            string[] input = Console.ReadLine().Split(" ");
-            x = double.Parse(input[0], CultureInfo.InvariantCulture);
-            y = double.Parse(input[1], CultureInfo.InvariantCulture);
-            if ((x - a) * (x - a) + (y - b) * (y - b) < r * r)
-                answer++;
-        }
-        Console.WriteLine(answer);
-        // end
-
-        // for test input in console: 1.2 0.7, 2 2, 4.5 0.1, -1 1.5, -2.5 -0.5
-
-        return answer;
-    }
-    public double Task_2_3(int n)
-    {
-        double answer = 0;
-
-        // code here
-        double weight;
-        for (int i = 0; i < n; i++)
-        {
-            weight = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            if (weight < 30)
-            {
-                answer += 0.2;
-            }
-
-        }
-        Console.WriteLine(answer);
-        // end
-
-        // for test input in console: 27.5, 32.5, 30, 22.3, 26.8, 36.6, 30, 29.9, 20.1, 28.5
-
-        return answer;
-    }
-    public int Task_2_4(int n, double r1, double r2)
-    {
-        int answer = 0;
-
-        // code here
-        double x, y;
-        for (int i = 0; i < n; i++)
-        {
-            string[] input = Console.ReadLine().Split(" ");
-            x = double.Parse(input[0], CultureInfo.InvariantCulture);
-            y = double.Parse(input[1], CultureInfo.InvariantCulture);
-            if ((x * x + y * y < r2 * r2) && (x * x + y * y > r1 * r1))
-                answer++;
-        }
-        Console.WriteLine(answer);
-        // end
-
-        // for test input in console: 1.2 0.7, 2 2, 4.5 0.1, -1 1.5, -0.5 -0.5
-
-        return answer;
-    }
-    public int Task_2_5(int n, double norm)
-    {
-        int answer = 0;
-
-        // code here
-        double result;
-        for (int i = 0; i < n; i++)
-        {
-            result = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            if (result < norm)
-            {
-                answer++;
-            }
-
-        }
-        Console.WriteLine(answer);
-        // end
-
-        // for test input in console: 27.5, 32.5, 30, 22.3, 26.8, 36.6, 30, 29.9, 20.1, 28.5
-
-        return answer;
-    }
-    public int Task_2_6(int n)
-    {
-        int answer = 0;
-
-        // code here
-        double x, y;
-        for (int i = 0; i < n; i++)
-        {
-            string[] input = Console.ReadLine().Split(" ");
-            x = double.Parse(input[0], CultureInfo.InvariantCulture);
-            y = double.Parse(input[1], CultureInfo.InvariantCulture);
-            if (x >= 0 && x <= Math.PI && y >= 0 && y <= Math.Sin(x))
-                answer++;
-        }
-        Console.WriteLine(answer);
-        // end
-
-        // for test input in console: 1.2 0.7, 2 0.2, 0.5 0.9, -1 1.5, 0.5 0.1
-
-        return answer;
-    }
-    public (int, int) Task_2_7(int n)
-    {
-        int answer1 = 0;
-        int answer3 = 0;
-
-        // code here
-        double x, y;
-        for (int i = 0; i < n; i++)
-        {
-            string[] input = Console.ReadLine().Split(" ");
-            x = double.Parse(input[0], CultureInfo.InvariantCulture);
-            y = double.Parse(input[1], CultureInfo.InvariantCulture);
-            if (x >= 0 && y >= 0)
-            {
-                Console.WriteLine("I");
-                answer1++;
-            }
-            else if (x <= 0 && y >= 0)
-            {
-                Console.WriteLine("II");
-            }
-            else if (x <= 0 && y <= 0)
-            {
-                Console.WriteLine("III");
-                answer3++;
-            }
-            else
-            {
-                Console.WriteLine("IV");
-            }
-        }
-        // end
-
-        // for test input in console: -1.2 0.7, 2 -2, 0.5 0.9, 1 1.5, -0.5 -1.5
-
-        return (answer1, answer3);
-    }
-    public (int, double) Task_2_8(int n)
-    {
-        int answer = 0;
-        double answerLength = double.MaxValue;
-
-        // code here
-        double x, y;
-        for (int i = 0; i < n; i++)
-        {
-            string[] input = Console.ReadLine().Split(" ");
-            x = double.Parse(input[0], CultureInfo.InvariantCulture);
-            y = double.Parse(input[1], CultureInfo.InvariantCulture);
-            double dist = Math.Sqrt(x * x + y * y);
-            if (dist < answerLength)
-            {
-                answer = i + 1;
-                answerLength = dist;
-            }
-        }
-        Console.WriteLine($"{answer} {answerLength}");
-        // end
-
-        // for test input in console: -1.2 0.7, 2 -2, 0.5 0.9, 1 1.5, -0.5 -1.5
-
-        return (answer, answerLength);
-    }
-    public double Task_2_9(int n)
-    {
-        double answer = double.MaxValue;
-
-        // code here
-        double result;
-        for (int i = 0; i < n; i++)
-        {
-            result = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            answer = Math.Min(answer, result);
-
-        }
-        Console.WriteLine(answer);
-        // end
-
-        // for test input in console: 27.5, 32.5, 30, 22.3, 26.8, 36.6, 30, 29.9, 20.1, 28.5
-
-        return answer;
-    }
-    public int Task_2_10(int n)
-    {
-        int answer = 0;
-
-        // code here;
-        for (int i = 0; i < n; i++)
-        {
-            bool has23 = false;
-            for (int j = 0; j < 4; j++)
-            {
-                int grade = int.Parse(Console.ReadLine());
-                if (grade <= 3)
-                {
-                    has23 = true;
-                }
-            }
-            if (has23)
-                answer++;
-        }
-        Console.WriteLine("answer={0}", answer);
-        // end
-
-        // for test input in console: 5, 3, 3, 4, 5, 2, 4, 5, 5, 4, 5, 4, 2, 5, 3, 5, 4, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 2, 5, 2, 2, 4, 2, 5, 4, 5, 4
-
-        return answer;
-    }
-    public (int, double) Task_2_11(int n)
-    {
-        int answer = 0;
-        double avg = 0.0;
-
-        // code here;
         double sum = 0;
-        for (int i = 0; i < n; i++)
+
+        // code here
+
+        // end
+
+        return sum;
+    }
+    public double[] Task_2_3(double[] array)
+    {
+        // code here
+        double minElem = double.MaxValue;
+        foreach (double iter in array)
+            minElem = Math.Min(minElem, iter);
+        for (int i = 0; i < array.Length; i++)
         {
-            bool has2 = false;
-            for (int j = 0; j < 4; j++)
+            if (array[i] == minElem)
+                break;
+
+            if (array[i] < 0)
+                array[i] /= 2;
+            else
+                array[i] *= 2;
+        }
+        // end
+
+        return array;
+    }
+    public double[] Task_2_4(double[] array)
+    {
+        // code here
+
+        // end
+
+        return array;
+    }
+    public double[] Task_2_5(double[] array)
+    {
+        // code here
+        double maxElem = double.MinValue, minElem = double.MaxValue;
+        int minIDx = 0, maxIDx = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > maxElem)
             {
-                int grade = int.Parse(Console.ReadLine());
-                if (grade == 2)
-                {
-                    has2 = true;
-                }
-                sum += grade;
+                maxElem = array[i];
+                maxIDx = i;
             }
-            if (has2)
-                answer++;
+            if (array[i] < minElem)
+            {
+                minElem = array[i];
+                minIDx = i;
+            }
         }
-        avg = sum / 40.0;
-        Console.WriteLine("answer={0} avg={1}", answer, avg);
+        double[] ansArray = new double[Math.Abs(minIDx - maxIDx) - 1];
+        int iter = 0;
+        for (int i = Math.Min(minIDx, maxIDx) + 1; i < Math.Max(minIDx, maxIDx); i++)
+            ansArray[iter++] = array[i];
+        array = ansArray;
         // end
 
-        // for test input in console: 5, 3, 3, 4, 5, 2, 4, 5, 5, 4, 5, 4, 2, 5, 3, 5, 4, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 2, 5, 2, 2, 4, 2, 5, 4, 5, 4
-
-        return (answer, avg);
+        return array;
     }
-    public double Task_2_12(double r, int type)
+    public double[] Task_2_6(double[] array, double P)
     {
-        double answer = 0;
+        // code here
 
-        // code here;
-        if (r <= 0)
-            return 0;
-
-        switch (type)
-        {
-            case 0:
-                answer = r * r;
-                break;
-            case 1:
-                answer = r * r * Math.PI;
-                break;
-            case 2:
-                answer = r * r * Math.Sqrt(3) / 4.0;
-                answer = Math.Round(answer, 2);
-                break;
-        }
-        answer = Math.Round(answer, 2);
-        Console.WriteLine(answer);
         // end
 
-        return answer;
+        return array;
     }
-    public double Task_2_13(double A, double B, int type)
+    public double[] Task_2_7(double[] array)
     {
-        double answer = 0;
-
-        // code here;
-        if (A <= 0 || B <= 0)
-            return 0;
-
-        switch (type)
+        // code here
+        double maxElem = double.MinValue;
+        int maxIdx = 0;
+        for (int i = 0; i < array.Length; i++)
         {
-            case 0:
-                answer = A * B;
-                break;
-            case 1:
-                if (A >= B)
-                    return 0;
-                answer = (B * B - A * A) * Math.PI;
-                break;
-            case 2:
-                if (A >= 2 * B)
-                {
-                    answer = 0;
-                    break;
-                }
-                answer = A * Math.Sqrt(4 * B * B - A * A) / 4.0;
-                break;
-            default:
-                break;
+            if (array[i] > maxElem)
+            {
+                maxElem = array[i];
+                maxIdx = i;
+            }
         }
-        answer = Math.Round(answer, 2);
-        Console.WriteLine(answer);
+        if (maxIdx == array.Length - 1)
+            return array;
+        if (array[maxIdx + 1] > 0)
+            array[maxIdx + 1] *= 2;
+        else
+            array[maxIdx + 1] /= 2;
         // end
 
-        return answer;
+        return array;
+    }
+    public double[] Task_2_8(double[] array)
+    {
+        // code here
+
+        // end
+
+        return array;
+    }
+    public double Task_2_9(double[] array)
+    {
+        double average = 0;
+
+        // code here
+        double maxElem = double.MinValue, minElem = double.MaxValue;
+        int minIDx = 0, maxIDx = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > maxElem)
+            {
+                maxElem = array[i];
+                maxIDx = i;
+            }
+            if (array[i] < minElem)
+            {
+                minElem = array[i];
+                minIDx = i;
+            }
+        }
+        int ln = Math.Abs(maxIDx - minIDx) - 1;
+        if (ln == 0)
+            return average;
+
+        for (int i = Math.Min(minIDx, maxIDx) + 1; i < Math.Max(minIDx, maxIDx); i++)
+            average += array[i];
+        average = Math.Round(average / ln, 2);
+        // end
+
+        return average;
+    }
+    public double[] Task_2_10(double[] array)
+    {
+        // code here
+
+        // end
+
+        return array;
+    }
+    public double[] Task_2_11(double[] array, double P)
+    {
+        // code here
+        int lastPosIdx = -1;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > 0)
+                lastPosIdx = i;
+        }
+        if (lastPosIdx == -1)
+            return array;
+        double[] answer = new double[array.Length + 1];
+        int iter = 0;
+        for (int i = 0; i < lastPosIdx + 1; i++)
+            answer[iter++] = array[i];
+        answer[iter++] = P;
+        for (int i = lastPosIdx + 1; i < array.Length; i++)
+            answer[iter++] = array[i];
+        array = answer;
+        foreach (double it in answer)
+            Console.Write($"{it} ");
+        // end
+
+        return array;
+    }
+    public double[] Task_2_12(double[] array)
+    {
+        // code here
+
+        // end
+
+        return array;
+    }
+    public double[] Task_2_13(double[] array)
+    {
+        // code here
+        double maxElem = double.MinValue;
+        int maxIDx = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (i % 2 == 0 && array[i] > maxElem)
+            {
+                maxElem = array[i];
+                maxIDx = i;
+            }
+        }
+        array[maxIDx] = maxIDx;
+        // end
+
+        return array;
+    }
+    public double[] Task_2_14(double[] array)
+    {
+        // code here
+
+        // end
+
+        return array;
+    }
+    public double[] Task_2_15(double[] A, double[] B, int k)
+    {
+        double[] output = null;
+
+        // code here
+        if (k > A.Length)
+            return A;
+        output = new double[A.Length + B.Length];
+        int iter = 0;
+        for (int i = 0; i < k; i++)
+            output[iter++] = A[i];
+        for (int i = 0; i < B.Length; i++)
+            output[iter++] = B[i];
+        for (int i = k; i < A.Length; i++)
+            output[iter++] = A[i];
+        // end
+
+        return output;
+    }
+    public int[] Task_2_16(double[] array)
+    {
+        int[] output = null;
+
+        // code here
+
+        // end
+
+        return output;
+    }
+    public double Task_2_17(double[] array)
+    {
+        double average = 0;
+
+        // code here
+        double maxElem = double.MinValue, minElem = double.MaxValue;
+        int minIDx = 0, maxIDx = 0;
+        double posSum = 0, negSum = 0;
+        int posCnt = 0, negCnt = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > 0)
+            {
+                posSum += array[i];
+                posCnt++;
+            }
+            else if (array[i] < 0)
+            {
+                negSum += array[i];
+                negCnt++;
+            }
+            if (array[i] > maxElem)
+            {
+                maxElem = array[i];
+                maxIDx = i;
+            }
+            if (array[i] < minElem)
+            {
+                minElem = array[i];
+                minIDx = i;
+            }
+        }
+        if (maxIDx < minIDx)
+        {
+            if (posCnt == 0)
+                return 0;
+            average = posSum / posCnt;
+        }
+        else
+        {
+            if (negCnt == 0)
+                return 0;
+            average = negSum / negCnt;
+        }
+        average = Math.Round(average, 2);
+        // end
+
+        return average;
+    }
+    public double[] Task_2_18(double[] array)
+    {
+        // code here
+
+        // end
+
+        return array;
+    }
+    public double[] Task_2_19(double[] array)
+    {
+        // code here
+        double maxElem = double.MinValue, sm = 0;
+        int maxIdx = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            sm += array[i];
+            if (array[i] > maxElem)
+            {
+                maxElem = array[i];
+                maxIdx = i;
+            }
+        }
+        if (maxElem > sm)
+        {
+            array[maxIdx] = 0;
+        }
+        else
+        {
+            array[maxIdx] *= 2;
+        }
+        // end
+
+        return array;
+    }
+    public double Task_2_20(double[] array)
+    {
+        double sum = 0;
+
+        // code here
+
+        // end
+
+        return sum;
     }
     #endregion
 
     #region Level 3
-    public double Task_3_1()
+    public int[] Task_3_1(double[] array)
     {
-        double answer = 0;
-        int n = 0;
+        int[] output = null;
 
         // code here
 
         // end
 
-        // for test input in console: 168, 147, 174, 154, 180, 149, 166, 160, 175, 161
-        // answer should be equal to the task_2_1 answer
-
-        return answer;
+        return output;
     }
-    public int Task_3_2(double r, double a, double b)
+    public double[] Task_3_2(double[] array)
     {
-        int answer = 0, n = 0;
-
-        // code here
-        double x, y;
-        // ввод дробных чисел через .
-        // каждая координата в отдельной строке
-        // чтобы закончить ввод, введите некорректное значение
-        // или нажмите Enter после конца ввода
-        while (double.TryParse(Console.ReadLine(), 
-            CultureInfo.InvariantCulture, out x)
-            && double.TryParse(Console.ReadLine(), 
-            CultureInfo.InvariantCulture, out y))
-        {
-            if ((x - a) * (x - a) + (y - b) * (y - b) <= r * r)
-                answer++;
-        }
-        Console.WriteLine(answer);
-
-        // end
-        // for test input in console: 1.2 0.7, 2 2, 4.5 0.1, -1 1.5, -2.5 -0.5
-        // answer should be equal to the task_2_2 answer
-
-        return answer;
-    }
-    public double Task_3_3()
-    {
-        double answer = 0;
-        int n = 0;
-
         // code here
 
         // end
 
-        // for test input in console: 27.5, 32.5, 30, 22.3, 26.8, 36.6, 30, 29.9, 20.1, 28.5
-        // answer should be equal to the task_2_3 answer
-
-        return answer;
+        return array;
     }
-    public int Task_3_4(double r1, double r2)
+    public double[] Task_3_3(double[] array)
     {
-        int answer = 0, n = 0;
-
         // code here
-        double x, y;
-        // чтобы закончить ввод, введите некорректное значение
-        // или нажмите Enter после конца ввода
-        while (double.TryParse(Console.ReadLine(), CultureInfo.InvariantCulture, out x) && double.TryParse(Console.ReadLine(), CultureInfo.InvariantCulture, out y))
-        {
-            if ((x * x + y * y <= r2 * r2) && (x * x + y * y >= r1 * r1))
-                answer++;
-        }
-        Console.WriteLine(answer);
+
         // end
 
-        // for test input in console: 1.2 0.7, 2 2, 4.5 0.1, -1 1.5, -0.5 -0.5
-        // answer should be equal to the task_2_4 answer
-
-        return answer;
+        return array;
     }
-    public int Task_3_5(double norm)
+    public double[] Task_3_4(double[] array)
     {
-        int answer = 0, n = 0;
-
         // code here
-        // ввод дробных чисел через .
-        // чтобы закончить ввод, введите некорректное значение
-        // или нажмите Enter после конца ввода
-        double res;
-        while (double.TryParse(Console.ReadLine(),
-            CultureInfo.InvariantCulture, out res))
-        {
-            if (res < norm)
-                answer++;
-        }
-        Console.WriteLine(answer);
-        // end
-        // for test input in console: 27.5, 32.5, 30, 22.3, 26.8, 36.6, 30, 29.9, 20.1, 28.5
-        // answer should be equal to the task_2_5 answer
 
-        return answer;
-    }
-    public int Task_3_6()
-    {
-        int answer = 0, n = 0;
-
-        // code here
-        double x, y;
-        // чтобы закончить ввод, введите некорректное значение
-        // или нажмите Enter после конца ввода
-        while (double.TryParse(Console.ReadLine(), CultureInfo.InvariantCulture, out x) && double.TryParse(Console.ReadLine(), CultureInfo.InvariantCulture, out y))
-        {
-            if (x >= 0 && x <= Math.PI && y >= 0 && y <= Math.Sin(x))
-                answer++;
-        }
-        Console.WriteLine(answer);
         // end
 
-        // for test input in console: 1.2 0.7, 2 0.2, 0.5 0.9, -1 1.5, 0.5 0.1
-        // answer should be equal to the task_2_6 answer
-
-        return answer;
+        return array;
     }
-    public (int, int) Task_3_7()
+    public double[] Task_3_5(double[] array)
     {
-        int answer1 = 0, answer3 = 0, n = 0;
+        // code here
+
+        // end
+
+        return array;
+    }
+    public int Task_3_6(double[] array)
+    {
+        int count = 0;
 
         // code here
 
         // end
 
-        // for test input in console: -1.2 0.7, 2 -2, 0.5 0.9, 1 1.5, -0.5 -1.5
-        // answer should be equal to the task_2_7 answer
-
-        return (answer1, answer3);
+        return count;
     }
-    public (int, double) Task_3_8()
+    public double[] Task_3_7(double[] array)
     {
-        int answer = 0, n = 0;
-        double answerLength = double.MaxValue;
-
         // code here
-        double x, y;
-        // чтобы закончить ввод, введите некорректное значение
-        // или нажмите Enter после конца ввода
-        int idx = 0;
-        while (double.TryParse(Console.ReadLine(), 
-            CultureInfo.InvariantCulture, out x) 
-            && double.TryParse(Console.ReadLine(), 
-            CultureInfo.InvariantCulture, out y))
-        {
-            idx++;
-            if (x * x + y * y < answerLength)
-            {
-                answer = idx;
-                answerLength = x * x + y * y;
-            }
-        }
-        Console.WriteLine(answer);
+
         // end
 
-        // for test input in console: -1.2 0.7, 2 -2, 0.5 0.9, 1 1.5, -0.5 -1.5
-        // answer should be equal to the task_2_8 answer
-
-        return (answer, answerLength);
+        return array;
     }
-    public double Task_3_9()
+    public double[] Task_3_8(double[] array)
     {
-        double answer = double.MaxValue;
-        int n = 0;
+        // code here
+
+        // end
+
+        return array;
+    }
+    public int Task_3_9(double[] array)
+    {
+        int count = 0;
 
         // code here
 
         // end
 
-        // for test input in console: 27.5, 32.5, 30, 22.3, 26.8, 36.6, 30, 29.9, 20.1, 28.5
-        // answer should be equal to the task_2_9 answer
-
-        return answer;
+        return count;
     }
-    public int Task_3_10()
+    public double[] Task_3_10(double[] array)
     {
-        int answer = 0, n = 0;
+        // code here
 
-        // code here;
-        // чтобы закончить ввод, введите некорректное значение
-        // или нажмите Enter после конца ввода
-        int cnt = 0;
-        bool has23 = false;
-        int grade;
-        while (int.TryParse(Console.ReadLine(), CultureInfo.InvariantCulture, out grade))
-        {
-            cnt++;
-            if (grade <= 3)
-                has23 = true;
-            if (cnt == 4)
-            {
-                if (has23)
-                    answer++;
-                cnt = 0;
-                has23 = false;
-            }
-        }
-        Console.WriteLine(answer);
         // end
 
-        // for test input in console: 5, 3, 3, 4, 5, 2, 4, 5, 5, 4, 5, 4, 2, 5, 3, 5, 4, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 2, 5, 2, 2, 4, 2, 5, 4, 5, 4
-        // answer should be equal to the task_2_10 answer
-
-        return answer;
+        return array;
     }
-    public (int, double) Task_3_11()
+    public (double[], double[], double, double) Task_3_11(double a, double b, int n)
     {
-        int answer = 0, n = 0;
-        double avg = 0.0;
+        double[] X = null, Y = null;
+        double globalMax = 0, globalMin = 0;
 
-        // code here;
-        int cnt = 0, sm = 0, totalCnt = 0;
-        bool has2 = false;
-        int grade;
-        while (int.TryParse(Console.ReadLine(), CultureInfo.InvariantCulture, out grade))
-        {
-            cnt++;
-            sm += grade;
-            if (grade == 2)
-                has2 = true;
-            if (cnt == 4)
-            {
-                avg += sm;
-                sm = 0;
-                totalCnt++;
-                if (has2)
-                    answer++;
-                cnt = 0;
-                has2 = false;
-            }
-        }
-        avg /= (totalCnt * 4.0);
-        Console.WriteLine(answer);
-        Console.WriteLine(avg);
+        // code here
+
         // end
 
-        // for test input in console: 5, 3, 3, 4, 5, 2, 4, 5, 5, 4, 5, 4, 2, 5, 3, 5, 4, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 2, 5, 2, 2, 4, 2, 5, 4, 5, 4
-        // answer should be equal to the task_2_11 answer
-
-        return (answer, avg);
+        return (X, Y, globalMax, globalMin);
     }
-    public double Task_3_12(double r, int type)
+    public double[] Task_3_12(double[] array)
     {
-        double answer = 0;
-
-        // code here;
-        
-        // end
-        // answer should be equal to the task_2_12 answer
-
-        return answer;
-    }
-    public double Task_3_13(double A, double B, int type)
-    {
-        double answer = 0;
-
-        // code here;
+        // code here
 
         // end
-        // answer should be equal to the task_2_13 answer
 
-        return answer;
+        return array;
+    }
+    public double[] Task_3_13(double[] array)
+    {
+        // code here
+
+        // end
+
+        return array;
+    }
+    public double[] Task_3_14(double[] array)
+    {
+        double[] normalizedArray = null;
+
+        // code here
+
+        // end
+
+        return normalizedArray;
     }
     #endregion
 }
