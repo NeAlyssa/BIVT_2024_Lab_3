@@ -14,6 +14,8 @@ public class Program
     public static void Main()
     {
         Program program = new Program();
+        double[] input1 = new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 3 };
+        program.Task_3_2(input1);
         //program.Task_1_1(new int[] {1, 2, 3, 4, 5, 6});
     }
     #region Level 1
@@ -108,7 +110,7 @@ public class Program
         double length = 0;
 
         // code here
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 5; i++) 
             length += vector[i] * vector[i];
         length = Math.Round(Math.Sqrt(length), 2);
         // end
@@ -191,7 +193,7 @@ public class Program
                 output[iter++] = array[i];
             }
         }
-
+            
         // end
 
         return output;
@@ -217,7 +219,7 @@ public class Program
     public (double[], double[]) Task_1_13(double[] array)
     {
         double[] even = new double[array.Length / 2];
-        double[] odd = new double[array.Length / 2];
+        double[] odd = new double[array.Length/2];
 
         // code here
         for (int i = 0; i < 10; i += 2)
@@ -268,7 +270,7 @@ public class Program
     {
         // code here
         double minElem = double.MaxValue;
-        foreach (double iter in array)
+        foreach (double iter in array) 
             minElem = Math.Min(minElem, iter);
         for (int i = 0; i < array.Length; i++)
             if (array[i] == minElem)
@@ -282,7 +284,7 @@ public class Program
         double sum = 0;
 
         // code here
-
+            
         // end
 
         return sum;
@@ -363,7 +365,7 @@ public class Program
                 maxIdx = i;
             }
         }
-        if (maxIdx == array.Length - 1)
+        if (maxIdx == array.Length - 1) 
             return array;
         if (array[maxIdx + 1] > 0)
             array[maxIdx + 1] *= 2;
@@ -439,7 +441,7 @@ public class Program
         for (int i = lastPosIdx + 1; i < array.Length; i++)
             answer[iter++] = array[i];
         array = answer;
-        foreach (double it in answer)
+        foreach(double it in answer)
             Console.Write($"{it} ");
         // end
 
@@ -523,8 +525,7 @@ public class Program
             {
                 posSum += array[i];
                 posCnt++;
-            }
-            else if (array[i] < 0)
+            } else if (array[i] < 0)
             {
                 negSum += array[i];
                 negCnt++;
@@ -545,8 +546,7 @@ public class Program
             if (posCnt == 0)
                 return 0;
             average = posSum / posCnt;
-        }
-        else
+        } else
         {
             if (negCnt == 0)
                 return 0;
@@ -582,8 +582,7 @@ public class Program
         if (maxElem > sm)
         {
             array[maxIdx] = 0;
-        }
-        else
+        } else
         {
             array[maxIdx] *= 2;
         }
@@ -617,7 +616,13 @@ public class Program
     public double[] Task_3_2(double[] array)
     {
         // code here
-
+        double maxElem = array.Max();
+        int add = 1;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] == maxElem)
+                array[i] += add++;
+        }
         // end
 
         return array;
@@ -641,7 +646,18 @@ public class Program
     public double[] Task_3_5(double[] array)
     {
         // code here
-
+        for (int i = 0; i < array.Length - 2; i += 2)
+        {
+            for (int j = 0; j < array.Length - 2 - i; j += 2)
+            {
+                if (array[j] > array[j + 2])
+                {
+                    double temp = array[j];
+                    array[j] = array[j + 2];
+                    array[j + 2] = temp;
+                }
+            }
+        }
         // end
 
         return array;
@@ -667,7 +683,23 @@ public class Program
     public double[] Task_3_8(double[] array)
     {
         // code here
-
+        
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] < 0)
+            {
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    if (array[j] < 0 && array[j] > array[i])
+                    {
+                        double temp = array[i];
+                        array[i] = array[j];
+                        array[j] = temp;
+                    }
+                }
+            }
+        }
+        
         // end
 
         return array;
@@ -696,10 +728,35 @@ public class Program
         double globalMax = 0, globalMin = 0;
 
         // code here
-
+        double diff = Math.Abs(b - a) / (n - 1);
+        X = new double[n];
+        Y = new double[n];
+        int iter = 0;
+        for (double i = a; i <= b; i += diff)
+        {
+            X[iter] = Math.Round((double)i, 2);
+            Y[iter] = Math.Round(X[iter] * Math.Sin(X[iter]) + Math.Cos(X[iter]), 2);
+            iter++;
+        }
+        globalMax = Y[0];
+        globalMin = Y[0];
+        for (int i = 1; i < n - 1; i++)
+        {
+            if (Y[i] > Y[i - 1] && Y[i] > Y[i + 1])
+            {
+                Console.WriteLine($"Max y={Y[i]} x={X[i]}");
+                globalMax = Math.Max(globalMax, Y[i]);
+            }
+            if (Y[i] < Y[i - 1] && Y[i] < Y[i + 1]) {
+                Console.WriteLine($"Min y={Y[i]} x={X[i]}");
+                globalMin = Math.Min(globalMin, Y[i]);
+            }
+        }
+        globalMax = Math.Max(globalMax, Y[n - 1]);
+        globalMin = Math.Min(globalMin, Y[n - 1]);
         // end
 
-        return (X, Y, globalMax, globalMin);
+        return (X, Y, globalMax,globalMin);
     }
     public double[] Task_3_12(double[] array)
     {
@@ -722,7 +779,11 @@ public class Program
         double[] normalizedArray = null;
 
         // code here
-
+        double maxValue = array.Max(), minValue = array.Min();
+        double div = Math.Max(Math.Abs(minValue), Math.Abs(maxValue)) + 1;
+        normalizedArray = new double[array.Length];
+        for (int i = 0; i < array.Length; i++)
+            normalizedArray[i] = array[i] / div;
         // end
 
         return normalizedArray;
