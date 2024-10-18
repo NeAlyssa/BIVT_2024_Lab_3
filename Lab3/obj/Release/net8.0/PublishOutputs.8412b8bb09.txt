@@ -1,0 +1,5 @@
+C:\Users\Mi\Desktop\Files\Visual Studio Code Projects\BIVT_2024_Lab_3\Lab3\out\Lab3.exe
+C:\Users\Mi\Desktop\Files\Visual Studio Code Projects\BIVT_2024_Lab_3\Lab3\out\Lab3.dll
+C:\Users\Mi\Desktop\Files\Visual Studio Code Projects\BIVT_2024_Lab_3\Lab3\out\Lab3.deps.json
+C:\Users\Mi\Desktop\Files\Visual Studio Code Projects\BIVT_2024_Lab_3\Lab3\out\Lab3.runtimeconfig.json
+C:\Users\Mi\Desktop\Files\Visual Studio Code Projects\BIVT_2024_Lab_3\Lab3\out\Lab3.pdb
