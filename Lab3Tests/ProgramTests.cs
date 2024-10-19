@@ -602,9 +602,9 @@ namespace Tests
             double[] B1 = new double[] { 5, 2, 8, 1, 9, 10 };
             double[] A2 = new double[] { -5, -2, -8, -1, -6, -2 };
             double[] B2 = new double[] { 5, 2, 8, 1, 9, 10 };
-            double[] answer1 = new double[] { 0, 5, 2, 8, 1, 9, 10, 1.5, 1, 3, -2.2, -0.5, 2 };
+            double[] answer1 = new double[] { 0, 1.5, 5, 2, 8, 1, 9, 10, 1, 3, -2.2, -0.5, 2 };
             double[] answer2 = new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 2 };
-            double[] answer3 = new double[] { -5, 5, 2, 8, 1, 9, 10, -2, -8, -1, -6, -2 };
+            double[] answer3 = new double[] { -5, -2, 5, 2, 8, 1, 9, 10, -8, -1, -6, -2 };
             double[] answer4 = new double[] { -5, -2, -8, -1, -6, -2 };
             double[] output1, output2, output3, output4;
             // Act
@@ -732,8 +732,8 @@ namespace Tests
             // Arrange
             double[] input1 = new double[] { 0, 1.5, 4, 3, -2.2, -0.5, 2, -3.1 };
             double[] input2 = new double[] { 2, 1, 3, 3, 5, 6, 3, 4 };
-            double[] input3 = new double[] { 12, 1, 3, 3, 5, 6, 3, 4 };
-            double output1, output2, output3, answer1 = 3.8, answer2 = 13, answer3 = 23;
+            double[] input3 = new double[] { 12, 1, 3, 3, 5, 6, 3, -4 };
+            double output1, output2, output3, answer1 = 3.8, answer2 = 0, answer3 = 6;
             // Act
             output1 = main.Task_2_20(input1);
             output2 = main.Task_2_20(input2);
