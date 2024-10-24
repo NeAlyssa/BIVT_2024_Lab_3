@@ -276,7 +276,17 @@ public class Program
         double sum = 0;
 
         // code here
-
+        int ind = 0;
+        double max = -Double.MaxValue;
+        for (int i = 0; i < array.Length; i++) {
+            if (array[i] > max){
+                max = array[i];
+                ind = i;
+            }
+        }
+        for (int i = 0; i < ind; i++) { 
+            sum += array[i];
+        }
         // end
 
         return sum;
@@ -292,7 +302,21 @@ public class Program
     public double[] Task_2_4(double[] array)
     {
         // code here
+        int ind = 0;
+        double max = -Double.MaxValue;
+        double arif = 0;
+        for (int i = 0; i < array.Length; i++){
+            if (array[i] > max){
+                max = array[i];
+                ind = i;
+            }
+            arif += array[i];
+        }
+        arif = Math.Round(arif/array.Length, 2);
 
+        for (int i = ind + 1; i < array.Length; i++){
+            array[i] = arif;
+        }
         // end
 
         return array;
@@ -308,11 +332,42 @@ public class Program
     public double[] Task_2_6(double[] array, double P)
     {
         // code here
+        // find the average
+        double arif = 0;
+        for (int i = 0; i < array.Length; i++) {
+            arif += array[i];
+        }
+        arif = Math.Round(arif/array.Length, 2);
+        // find the element closest to average and its index
+        double min_delta = Double.MaxValue;
+        int ind = 0;
+        for (int i = 0; i < array.Length; i++) {
+            if (Math.Abs(array[i]-arif) < min_delta){
+                min_delta = Math.Abs(array[i]-arif);
+                ind = i;
+            }
+        }
+        // create new array
+        double[] temp_arr = new double[array.Length+1];
+        // fill the new array
+        for (int i = 0; i < array.Length; i++){
+            temp_arr[i] = array[i];
+        }
+        
 
+        //move everything to the side by one element
+        for (int i = temp_arr.Length-1; i > ind; i--){
+            temp_arr[i] = temp_arr[i-1];
+        }
+        //insert P
+        temp_arr[ind+1] = P;
+
+        array = temp_arr;
         // end
 
         return array;
     }
+
     public double[] Task_2_7(double[] array)
     {
         // code here
