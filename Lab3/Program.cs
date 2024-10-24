@@ -379,7 +379,27 @@ public class Program
     public double[] Task_2_8(double[] array)
     {
         // code here
-
+        int ind_max = -1;
+        double max = -Double.MaxValue;
+        for (int i = 0; i < array.Length; i++){
+            if (array[i] > max){
+                max = array[i];
+                ind_max = i;
+            }
+        }
+        int ind_min = -1;
+        double min = Double.MaxValue;
+        for (int i = ind_max+1; i < array.Length; i++) {
+            if (array[i] < min) {
+                min = array[i];
+                ind_min = i;
+            }
+        }
+        if (ind_min != -1 && ind_max != -1){
+        double temp = array[ind_min];
+        array[ind_min] = array[ind_max];
+        array[ind_max] = temp;
+        }
         // end
 
         return array;
