@@ -455,9 +455,9 @@ public class Program
     {
         double[] output = new double[A.Length + B.Length];
         
-        if(k > A.Length) return A;
+        if(k >= A.Length || k < 0) return A;
         
-        k -= 1;
+        //k -= 1;
         
         for(int i = 0; i <= k; i++) output[i] = A[i];
         for(int i = 0; i < B.Length; i++) output[k + 1 + i] = B[i];
@@ -520,7 +520,7 @@ public class Program
         if(maxEven > maxOdd) {l = 0; r = mid;}
         else {l = mid; r = array.Length;}
         
-        Console.WriteLine($"{maxEven}, {maxOdd}: {string.Join(", ", array)}");
+        // Console.WriteLine($"{maxEven}, {maxOdd}: {string.Join(", ", array)}");
         
         for(int i = l; i < r; i++) array[i] = 0;
 
@@ -555,8 +555,10 @@ public class Program
             if(array[i] < min) {min=array[i]; minIndex = i;}
             if(negativeIndex == -1 && array[i] < 0) negativeIndex = i;
         }
+
+        if (negativeIndex == -1) return 0;
         
-        for(int i = 0; i < array.Length; i += (negativeIndex < minIndex) ? 2 : 1) sum += array[i];
+        for(int i = (negativeIndex < minIndex) ? 0 : 1; i < array.Length; i += 2) sum += array[i];
        
         return sum;
     }
@@ -574,7 +576,7 @@ public class Program
             if(array[i] > max) 
             {
                 max = array[i];
-                output = new int[array.Length];
+                // output = new int[array.Length];
                 output[0] = i;
                 j = 1;
                 count = 1;
@@ -585,7 +587,11 @@ public class Program
             }
         }
         
-        Array.Resize(ref output, count);
+        // Array.Resize(ref output, count);
+        int[] temp = new int[count];
+        for(int i = 0; i < count; i++) temp[i] = output[i];
+        output = temp;
+        
         return output;
     }
     public double[] Task_3_2(double[] array)
@@ -655,14 +661,17 @@ public class Program
         
         double[] nonnegatives = new double[array.Length - j];
         
-        j = 0;
+        int k = 0;
         for(int i = 0; i < array.Length; i++) 
         {
-            if(array[i] >= 0) {nonnegatives[j] = array[i]; j++;}
+            if(array[i] >= 0) {nonnegatives[k] = array[i]; k++;}
         }
 
-        nonnegatives.CopyTo(array, 0);
-        negatives.CopyTo(array, nonnegatives.Length);
+        // nonnegatives.CopyTo(array, 0);
+        // negatives.CopyTo(array, nonnegatives.Length);
+        
+        for(int i = 0; i < k; i++) array[i] = nonnegatives[i];
+        for(int i = 0; i < j; i++) array[i + k] = negatives[i];
         
         return array;
     }
@@ -732,9 +741,10 @@ public class Program
             if(isUnique) {set[count] = array[i]; count++;}
         }
         
-        Array.Resize(ref set, count);
-        
-        // end
+        // Array.Resize(ref set, count);
+        double[] temp = new double[count];
+        for(int i = 0; i < count; i++) temp[i] = set[i];
+        set = temp;
 
         return set;
     }
