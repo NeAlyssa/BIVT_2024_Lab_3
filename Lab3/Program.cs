@@ -6,6 +6,7 @@ using System.Diagnostics.Metrics;
 using System.Linq.Expressions;
 using System.Numerics;
 using System.Runtime.InteropServices;
+using System.Runtime.Intrinsics.X86;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 public class Program
@@ -19,7 +20,16 @@ public class Program
     public double[] Task_1_1(double[] array)
     {
         // code here
-
+        double sum = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            sum += array[i];
+        }
+        for (int i = 0; i < array.Length; i++)
+        {
+            array[i] /= sum;
+            array[i] = Math.Round(array[i], 2);
+        }
         // end
 
         return array;
@@ -27,7 +37,20 @@ public class Program
     public double[] Task_1_2(double[] array)
     {
         // code here
-
+        double sum = 0; int cnt = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] <= 0) continue;
+            sum += array[i];
+            cnt++;
+        }
+        double mean = sum / cnt;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] <= 0) continue;
+            array[i] = mean;
+            array[i] = Math.Round(array[i], 2);
+        }
         // end
 
         return array;
@@ -37,7 +60,17 @@ public class Program
         double[] sum = new double[first.Length], dif = new double[first.Length];
 
         // code here
-
+        int n = Math.Min(first.Length, second.Length);
+        for (int i = 0; i < n; i++)
+        {
+            sum[i] = first[i] + second[i];
+            sum[i] = Math.Round((double)sum[i], 2);
+        }
+        for (int i = 0; i < n; i++)
+        {
+            dif[i] = first[i] - second[i];
+            dif[i] = Math.Round((double)dif[i], 2);
+        }
         // end
 
         return (sum, dif);
@@ -45,7 +78,18 @@ public class Program
     public double[] Task_1_4(double[] array)
     {
         // code here
-
+        int n = 5;
+        double sum = 0;
+        for (int i = 0; i < n; i++)
+        {
+            sum += array[i];
+        }
+        double mean = sum / n;
+        for (int i = 0; i < n; i++)
+        {
+            array[i] -= mean;
+            array[i] = Math.Round(array[i], 2);
+        }
         // end
 
         return array;
@@ -55,9 +99,13 @@ public class Program
         double product = 0;
 
         // code here
-
+        int n = 4;
+        for (int i = 0; i < n; i++)
+        {
+            product += vector1[i] * vector2[i];
+        }
         // end
-
+        product = Math.Round(((double)product), 2);
         return product;
     }
     public double Task_1_6(double[] vector)
@@ -65,15 +113,32 @@ public class Program
         double length = 0;
 
         // code here
+        int n = 5;
+        double sq = 0;
+        for (int i = 0; i < n; i++)
+        {
+            sq += vector[i] * vector[i];
+        }
 
+        length = Math.Sqrt(sq);
         // end
 
-        return Math.Round(length, 4); ;
+        return Math.Round(length, 2); ;
     }
     public double[] Task_1_7(double[] array)
     {
         // code here
-
+        int n = 7;
+        double sum = 0;
+        for (int i = 0; i < n; i++)
+        {
+            sum += array[i];
+        }
+        double mean = sum / n;
+        for (int i = 0; i < n; i++)
+        {
+            if (array[i] > mean) array[i] = 0;
+        }
         // end
 
         return array;
@@ -83,7 +148,11 @@ public class Program
         int count = 0;
 
         // code here
-
+        int n = 6;
+        for (int i = 0; i < n; i++)
+        {
+            if (array[i] < 0) count++;
+        }
         // end
 
         return count;
@@ -132,7 +201,7 @@ public class Program
     public (double[], double[]) Task_1_13(double[] array)
     {
         double[] even = new double[array.Length / 2];
-        double[] odd = new double[array.Length/2];
+        double[] odd = new double[array.Length / 2];
 
         // code here
 
@@ -432,7 +501,7 @@ public class Program
 
         // end
 
-        return (X, Y, globalMax,globalMin);
+        return (X, Y, globalMax, globalMin);
     }
     public double[] Task_3_12(double[] array)
     {
