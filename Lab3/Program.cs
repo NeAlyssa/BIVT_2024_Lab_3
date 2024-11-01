@@ -63,7 +63,7 @@ public class Program
             return (maxIndex, maxElement);
         }
 
-        public void InsertionSortDesc(double[] arr) {
+        public void SelectionSortDesc(double[] arr) {
             for (int i = 0; i < arr.Length - 1; i++) {
 
                 double curMax = arr[i];
@@ -715,7 +715,7 @@ public class Program
                 }
             }
 
-            InsertionSortDesc(negativeNums);
+            SelectionSortDesc(negativeNums);
 
             foreach (double i in negativeNums) {
                 Console.WriteLine(i);
