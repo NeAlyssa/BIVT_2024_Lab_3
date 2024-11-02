@@ -685,10 +685,31 @@ public class Program
     #region Level 3
     public int[] Task_3_1(double[] array)
     {
-        int[] output = null;
-
         // code here
+        double mx = -1e18; int mxcnt = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > mx)
+            {
+                mx = array[i];
+                mxcnt = 1;
+            }
+            else if (array[i] == mx)
+            {
+                mxcnt++;
+            }
+        }
 
+        int[] output = new int[mxcnt];
+        int j = 0;
+        for (int i =0; i<array.Length; i++)
+        {
+            if (array[i] == mx)
+            {
+                output[j] = i;
+                j++;
+            }
+        }
         // end
 
         return output;
@@ -704,7 +725,19 @@ public class Program
     public double[] Task_3_3(double[] array)
     {
         // code here
-
+        double mx = -1e18; int mxpos = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > mx)
+            {
+                mx = array[i];
+                mxpos = i;
+            }
+        }
+        for (int i = 1; i < mxpos; i += 2)
+        {
+            (array[i], array[i - 1]) = (array[i - 1], array[i]);
+        }
         // end
 
         return array;
@@ -712,7 +745,31 @@ public class Program
     public double[] Task_3_4(double[] array)
     {
         // code here
+        double[] pref = new double[array.Length];
+        pref[0] = array[0];
+        for (int i = 1; i < array.Length; i++)
+        {
+            pref[i] = pref[i - 1] + array[i];
+        }
 
+        double mx = -1e18; int mxpos = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > mx)
+            {
+                mx = array[i];
+                mxpos = i;
+            }
+        }
+
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] == mx)
+            {
+                if (i != 0) array[i] = pref[i - 1];
+                else array[i] = 0;
+            }
+        }
         // end
 
         return array;
@@ -738,7 +795,16 @@ public class Program
     public double[] Task_3_7(double[] array)
     {
         // code here
-
+        int n = array.Length;
+        int j = array.Length - 1;
+        for (int i = n-1; i>=0; i--)
+        {
+            if (array[i] <0)
+            {
+                (array[i], array[j]) = (array[j], array[i]);
+                j--;
+            }
+        }
         // end
 
         return array;
@@ -764,7 +830,14 @@ public class Program
     public double[] Task_3_10(double[] array)
     {
         // code here
-
+        int n = array.Length - 1;
+        int j = n / 2;
+        for (int i = n; i>=0; i-=2)
+        {
+            array[i] = array[j];
+            array[i-1] = array[j];
+            j--;
+        }
         // end
 
         return array;
@@ -791,10 +864,39 @@ public class Program
     public double[] Task_3_13(double[] array)
     {
         // code here
-
+        double inf = 1e18;
+        int cnt = 0;
+        for (int i =0; i<array.Length; i++)
+        {
+            bool flag = false;
+            for (int j = i-1; j>=0; j--)
+            {
+                if (array[i] == array[j])
+                {
+                    flag = true;
+                    break;
+                }
+            }
+            if (flag)
+            {
+                array[i] = 1e18;
+            }
+            else cnt++;
+        }
+        int j1 = 0;
+        double[] new_arr = new double[cnt];
+        for (int i =0; i<array.Length; i++)
+        {
+            if (array[i] == inf)
+            {
+                continue;
+            }
+            new_arr[j1] = array[i];
+            j1++;
+        }
         // end
 
-        return array;
+        return new_arr;
     }
     public double[] Task_3_14(double[] array)
     {
