@@ -15,7 +15,7 @@ public class Program
     {
         Program program = new Program();
         double[] input1 = new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 3 };
-        program.Task_3_2(input1);
+        program.Task_3_14(input1);
         //program.Task_1_1(new int[] {1, 2, 3, 4, 5, 6});
     }
     #region Level 1
@@ -110,7 +110,7 @@ public class Program
         double length = 0;
 
         // code here
-        for (int i = 0; i < 5; i++) 
+        for (int i = 0; i < 5; i++)
             length += vector[i] * vector[i];
         length = Math.Round(Math.Sqrt(length), 2);
         // end
@@ -193,7 +193,7 @@ public class Program
                 output[iter++] = array[i];
             }
         }
-            
+
         // end
 
         return output;
@@ -219,7 +219,7 @@ public class Program
     public (double[], double[]) Task_1_13(double[] array)
     {
         double[] even = new double[array.Length / 2];
-        double[] odd = new double[array.Length/2];
+        double[] odd = new double[array.Length / 2];
 
         // code here
         for (int i = 0; i < 10; i += 2)
@@ -270,7 +270,7 @@ public class Program
     {
         // code here
         double minElem = double.MaxValue;
-        foreach (double iter in array) 
+        foreach (double iter in array)
             minElem = Math.Min(minElem, iter);
         for (int i = 0; i < array.Length; i++)
             if (array[i] == minElem)
@@ -284,7 +284,7 @@ public class Program
         double sum = 0;
 
         // code here
-            
+
         // end
 
         return sum;
@@ -365,7 +365,7 @@ public class Program
                 maxIdx = i;
             }
         }
-        if (maxIdx == array.Length - 1) 
+        if (maxIdx == array.Length - 1)
             return array;
         if (array[maxIdx + 1] > 0)
             array[maxIdx + 1] *= 2;
@@ -441,7 +441,7 @@ public class Program
         for (int i = lastPosIdx + 1; i < array.Length; i++)
             answer[iter++] = array[i];
         array = answer;
-        foreach(double it in answer)
+        foreach (double it in answer)
             Console.Write($"{it} ");
         // end
 
@@ -486,16 +486,19 @@ public class Program
         double[] output = null;
 
         // code here
-        if (k > A.Length)
+        if (k > A.Length - 1)
             return A;
         output = new double[A.Length + B.Length];
         int iter = 0;
+        k++;
         for (int i = 0; i < k; i++)
             output[iter++] = A[i];
         for (int i = 0; i < B.Length; i++)
             output[iter++] = B[i];
         for (int i = k; i < A.Length; i++)
             output[iter++] = A[i];
+        for (int i = 0; i < A.Length + B.Length; i++)
+            Console.WriteLine(output[i]);
         // end
 
         return output;
@@ -525,7 +528,8 @@ public class Program
             {
                 posSum += array[i];
                 posCnt++;
-            } else if (array[i] < 0)
+            }
+            else if (array[i] < 0)
             {
                 negSum += array[i];
                 negCnt++;
@@ -546,7 +550,8 @@ public class Program
             if (posCnt == 0)
                 return 0;
             average = posSum / posCnt;
-        } else
+        }
+        else
         {
             if (negCnt == 0)
                 return 0;
@@ -582,7 +587,8 @@ public class Program
         if (maxElem > sm)
         {
             array[maxIdx] = 0;
-        } else
+        }
+        else
         {
             array[maxIdx] *= 2;
         }
@@ -683,7 +689,7 @@ public class Program
     public double[] Task_3_8(double[] array)
     {
         // code here
-        
+
         for (int i = 0; i < array.Length; i++)
         {
             if (array[i] < 0)
@@ -699,7 +705,7 @@ public class Program
                 }
             }
         }
-        
+
         // end
 
         return array;
@@ -747,7 +753,8 @@ public class Program
                 Console.WriteLine($"Max y={Y[i]} x={X[i]}");
                 globalMax = Math.Max(globalMax, Y[i]);
             }
-            if (Y[i] < Y[i - 1] && Y[i] < Y[i + 1]) {
+            if (Y[i] < Y[i - 1] && Y[i] < Y[i + 1])
+            {
                 Console.WriteLine($"Min y={Y[i]} x={X[i]}");
                 globalMin = Math.Min(globalMin, Y[i]);
             }
@@ -756,7 +763,7 @@ public class Program
         globalMin = Math.Min(globalMin, Y[n - 1]);
         // end
 
-        return (X, Y, globalMax,globalMin);
+        return (X, Y, globalMax, globalMin);
     }
     public double[] Task_3_12(double[] array)
     {
@@ -779,11 +786,23 @@ public class Program
         double[] normalizedArray = null;
 
         // code here
-        double maxValue = array.Max(), minValue = array.Min();
-        double div = Math.Max(Math.Abs(minValue), Math.Abs(maxValue)) + 1;
+        double maxValue = double.MinValue, minValue = double.MaxValue;
+        for (int i = 0; i < array.Length; i++)
+        {
+            maxValue = Math.Max(maxValue, array[i]);
+            minValue = Math.Min(minValue, array[i]);
+        }
+        Console.WriteLine(maxValue);
+        Console.WriteLine(minValue);
+        Console.WriteLine(maxValue - minValue);
+        Console.WriteLine((-0.15) * (maxValue - minValue));
         normalizedArray = new double[array.Length];
         for (int i = 0; i < array.Length; i++)
-            normalizedArray[i] = array[i] / div;
+        {
+            normalizedArray[i] = Math.Round(2 * (array[i] - minValue) / (maxValue - minValue) - 1, 2);
+            Console.WriteLine(normalizedArray[i]);
+        }
+            
         // end
 
         return normalizedArray;
