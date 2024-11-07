@@ -90,6 +90,8 @@ public class Program
         public static void Main()
         {
             Program program = new Program();
+            double[] input2 = new double[] { 5, 2, 8, 1, 9, 3, 7, 4, 10, 10 };
+            program.Task_3_14(input2);
 
         }
 
@@ -819,6 +821,13 @@ public class Program
                 array[i] = Math.Round(2 * (array[i] - minValue) / (maxValue - minValue) - 1, 2);
             }
             // end
+
+
+            // вывод исходных данных
+            for (int i = 0; i < array.Length; i++) {
+                double oldValue = Math.Round((array[i]  + 1) * (maxValue - minValue) / 2 + minValue, 2);
+                Console.Write(oldValue + " ");
+            }
 
             return array;
         }
