@@ -119,9 +119,10 @@ public class Program
             length += vector[i] * vector[i];
         }
         length = Math.Sqrt(length);
+        length = Math.Round(length, 2);
         // end
 
-        return Math.Round(length, 2); 
+        return Math.Round(length, 4); 
     }
     public double[] Task_1_7(double[] array)
     {
