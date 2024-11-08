@@ -266,9 +266,9 @@ public class Program
         int i = 0;
         foreach(double ch in x)
         {
-            lg = Math.Log(ch);
-            if (lg >= 0)
+            if (ch > 0)
             {
+                lg = Math.Log(ch);
                 y[i] = Math.Round(0.5 * lg,2);
             }
             else y[i] = double.NaN;
