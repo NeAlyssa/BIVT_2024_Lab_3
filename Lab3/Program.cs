@@ -13,7 +13,7 @@ public class Program
     public static void Main()
     {
         Program program = new Program();
-        //program.Task_1_1(new int[] {1, 2, 3, 4, 5, 6});
+        program.Task_2_18(new double[] { 15, 2, 8, 1, 9, 3, 7, 4, 6, 10 });
     }
     #region Level 1
     public double[] Task_1_1(double[] array)
@@ -417,7 +417,25 @@ public class Program
     public double[] Task_2_10(double[] array)
     {
         // code here
+        int ind_min_posit = -1;
+        double min_posit = Double.MaxValue;
+        for (int i = 0; i < array.Length; i++){
+            if (array[i] < min_posit && array[i] > 0){
+                ind_min_posit = i;
+                min_posit = array[i];
+            }
+        }
+        if (ind_min_posit == -1) return array;
 
+        double[] temp_arr = new double[array.Length-1];
+        for (int i = 0, j = 0; i < array.Length; i++){
+            if (i == ind_min_posit){
+                continue;
+            }
+            temp_arr[j] = array[i];
+            j++;
+        }
+        array = temp_arr;
         // end
 
         return array;
@@ -433,7 +451,22 @@ public class Program
     public double[] Task_2_12(double[] array)
     {
         // code here
-
+        int ind_max = 0;
+        for (int i = 0; i < array.Length; i++){
+            if (array[i] > array[ind_max]){
+                ind_max = i;
+            }
+        }
+        double sum = 0;
+        for (int i = ind_max+1; i < array.Length; i++){
+            sum += array[i];
+        }
+        for (int i = 0; i < array.Length; i++){
+            if (array[i] < 0){
+                array[i] = Math.Round(sum, 2);
+                break;
+            }
+        }
         // end
 
         return array;
@@ -449,7 +482,20 @@ public class Program
     public double[] Task_2_14(double[] array)
     {
         // code here
-
+        int ind_max = 0;
+        for (int i = 0; i < array.Length; i++){
+            if (array[i] > array[ind_max]){
+                ind_max = i;
+            }
+        }
+        for (int i = 0; i < array.Length; i++){
+            if (array[i] < 0){
+                double temp = array[i];
+                array[i] = array[ind_max];
+                array[ind_max] = temp;
+                break;
+            }
+        }
         // end
 
         return array;
@@ -469,7 +515,31 @@ public class Program
         int[] output = null;
 
         // code here
+        /* 1) find average
+        2) find amount of elements below average
+        3) create array with that length
+        4) fill the array with indexes */
+        double avrg = 0;
+        for (int i = 0; i < array.Length; i++){
+            avrg += array[i];
+        }
+        avrg /= array.Length;
 
+        int n = 0;
+        for (int i = 0; i < array.Length; i++){
+            if (array[i] < avrg){
+                n++;
+            }
+        }
+
+        output = new int[n];
+
+        for (int i = 0, j = 0; i < array.Length; i++){
+            if (array[i] < avrg){
+                output[j] = i;
+                j++;
+            }
+        }
         // end
 
         return output;
@@ -487,7 +557,28 @@ public class Program
     public double[] Task_2_18(double[] array)
     {
         // code here
-
+        int max_even = 0, max_odd = 1; //indexes
+        for (int i = 0; i < array.Length; i+=2){
+            if (array[i] > array[max_even]){
+                max_even = i;
+            }
+        }
+        
+        for (int i = 1; i < array.Length; i+=2){
+            if (array[i] > array[max_odd]){
+                max_odd = i;
+            }
+        }
+        if (array[max_even] > array[max_odd]){
+            for (int i = 0; i < array.Length/2; i++){
+                array[i] = 0;
+            }
+        }
+        else{
+            for (int i = array.Length/2; i < array.Length; i++){
+                array[i] = 0;
+            }
+        }
         // end
 
         return array;
@@ -505,7 +596,23 @@ public class Program
         double sum = 0;
 
         // code here
+        int ind_min = 0;
+        int start = 0;
+        for (int i = 0; i < array.Length; i++){
+            if (array[i] < array[ind_min]){
+                ind_min = i;
+            }
+        }
+        for (int i = 0; i < array.Length; i++){
+            if (array[i] < 0){
+                if (i > ind_min) start = 1;
+                break;
+            }
+        }
 
+        for (int i = start; i < array.Length; i+=2){
+            sum += array[i];
+        }
         // end
 
         return sum;
