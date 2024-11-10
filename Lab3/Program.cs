@@ -624,6 +624,20 @@ public class Program
         int[] output = null;
 
         // code here
+        double max = array.Max();
+        int n = 0;
+        for (int i = 0; i < array.Length; i++){
+            if (array[i] == max){
+                n++;
+            }
+        }
+        output = new int[n];
+        for (int i = 0, j = 0; i < array.Length; i++){
+            if (array[i] == max){
+                output[j] = i;
+                j++;
+            }
+        }
 
         // end
 
@@ -648,7 +662,13 @@ public class Program
     public double[] Task_3_4(double[] array)
     {
         // code here
-
+        double max = array.Max(), sum = 0;
+        for (int i = 0; i < array.Length; i++){
+            sum += array[i];
+            if (array[i] == max){
+                array[i] = sum-array[i];
+            }
+        }
         // end
 
         return array;
@@ -674,8 +694,21 @@ public class Program
     public double[] Task_3_7(double[] array)
     {
         // code here
-
-        // end
+        double temp;
+        for (int i = 0; i < array.Length; i++){
+            if (array[i] < 0){
+                temp = array[i];
+                for (int k = i; k < array.Length-1; k++){
+                    array[k] = array[k+1];
+                }
+                array[array.Length-1] = temp;
+            }
+        }
+        for (int w = 0; w < array.Length; w++){
+                    Console.Write(array[w] + "  ");
+                }
+                Console.WriteLine();
+        // end{ 0, 1.5, 1, 3, -0.5, 3, -2.2 }
 
         return array;
     }
@@ -700,7 +733,11 @@ public class Program
     public double[] Task_3_10(double[] array)
     {
         // code here
-
+        for (int i = array.Length-1, j = i/2; i > 0; i-=2){
+            array[i] = array[j];
+            array[i-1] = array[j];
+            j--;
+        }
         // end
 
         return array;
@@ -727,7 +764,8 @@ public class Program
     public double[] Task_3_13(double[] array)
     {
         // code here
-
+        int n_of_repeating = 0;
+        
         // end
 
         return array;
