@@ -459,6 +459,7 @@ public class Program
             if (array[i] < 0 && firstM == -1) firstM = i;
             if (array[minInd] > array[i]) minInd = i;
         }
+        if (firstM == -1) return 0; 
         int start = 1;
         if (firstM < minInd) start = 0;
         for (int i = start; i < array.Length; i += 2) sum += array[i];
@@ -594,8 +595,7 @@ public class Program
         for (int i = 0; i < n; i++)
         {
             double x = a + i * step;
-            x = Math.Round(x, 2);
-            X[i] = x;
+            X[i] = Math.Round(x, 2);
             Y[i] = Math.Round(Math.Cos(x) + x * Math.Sin(x), 2);
 
         }
