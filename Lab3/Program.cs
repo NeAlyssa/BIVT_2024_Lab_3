@@ -622,15 +622,15 @@ public class Program
         }
         else
         {
-            for (int i = 0; i < k; i++)
+            for (int i = 0; i <= k; i++)
             {
                 Array[i] = A[i];
             }
             for (int i = 0; i < B.Length; i++)
             {
-                Array[k + i] = B[i];
+                Array[k + i + 1] = B[i];
             }
-            for (int i = k; i < A.Length; i++)
+            for (int i = k + 1; i < A.Length; i++)
             {
                 Array[B.Length + i] = A[i];
             }
@@ -770,11 +770,9 @@ public class Program
             {
                 max = array[i];
                 c = i;
+                g = 1;
             }
-        }
-        for (int i = 0; i < array.Length; i++)
-        {
-            if (array[i] == max)
+            else if (array[i] == max)
             {
                 g++;
             }
@@ -790,10 +788,6 @@ public class Program
             }
         }
         output = a;
-        for (int i = 0; i < output.Length; i++)
-        {
-            Console.Write(" ", output[i]);
-        }
         // end
 
         return output;
