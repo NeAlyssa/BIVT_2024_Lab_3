@@ -676,32 +676,25 @@ public class Program
     #region Level 3
     public int[] Task_3_1(double[] array)
     {
-        int[] output = [1], output1 = [1],output2 = [1];
+        int[] output = [1], output1 = [1];
         int cnt = 0;
         double mx = double.MinValue;
-        bool flag = true;
         for(int i = 0; i < array.Length;i++){
             if (array[i] > mx){
                 output[0] = i; 
                 mx = array[i];
                 cnt = 1;
-                flag = true;
             }
             else if (mx == array[i]){
-                if (flag){
-                    output2[0] = output[0];
-                    flag = false;
-                }
                output1 = new int[++cnt];
-               for (int j = 0; j < output2.Length;j++){
-                output1[j] = output2[j];
+               for (int j = 0; j < output.Length;j++){
+                output1[j] = output[j];
                }
                output1[cnt - 1] = i;
-               output2 = new int[cnt];
-               output2 = output1;
+               output = new int[cnt];
+               output = output1;
             }
         }
-        output = output1;
         return output;
     }
     public double[] Task_3_2(double[] array)
