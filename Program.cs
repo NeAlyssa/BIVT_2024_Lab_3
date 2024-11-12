@@ -17,8 +17,7 @@ public class Program
     public static void Main()
     {
         Program program = new Program();
-        //program.Task_1_1(new int[] {1, 2, 3, 4, 5, 6});
-        //program.Task_3_12(new double[] { 5, 2, -8, 1, 9, -3, 7, 4, 6, 10 });
+        //program.Task_2_15(new double[] {1, 2, 3, 4, 5, 6, 7}, new double[] { -1, -2, -3}, 2);
 
     }
     #region Level 1
@@ -466,7 +465,7 @@ public class Program
 
         int iA = 0;
         int iB = 0;
-        k = k -1;
+        k = k;
         if (k >= A.Length)
             return A;
         for (int i = 0; i < output.Length; i++)
@@ -489,7 +488,7 @@ public class Program
 
         }
         for(int i = 0;i<output.Length;i++)
-            Console.WriteLine(output[i]);
+            Console.Write("{0} ", output[i]);
         return output;
     }
     public int[] Task_2_16(double[] array)
