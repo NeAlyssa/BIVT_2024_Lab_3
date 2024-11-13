@@ -694,21 +694,27 @@ public class Program
     public double[] Task_3_7(double[] array)
     {
         // code here
-        double temp;
-        for (int i = 0; i < array.Length; i++){
-            if (array[i] < 0){
-                temp = array[i];
-                for (int k = i; k < array.Length-1; k++){
-                    array[k] = array[k+1];
-                }
-                array[array.Length-1] = temp;
+        int de_indent = 0;
+        foreach(double member in array){
+            if (member < 0){
+                de_indent++;
             }
         }
-        for (int w = 0; w < array.Length; w++){
-                    Console.Write(array[w] + "  ");
-                }
-                Console.WriteLine();
-        // end{ 0, 1.5, 1, 3, -0.5, 3, -2.2 }
+
+        
+        double[] temp = new double[array.Length];
+        for (int i = 0, j = 0; i < array.Length; i++){
+            if (array[i] >= 0){
+                temp[j] = array[i];
+                j++;
+            }
+            else{
+                temp[array.Length-de_indent] = array[i];
+                de_indent--;
+            }
+        }  
+        array = temp;
+        // end
 
         return array;
     }
@@ -764,7 +770,49 @@ public class Program
     public double[] Task_3_13(double[] array)
     {
         // code here
-        int n_of_repeating = 0;
+        int n_of_unique = 0;
+
+        for (int i = 0; i < array.Length; i++)
+        {
+            bool isUnique = true;
+
+            for (int j = 0; j < i; j++)
+            {
+                if (array[i] == array[j])
+                {
+                    isUnique = false;
+                    break;
+                }
+            }
+
+            if (isUnique)
+            {
+                n_of_unique++;
+            }
+        }
+
+        double[] temp = new double[n_of_unique];
+
+        for (int i = 0, j = 0; i < array.Length; i++)
+        {
+            bool isUnique = true;
+
+            for (int k = 0; k < i; k++)
+            {
+                if (array[i] == array[k])
+                {
+                    isUnique = false;
+                    break;
+                }
+            }
+
+            if (isUnique)
+            {
+                temp[j] = array[i];
+                j++;
+            }
+        }
+        array = temp;
         
         // end
 
