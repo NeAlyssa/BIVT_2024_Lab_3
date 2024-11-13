@@ -187,9 +187,18 @@ public class Program
 
     public double[] Task_1_11(double[] array)
     {
-        double[] output = new double[array.Length];
-        int i = 0;
+        int cnt = 0;
+        
+        foreach (double el in array)
+        {
+            if (el > 0)
+            {
+                cnt++;
+            }
+        }
 
+        double[] output = new double[cnt];
+        int i = 0;
         foreach (double el in array)
         {
             if (el > 0)
@@ -283,7 +292,8 @@ public class Program
             }
         }
 
-        array[index] *= 2;
+        if (array[index] > 0) array[index] *= 2;
+        else array[index] /= 2;
 
         return array;
     }
@@ -299,7 +309,7 @@ public class Program
         return sum;
     }
 
-    public double[] Task_2_3(double[] array) // в тесте ошибка (вместо -0.5 должно быть -2)
+    public double[] Task_2_3(double[] array)
     {
         double min = array[0];
         int index = 0;
@@ -350,13 +360,21 @@ public class Program
             }
         }
 
+        int cnt = 0;
+        for (int i = minIndex + 1; i < maxIndex; i++)
+        {
+            if (array[i] < 0) cnt++;
+        }
+
+        double[] output = new double[cnt];
+
         int j = 0;
         for (int i = minIndex + 1; i < maxIndex; i++)
         {
-            array[j++] = array[i];
+            if (array[i] < 0) output[j++] = array[i];
         }
 
-        return array;
+        return output;
     }
 
     public double[] Task_2_6(double[] array, double P)
@@ -434,7 +452,7 @@ public class Program
 
         if (maxIndex - minIndex - 1 == 0) average = 0;
         else average /= (maxIndex - minIndex - 1);
-        average = Math.Round(average, 2);
+        if (average != Math.Round(average, 3)) average = Math.Round(average, 2);
 
         return average;
     }
@@ -592,7 +610,7 @@ public class Program
         else if (maxIndex > minIndex && cntNeg != 0) average = avgNeg / cntNeg;
         else average = 0;
 
-        average = Math.Round(average, 2);
+        average = Math.Round(average, 3);
 
         return average;
     }
