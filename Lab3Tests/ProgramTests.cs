@@ -24,9 +24,14 @@ namespace Tests
             input1 = main.Task_1_1(input1);
             input2 = main.Task_1_1(input2);
             // Assert
+            Assert.AreEqual(answer1.Length, input1.Length);
+            Assert.AreEqual(answer2.Length, input2.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
+            }
+            for (int i = 0; i < answer2.Length; i++)
+            {
                 Assert.AreEqual(answer2[i], input2[i]);
             }
         }
@@ -42,9 +47,14 @@ namespace Tests
             input1 = main.Task_1_2(input1);
             input2 = main.Task_1_2(input2);
             // Assert
+            Assert.AreEqual(answer1.Length, input1.Length);
+            Assert.AreEqual(answer2.Length, input2.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
+            }
+            for (int i = 0; i < answer2.Length; i++)
+            {
                 Assert.AreEqual(answer2[i], input2[i]);
             }
         }
@@ -67,13 +77,34 @@ namespace Tests
             (sum2, dif2) = main.Task_1_3(input1, input3);
             (sum3, dif3) = main.Task_1_3(input2, input3);
             // Assert
+            Assert.AreEqual(answer1.Length, sum1.Length);
+            Assert.AreEqual(answer2.Length, sum2.Length);
+            Assert.AreEqual(answer3.Length, sum3.Length);
+            Assert.AreEqual(answer4.Length, dif1.Length);
+            Assert.AreEqual(answer5.Length, dif2.Length);
+            Assert.AreEqual(answer6.Length, dif3.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], sum1[i]);
+            }
+            for (int i = 0; i < answer2.Length; i++)
+            {
                 Assert.AreEqual(answer2[i], sum2[i]);
+            }
+            for (int i = 0; i < answer3.Length; i++)
+            {
                 Assert.AreEqual(answer3[i], sum3[i]);
+            }
+            for (int i = 0; i < answer4.Length; i++)
+            {
                 Assert.AreEqual(answer4[i], dif1[i]);
+            }
+            for (int i = 0; i < answer5.Length; i++)
+            {
                 Assert.AreEqual(answer5[i], dif2[i]);
+            }
+            for (int i = 0; i < answer6.Length; i++)
+            {
                 Assert.AreEqual(answer6[i], dif3[i]);
             }
         }
@@ -90,9 +121,14 @@ namespace Tests
             input1 = main.Task_1_4(input1);
             input2 = main.Task_1_4(input2);
             // Assert
+            Assert.AreEqual(answer1.Length, input1.Length);
+            Assert.AreEqual(answer2.Length, input2.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
+            }
+            for (int i = 0; i < answer2.Length; i++)
+            {
                 Assert.AreEqual(answer2[i], input2[i]);
             }
         }
@@ -144,9 +180,14 @@ namespace Tests
             input1 = main.Task_1_7(input1);
             input2 = main.Task_1_7(input2);
             // Assert
+            Assert.AreEqual(answer1.Length, input1.Length);
+            Assert.AreEqual(answer2.Length, input2.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
+            }
+            for (int i = 0; i < answer2.Length; i++)
+            {
                 Assert.AreEqual(answer2[i], input2[i]);
             }
         }
@@ -205,6 +246,8 @@ namespace Tests
             input1 = main.Task_1_11(input1);
             input2 = main.Task_1_11(input2);
             // Assert
+            Assert.AreEqual(answer1.Length, input1.Length);
+            Assert.AreEqual(answer2.Length, input2.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
@@ -246,6 +289,10 @@ namespace Tests
             (outputE1, outputO1) = main.Task_1_13(input1);
             (outputE2, outputO2) = main.Task_1_13(input2);
             // Assert
+            Assert.AreEqual(answerE1.Length, outputE1.Length);
+            Assert.AreEqual(answerO1.Length, outputO1.Length);
+            Assert.AreEqual(answerE2.Length, outputE2.Length);
+            Assert.AreEqual(answerO2.Length, outputO2.Length);
             for (int i = 0; i < answerE1.Length; i++)
             {
                 Assert.AreEqual(answerE1[i], outputE1[i]);
@@ -277,15 +324,20 @@ namespace Tests
             // Arrange
             double[] input1 = new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 2, 2, 3.1, -0.7 };
             double[] input2 = new double[] { 2, 1, 3, 3, 5, 6, 0, 1, 2, 3 };
-            double[] answer1 = new double[] { double.NaN, 0.20, 0, 0.55, double.NaN, double.NaN, 0.35, 0.35, 0.57 };
-            double[] answer2 = new double[] { 0.35, 0, 0.55, 0.55, 0.8, 0.9, double.NaN, 0, 0.35 };
+            double[] answer1 = new double[] { double.NaN, 0.20, 0, 0.55, double.NaN, double.NaN, 0.35, 0.35, 0.57, double.NaN };
+            double[] answer2 = new double[] { 0.35, 0, 0.55, 0.55, 0.8, 0.9, double.NaN, 0, 0.35, 0.55 };
             // Act
             input1 = main.Task_1_15(input1);
             input2 = main.Task_1_15(input2);
             // Assert
+            Assert.AreEqual(answer1.Length, input1.Length);
+            Assert.AreEqual(answer2.Length, input2.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
+            }
+            for (int i = 0; i < answer2.Length; i++)
+            {
                 Assert.AreEqual(answer2[i], input2[i]);
             }
         }
@@ -296,15 +348,20 @@ namespace Tests
             // Arrange
             double[] input1 = new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 2 };
             double[] input2 = new double[] { 5, 2, 8, 1, 9, 3, 7, 4, 6, 10 };
-            double[] answer1 = new double[] { 0, 1.5, 1, 3, -4.4, -0.5, 2 };
+            double[] answer1 = new double[] { 0, 1.5, 1, 3, -1.1, -0.5, 2 };
             double[] answer2 = new double[] { 5, 2, 8, 2, 9, 3, 7, 4, 6, 10 };
             // Act
             input1 = main.Task_2_1(input1);
             input2 = main.Task_2_1(input2);
             // Assert
+            Assert.AreEqual(answer1.Length, input1.Length);
+            Assert.AreEqual(answer2.Length, input2.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
+            }
+            for (int i = 0; i < answer2.Length; i++)
+            {
                 Assert.AreEqual(answer2[i], input2[i]);
             }
         }
@@ -337,9 +394,14 @@ namespace Tests
             input1 = main.Task_2_3(input1);
             input2 = main.Task_2_3(input2);
             // Assert
+            Assert.AreEqual(answer1.Length, input1.Length);
+            Assert.AreEqual(answer2.Length, input2.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
+            }
+            for (int i = 0; i < answer2.Length; i++)
+            {
                 Assert.AreEqual(answer2[i], input2[i]);
             }
         }
@@ -352,14 +414,18 @@ namespace Tests
             double[] input3 = new double[] { 5, 2, 8, 1, 9, 3, 7, 4, 6, 10 };
             double[] answer1 = new double[] { 0, 1.5, -1, 3, 0.4, 0.4, 0.4 };
             double[] answer2 = new double[] { 5, 2, 8, 1, 9, 4.5, 4.5, 4.5, 4.5, 4.5 };
-            double[] answer3 = default(double[]);
             // Act
             input1 = main.Task_2_4(input1);
             input2 = main.Task_2_4(input2);
             // Assert
+            Assert.AreEqual(answer1.Length, input1.Length);
+            Assert.AreEqual(answer2.Length, input2.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
+            }
+            for (int i = 0; i < answer2.Length; i++)
+            {
                 Assert.AreEqual(answer2[i], input2[i]);
             }
         }
@@ -378,6 +444,9 @@ namespace Tests
             input2 = main.Task_2_5(input2);
             input3 = main.Task_2_5(input3);
             // Assert
+            Assert.AreEqual(answer1.Length, input1.Length);
+            Assert.AreEqual(answer2.Length, input2.Length);
+            Assert.AreEqual(answer3.Length, input3.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
@@ -385,6 +454,9 @@ namespace Tests
             for (int i = 0; i < answer2.Length; i++)
             {
                 Assert.AreEqual(answer2[i], input2[i]);
+            }
+            for (int i = 0; i < answer3.Length; i++)
+            {
                 Assert.AreEqual(answer3[i], input3[i]);
             }
         }
@@ -406,6 +478,10 @@ namespace Tests
             output3 = main.Task_2_6(input2, P1);
             output4 = main.Task_2_6(input2, P2);
             // Assert
+            Assert.AreEqual(answer1.Length, output1.Length);
+            Assert.AreEqual(answer2.Length, output2.Length);
+            Assert.AreEqual(answer3.Length, output3.Length);
+            Assert.AreEqual(answer4.Length, output4.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], output1[i]);
@@ -439,6 +515,9 @@ namespace Tests
             input2 = main.Task_2_7(input2);
             input3 = main.Task_2_7(input3);
             // Assert
+            Assert.AreEqual(answer1.Length, input1.Length);
+            Assert.AreEqual(answer2.Length, input2.Length);
+            Assert.AreEqual(answer3.Length, input3.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
@@ -467,6 +546,9 @@ namespace Tests
             input2 = main.Task_2_8(input2);
             input3 = main.Task_2_8(input3);
             // Assert
+            Assert.AreEqual(answer1.Length, input1.Length);
+            Assert.AreEqual(answer2.Length, input2.Length);
+            Assert.AreEqual(answer3.Length, input3.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
@@ -487,7 +569,7 @@ namespace Tests
             double[] input1 = new double[] { 0, 1.5, 4, 3, -2.2, -0.5, 2, -3.1 };
             double[] input2 = new double[] { 2, 1, 3, 3, 5, 6, 3, 4 };
             double[] input3 = new double[] { 12, 1, 3, 3, 5, 6, 3, 4 };
-            double output1, output2, output3, answer1 = 0.57, answer2 = 3.67, answer3 = 0;
+            double output1, output2, output3, answer1 = 0.575, answer2 = 3.67, answer3 = 0;
             // Act
             output1 = main.Task_2_9(input1);
             output2 = main.Task_2_9(input2);
@@ -512,6 +594,9 @@ namespace Tests
             input2 = main.Task_2_10(input2);
             input3 = main.Task_2_10(input3);
             // Assert
+            Assert.AreEqual(answer1.Length, input1.Length);
+            Assert.AreEqual(answer2.Length, input2.Length);
+            Assert.AreEqual(answer3.Length, input3.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
@@ -541,6 +626,9 @@ namespace Tests
             input2 = main.Task_2_11(input2, P);
             input3 = main.Task_2_11(input3, P);
             // Assert
+            Assert.AreEqual(answer1.Length, input1.Length);
+            Assert.AreEqual(answer2.Length, input2.Length);
+            Assert.AreEqual(answer3.Length, input3.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
@@ -569,6 +657,9 @@ namespace Tests
             input2 = main.Task_2_12(input2);
             input3 = main.Task_2_12(input3);
             // Assert
+            Assert.AreEqual(answer1.Length, input1.Length);
+            Assert.AreEqual(answer2.Length, input2.Length);
+            Assert.AreEqual(answer3.Length, input3.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
@@ -597,6 +688,9 @@ namespace Tests
             input2 = main.Task_2_13(input2);
             input3 = main.Task_2_13(input3);
             // Assert
+            Assert.AreEqual(answer1.Length, input1.Length);
+            Assert.AreEqual(answer2.Length, input2.Length);
+            Assert.AreEqual(answer3.Length, input3.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
@@ -625,6 +719,9 @@ namespace Tests
             input2 = main.Task_2_14(input2);
             input3 = main.Task_2_14(input3);
             // Assert
+            Assert.AreEqual(answer1.Length, input1.Length);
+            Assert.AreEqual(answer2.Length, input2.Length);
+            Assert.AreEqual(answer3.Length, input3.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
@@ -658,6 +755,10 @@ namespace Tests
             output3 = main.Task_2_15(A2, B2, k1);
             output4 = main.Task_2_15(A2, B2, k2);
             // Assert
+            Assert.AreEqual(answer1.Length, output1.Length);
+            Assert.AreEqual(answer2.Length, output2.Length);
+            Assert.AreEqual(answer3.Length, output3.Length);
+            Assert.AreEqual(answer4.Length, output4.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], output1[i]);
@@ -691,6 +792,9 @@ namespace Tests
             output2 = main.Task_2_16(input2);
             output3 = main.Task_2_16(input3);
             // Assert
+            Assert.AreEqual(answer1.Length, output1.Length);
+            Assert.AreEqual(answer2.Length, output2.Length);
+            Assert.AreEqual(answer3.Length, output3.Length);
             for (int i = 0; i < output1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], output1[i]);
@@ -711,7 +815,7 @@ namespace Tests
             double[] input1 = new double[] { 0, 1.5, 4, 3, -2.2, -0.5, 2, -3.1 };
             double[] input2 = new double[] { 2, 1, 3, 3, 5, 6, 3, 4 };
             double[] input3 = new double[] { 12, 1, 3, 3, 5, 6, 3, 4 };
-            double output1, output2, output3, answer1 = 2.62, answer2 = 0, answer3 = 4.62;
+            double output1, output2, output3, answer1 = 2.625, answer2 = 0, answer3 = 4.625;
             // Act
             output1 = main.Task_2_17(input1);
             output2 = main.Task_2_17(input2);
@@ -736,6 +840,9 @@ namespace Tests
             input2 = main.Task_2_18(input2);
             input3 = main.Task_2_18(input3);
             // Assert
+            Assert.AreEqual(answer1.Length, input1.Length);
+            Assert.AreEqual(answer2.Length, input2.Length);
+            Assert.AreEqual(answer3.Length, input3.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
@@ -764,6 +871,9 @@ namespace Tests
             input2 = main.Task_2_19(input2);
             input3 = main.Task_2_19(input3);
             // Assert
+            Assert.AreEqual(answer1.Length, input1.Length);
+            Assert.AreEqual(answer2.Length, input2.Length);
+            Assert.AreEqual(answer3.Length, input3.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
@@ -810,6 +920,9 @@ namespace Tests
             output2 = main.Task_3_1(input2);
             output3 = main.Task_3_1(input3);
             // Assert
+            Assert.AreEqual(answer1.Length, output1.Length);
+            Assert.AreEqual(answer2.Length, output2.Length);
+            Assert.AreEqual(answer3.Length, output3.Length);
             for (int i = 0; i < output1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], output1[i]);
@@ -839,6 +952,9 @@ namespace Tests
             output2 = main.Task_3_2(input2);
             output3 = main.Task_3_2(input3);
             // Assert
+            Assert.AreEqual(answer1.Length, output1.Length);
+            Assert.AreEqual(answer2.Length, output2.Length);
+            Assert.AreEqual(answer3.Length, output3.Length);
             for (int i = 0; i < output1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], output1[i]);
@@ -868,6 +984,9 @@ namespace Tests
             output2 = main.Task_3_3(input2);
             output3 = main.Task_3_3(input3);
             // Assert
+            Assert.AreEqual(answer1.Length, output1.Length);
+            Assert.AreEqual(answer2.Length, output2.Length);
+            Assert.AreEqual(answer3.Length, output3.Length);
             for (int i = 0; i < output1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], output1[i]);
@@ -897,6 +1016,9 @@ namespace Tests
             output2 = main.Task_3_4(input2);
             output3 = main.Task_3_4(input3);
             // Assert
+            Assert.AreEqual(answer1.Length, output1.Length);
+            Assert.AreEqual(answer2.Length, output2.Length);
+            Assert.AreEqual(answer3.Length, output3.Length);
             for (int i = 0; i < output1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], output1[i]);
@@ -926,6 +1048,9 @@ namespace Tests
             output2 = main.Task_3_5(input2);
             output3 = main.Task_3_5(input3);
             // Assert
+            Assert.AreEqual(answer1.Length, output1.Length);
+            Assert.AreEqual(answer2.Length, output2.Length);
+            Assert.AreEqual(answer3.Length, output3.Length);
             for (int i = 0; i < output1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], output1[i]);
@@ -973,6 +1098,9 @@ namespace Tests
             output2 = main.Task_3_7(input2);
             output3 = main.Task_3_7(input3);
             // Assert
+            Assert.AreEqual(answer1.Length, output1.Length);
+            Assert.AreEqual(answer2.Length, output2.Length);
+            Assert.AreEqual(answer3.Length, output3.Length);
             for (int i = 0; i < output1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], output1[i]);
@@ -1002,6 +1130,9 @@ namespace Tests
             output2 = main.Task_3_8(input2);
             output3 = main.Task_3_8(input3);
             // Assert
+            Assert.AreEqual(answer1.Length, output1.Length);
+            Assert.AreEqual(answer2.Length, output2.Length);
+            Assert.AreEqual(answer3.Length, output3.Length);
             for (int i = 0; i < output1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], output1[i]);
@@ -1049,6 +1180,9 @@ namespace Tests
             output2 = main.Task_3_10(input2);
             output3 = main.Task_3_10(input3);
             // Assert
+            Assert.AreEqual(answer1.Length, output1.Length);
+            Assert.AreEqual(answer2.Length, output2.Length);
+            Assert.AreEqual(answer3.Length, output3.Length);
             for (int i = 0; i < output1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], output1[i]);
@@ -1078,6 +1212,10 @@ namespace Tests
             (x1, y1, max1, min1) = main.Task_3_11(a1, b1, n1);
             (x2, y2, max2, min2) = main.Task_3_11(a2, b2, n2);
             // Assert
+            Assert.AreEqual(answer1.Length, x1.Length);
+            Assert.AreEqual(answer2.Length, y1.Length);
+            Assert.AreEqual(answer3.Length, x2.Length);
+            Assert.AreEqual(answer4.Length, y2.Length);
             for (int i = 0; i < x1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], x1[i]);
@@ -1110,6 +1248,9 @@ namespace Tests
             output2 = main.Task_3_12(input2);
             output3 = main.Task_3_12(input3);
             // Assert
+            Assert.AreEqual(answer1.Length, output1.Length);
+            Assert.AreEqual(answer2.Length, output2.Length);
+            Assert.AreEqual(answer3.Length, output3.Length);
             for (int i = 0; i < output1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], output1[i]);
@@ -1132,13 +1273,17 @@ namespace Tests
             double[] input3 = new double[] { -1, -2, -8, -1, -9, -1, -1, -4, -6, -2 };
             double[] answer1 = new double[] { 0, 1.5, 1, 3, -2.2, -0.5 };
             double[] answer2 = new double[] { 5, 2, 8, 1, 9, 3, 7, 4, 10 };
-            double[] answer3 = new double[] { -1, -2, -8, -9, -4, -6, -2 };
+            double[] answer3 = new double[] { -1, -2, -8, -9, -4, -6 };
             double[] output1, output2, output3;
             // Act
             output1 = main.Task_3_13(input1);
             output2 = main.Task_3_13(input2);
             output3 = main.Task_3_13(input3);
             // Assert
+            Assert.AreEqual(answer1.Length, output1.Length);
+            Assert.AreEqual(answer2.Length, output2.Length);
+            Assert.AreEqual(answer3.Length, output3.Length);
+
             for (int i = 0; i < output1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], output1[i]);
@@ -1168,6 +1313,9 @@ namespace Tests
             output2 = main.Task_3_14(input2);
             output3 = main.Task_3_14(input3);
             // Assert
+            Assert.AreEqual(answer1.Length, output1.Length);
+            Assert.AreEqual(answer2.Length, output2.Length);
+            Assert.AreEqual(answer3.Length, output3.Length);
             for (int i = 0; i < output1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], output1[i]);
