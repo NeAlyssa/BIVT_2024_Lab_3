@@ -189,7 +189,7 @@ public class Program
             }
         }
 
-        array[minIndex] *= 2;
+        array[minIndex] *= (array[minIndex] > 0) ? 2 : 0.5;
         
         return array;
     }
@@ -657,7 +657,10 @@ public class Program
             }
         }
         
-        Array.Resize(ref negatives, j);
+        // Array.Resize(ref negatives, j);
+        double[] temp = new double[j];
+        for(int i = 0; i < j; i++) temp[i] = negatives[i];
+        negatives = temp;
         
         double[] nonnegatives = new double[array.Length - j];
         
