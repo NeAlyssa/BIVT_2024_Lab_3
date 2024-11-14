@@ -621,7 +621,7 @@ public class Program
             average = srpol / cntpol;
         }
 
-        return Math.Round(average,2);
+        return Math.Round(average,3);
     }
     public double[] Task_2_18(double[] array)
     {
