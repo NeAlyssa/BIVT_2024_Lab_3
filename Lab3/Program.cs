@@ -624,7 +624,12 @@ public class Program
         int[] output = null;
 
         // code here
-        double max = array.Max();
+        double max = -Double.MaxValue;
+        foreach (double val in array){
+            if(val > max){
+                max = val;
+            }
+        }
         int n = 0;
         for (int i = 0; i < array.Length; i++){
             if (array[i] == max){
