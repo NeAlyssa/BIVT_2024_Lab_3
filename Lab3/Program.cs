@@ -220,7 +220,13 @@ public class Program
             mn = array[i];
         }
         }
+        if (array[index] >= 0)
+       {
         array[index] *= 2;
+       }
+       else{
+        array[index] /= 2;
+       }
 
         return array;
     }
@@ -304,8 +310,13 @@ public class Program
             mxind = indmn;
             mnind = indmx;
         }
-        double[] array1 = new double[Math.Abs(indmx-indmn-1)];
         int k = 0;
+        for(int i = mnind + 1; i < mxind;i++){if (array[i] < 0){k++;}}
+        if (k == 0){
+            return new double[0];
+        }
+        k = 0;
+        double[] array1 = new double[Math.Abs(indmx-indmn-1)];
         for(int i = mnind + 1; i < mxind;i++){
             if (array[i] < 0){
                 array1[k] = array[i];
@@ -416,7 +427,7 @@ public class Program
             average += array[i];
         }
         average /= average != 0 ? end-start : 1;
-        return Math.Round(average,2);
+        return average;
     }
     public double[] Task_2_10(double[] array)
     {
@@ -531,6 +542,9 @@ public class Program
         double[] output = new double[A.Length+B.Length];
         bool flag = true;
         int lB = B.Length;
+        if (k >= A.Length){
+            return A;
+        }
         for(int i = 0;i<A.Length;i++){
             if (i != k + 1 && flag){
                 output[i] = A[i];  
