@@ -249,13 +249,10 @@ public class Program
     {
         double[] even = new double[array.Length / 2];
         double[] odd = new double[array.Length/2];
-
         // code here
         int k = 0; 
         int j = 0;
-        int l= array.Length;
-        even = new double[array.Length];
-        odd = new double[array.Length];
+        int l = array.Length;
         for (int i = 0; i < l; i++)
         {
             if (i % 2 == 0)
