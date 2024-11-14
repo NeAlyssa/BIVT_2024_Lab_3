@@ -30,9 +30,9 @@ public class Program
         //program.Task_2_14(new double[] { 2, 1, 3, 3, 5, 6 });
         //program.Task_2_14(new double[] { 2, 1, 3, 3, 5, 6 });
         //program.Task_2_18(new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 2 });
-        program.Task_2_20(new double[] { 12, 1, 3, 3, 5, 6, 3, -4 });
+        //program.Task_2_20(new double[] { 12, 1, 3, 3, 5, 6, 3, -4 });
         //program.Task_3_1(new double[] { -1, -2, -8, -1, -9, -1, -1, -4, -6, -2 });
-        //program.Task_3_4(new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 3 });
+        program.Task_3_4(new double[] { 5, 2, 8, 1, 9, 3, 7, 4, 10, 10 });
         //program.Task_3_7(new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 3 });
         //program.Task_3_10(new double[] { 0, 1.5, 1, 3, 0, 0, 0, 0 });
         //program.Task_3_13(new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 3 });
@@ -215,16 +215,19 @@ public class Program
         double[] output = null;
 
         // code here
-        output = new double[10];
+        double[] output0 = new double[10];
         int i = 0;
         foreach (double j in array)
         {
             if (j > 0)
             {
-                output[i] = j;
+                output0[i] = j;
                 i++;
             }
         }
+        output = new double[i];
+        for (int j = 0; j < i; j++)
+            output[j] = output0[j];
         
         
         // end
@@ -498,7 +501,10 @@ public class Program
                 array[i-1] = array[i];
             }
         }
-
+        double[] arr = new double[array.Length-1];
+        for (int i = 0; i < array.Length - 1; i++)
+            arr[i] = array[i];
+        array = arr;
         foreach (double i in array)
             Console.Write(i+" ");
         // end
@@ -724,25 +730,40 @@ public class Program
         int[] output = null;
 
         // code here
-        double max = array.Max();
-        int countmax = 0;
+        double max = -1000;
+        int countmax = -1;
         int[] output1 = new int[array.Length];
-        int j = 0;
         for (int i = 0; i < array.Length; i++)
         {
+            
             if (max == array[i])
             {
+                
                 countmax++;
-                output1[j] = i;
-                j++;
+                output1[i] = 1;
+            }
+            else if (max < array[i])
+            {
+                max = array[i];
+                countmax = 1;
+                output1 = new int[array.Length];
+                output1[i] = 1;
             }
         }
         output = new int[countmax];
+        int j = 0;
+        for (int i =0; i < array.Length; i++)
+        {
+            if (output1[i] == 1)
+            {
+                output[j++] = i;
+            }
+        }
+        
         Console.WriteLine("Индексы:");
         for (int i = 0; i < countmax; i++)
         {
-            output[i] = output1[i];
-            Console.Write(output1[i] + " ");
+            Console.Write(output[i] + " ");
         }
         // end
 
@@ -767,8 +788,13 @@ public class Program
     public double[] Task_3_4(double[] array)
     {
         // code here
-        
-        double max = array.Max();
+
+        double max = -1000;
+        foreach (double x in array)
+        {
+            if (x > max)
+                max = x;
+        }
         int countmax = 0;
         int[] output1 = new int[array.Length];
         int j = 0;
