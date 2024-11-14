@@ -275,7 +275,7 @@ public class Program
         // code here
         double min = double.MaxValue;
         foreach(double item in array) if (item < min) min = item;
-        for(int i = 0; i < array.Length; i++) if (array[i] == min) array[i] *= 2;
+        for (int i = 0; i < array.Length; i++) if (array[i] == min) array[i] = array[i] < 0 ? array[i] / 2 : array[i] * 2;
         // end
 
         return array;
@@ -549,7 +549,7 @@ public class Program
         {
             average = countOtr == 0 ? 0 : sumOtr / countOtr;
         }
-        average = Math.Round(average, 2);
+        average = Math.Round(average, 3);
         // end
 
         return average;
