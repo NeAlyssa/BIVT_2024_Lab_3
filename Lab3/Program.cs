@@ -6,6 +6,7 @@ using System.Diagnostics.Metrics;
 using System.Linq.Expressions;
 using System.Numerics;
 using System.Runtime.InteropServices;
+using System.Runtime.Intrinsics.X86;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 public class Program
@@ -13,13 +14,25 @@ public class Program
     public static void Main()
     {
         Program program = new Program();
-        //program.Task_1_1(new int[] {1, 2, 3, 4, 5, 6});
+        program.Task_1_15(new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 2, 2, 3.1, -0.7 });
     }
     #region Level 1
     public double[] Task_1_1(double[] array)
     {
         // code here
+        double s = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            s += array[i];
+        }
+        Console.WriteLine(s);
+        for (int i = 0; i < array.Length; i++)
+        {
+            array[i] = Math.Round(array[i]/s, 2);
 
+            Console.WriteLine(array[i]);
+        }
+        
         // end
 
         return array;
@@ -27,17 +40,39 @@ public class Program
     public double[] Task_1_2(double[] array)
     {
         // code here
+        double sum = 0;
+        double cnt = 0;
+        for (int i = 0;i < array.Length; i++)
+        {
+            if (array[i] > 0)
+            {
+                cnt++;
+                sum += array[i];
+            }
+        }
+        double avg = sum / cnt;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > 0) 
+            {
+                array[i] = Math.Round(avg, 2);
+            }
+        }
 
-        // end
+            // end
 
-        return array;
+            return array;
     }
     public (double[], double[]) Task_1_3(double[] first, double[] second)
     {
         double[] sum = new double[first.Length], dif = new double[first.Length];
 
         // code here
-
+        for (int i = 0; i < first.Length; i++)
+        {
+            sum[i] = Math.Round(first[i] + second[i], 2);
+            dif[i] = Math.Round(first[i] - second[i], 2);
+        }
         // end
 
         return (sum, dif);
@@ -45,7 +80,16 @@ public class Program
     public double[] Task_1_4(double[] array)
     {
         // code here
-
+        double sum = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            sum += array[i];
+        }
+        sum /= array.Length;
+        for (int i = 0; i < array.Length; i++)
+        {
+            array[i] = Math.Round(array[i] - sum, 2);
+        }
         // end
 
         return array;
@@ -55,7 +99,11 @@ public class Program
         double product = 0;
 
         // code here
-
+        for (int i = 0; i < vector1.Length; i++)
+        {
+            product += vector1[i] * vector2[i] ;
+        }
+        product = Math.Round(product, 2);
         // end
 
         return product;
@@ -65,7 +113,11 @@ public class Program
         double length = 0;
 
         // code here
-
+        for (int i = 0; i < vector.Length; i++)
+        {
+            length += vector[i] * vector[i];
+        }
+        length = Math.Round(Math.Sqrt(length), 2);
         // end
 
         return Math.Round(length, 4); ;
@@ -73,7 +125,19 @@ public class Program
     public double[] Task_1_7(double[] array)
     {
         // code here
-
+        double avg = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            avg += array[i];
+        }
+        avg /= array.Length;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > avg)
+            {
+                array[i] = 0;
+            }
+        }
         // end
 
         return array;
@@ -83,7 +147,13 @@ public class Program
         int count = 0;
 
         // code here
-
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] < 0)
+            {
+                count++;
+            }
+        }
         // end
 
         return count;
@@ -93,7 +163,19 @@ public class Program
         int count = 0;
 
         // code here
-
+        double avg = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            avg += array[i];
+        }
+        avg /= array.Length;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > avg)
+            {
+                count++;
+            }
+        }
         // end
 
         return count;
@@ -103,7 +185,13 @@ public class Program
         int count = 0;
 
         // code here
-
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > P && array[i] < Q)
+            {
+                count++;
+            }
+        }
         // end
 
         return count;
@@ -113,7 +201,24 @@ public class Program
         double[] output = null;
 
         // code here
-
+        int count = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > 0)
+            {
+                count++;
+            }
+        }
+        output = new double[count];
+        count = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > 0)
+            {
+                output[count] = array[i];
+                count++;
+            }
+        }
         // end
 
         return output;
@@ -124,7 +229,15 @@ public class Program
         int index = -1;
 
         // code here
-
+        for (int i = array.Length - 1; i >= 0; i--)
+        {
+            if (array[i] < 0)
+            {
+                value = array[i];
+                index = i;
+                break;
+            }
+        }
         // end
 
         return (value, index);
@@ -135,7 +248,13 @@ public class Program
         double[] odd = new double[array.Length/2];
 
         // code here
-
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (i % 2 == 0)
+                even[i/2] = array[i];
+            else 
+                odd[i/2] = array[i];
+        }
         // end
 
         return (even, odd);
@@ -145,7 +264,12 @@ public class Program
         double sum = 0;
 
         // code here
-
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] < 0)
+                break;
+        sum += array[i] * array[i];
+        }
         // end
 
         return sum;
@@ -155,7 +279,19 @@ public class Program
         double[] y = new double[x.Length];
 
         // code here
-
+        for (int i = 0; i < x.Length; i++)
+        {
+            if (x[i] <= 0)
+            {
+                y[i] = double.NaN;
+                continue;
+            }
+            y[i] = Math.Round(0.5 * Math.Log(x[i]), 2);
+        }
+        for (int i = 0; i < x.Length; i++)
+        {
+            Console.WriteLine($"{x[i]} {y[i]}");
+        }
         // end
 
         return y;
