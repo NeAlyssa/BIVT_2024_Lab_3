@@ -329,7 +329,10 @@ public class Program
             // code here
             var (minIndex, minValue) = MinArray(array);
 
-            array[minIndex] *= 2;
+            if (minValue >= 0) 
+                array[minIndex] *= 2;
+            else
+                array[minIndex] /= 2;
             // end
 
             return array;
@@ -523,7 +526,6 @@ public class Program
 
             double[] output = new double[A.Length + B.Length];
 
-            k -= 1; // IMPORTANT: различие между тестами: k-ый элемент это по индексу или порядковый номер (начиная с 1) 
 
             for (int i = 0; i < A.Length + B.Length; i++) {
                 if (i <= k) 
