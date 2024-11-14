@@ -427,7 +427,7 @@ public class Program
             average += array[i];
         }
         average /= average != 0 ? end-start : 1;
-        return average;
+        return Math.Round(average,2);
     }
     public double[] Task_2_10(double[] array)
     {
