@@ -219,7 +219,11 @@ public class Program
         // code here
         double mn = double.MaxValue;
         for (int i = 0; i < array.Length; i++) if (array[i] < mn) mn = array[i];
-        for (int i = 0; i < array.Length; i++) if (array[i] == mn) array[i] *= 2;
+        for (int i = 0; i < array.Length; i++) if (array[i] == mn)
+            {
+                if (array[i] > 0) array[i] *= 2;
+                if (array[i] < 0) array[i] /= 2;
+            }
         // end
 
         return array;
@@ -371,19 +375,24 @@ public class Program
     public double[] Task_2_11(double[] array, double P)
     {
         // code here
-        double[] array2 = new double[array.Length + 1];
         double lastplus = 0;
         bool added = false;
+        double[] array2 = default(double[]);
         for (int i = 0; i < array.Length; i++) if (array[i] > 0) lastplus = array[i];
-        for (int i = 0; i < array.Length; i++)
+        if (lastplus != 0)
         {
-            if (added) { array2[i + 1] = array[i]; } else { array2[i] = array[i]; }
-            if (array[i] == lastplus)
+            array2 = new double[array.Length + 1];
+            for (int i = 0; i < array.Length; i++)
             {
-                array2[i + 1] = P;
-                added = true;
+                if (added) { array2[i + 1] = array[i]; } else { array2[i] = array[i]; }
+                if (array[i] == lastplus)
+                {
+                    array2[i + 1] = P;
+                    added = true;
+                }
             }
         }
+        else array2 = array;
         // end
 
         return array2;
@@ -419,21 +428,26 @@ public class Program
         double[] output = null;
 
         // code here
-        output = new double[A.Length + B.Length];
         int a = 0, b = 0;
-        for (int i = 0; i < A.Length + B.Length; i++)
+        if (A.Length > k)
         {
-            if ((a - 1 == k) && (b != B.Length))
+            output = new double[A.Length + B.Length];
+            for (int i = 0; i < A.Length + B.Length; i++)
             {
-                output[i] = B[b];
-                b++;
-            } else
-            {
-                output[i] = A[a];
-                a++;
-                if (a == A.Length) break;
+                if ((a - 1 == k) && (b != B.Length))
+                {
+                    output[i] = B[b];
+                    b++;
+                }
+                else
+                {
+                    output[i] = A[a];
+                    a++;
+                    if (a == A.Length) break;
+                }
             }
         }
+        else output = A;
         // end
 
         return output;
@@ -484,7 +498,7 @@ public class Program
             }
         }
         // end
-        if (n != 0) average = Math.Round(s / n, 2);
+        if (n != 0) average = Math.Round(s / n, 3);
         return average;
     }
     public double[] Task_2_18(double[] array)
