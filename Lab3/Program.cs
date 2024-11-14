@@ -1053,10 +1053,6 @@ public class Program
             }
             array = array_2;
         }
-        else
-        {
-            array = new double[0];
-        }
         // end
 
         return array;
