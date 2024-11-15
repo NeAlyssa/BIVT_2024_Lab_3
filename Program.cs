@@ -292,7 +292,8 @@ public class Program
                 index = i;
             }
         }
-        array[index] *= 2;
+        if (array[index] < 0) array[index] /= 2;
+        else array[index] *= 2;
         // end
 
         return array;
@@ -370,14 +371,22 @@ public class Program
             start = index_mn;
             end = index_mx;
         }
-        double []answer = new double [end - start - 1];
         int k = 0;
         for (int i = start +1; i<end; i++)
         {
             if (array[i] < 0)
             {
-                answer[k] = array[i];
                 k++;
+            }
+        }
+        double[] answer = new double[k];
+        int p = 0;
+        for (int i = start + 1; i < end; i++)
+        {
+            if (array[i] < 0)
+            {
+                answer[p] = array[i];
+                p++;
             }
         }
         // end
@@ -463,10 +472,10 @@ public class Program
             average += array[i];
         }
         if (average != 0) average /= (end - start - 1);
-        Console.WriteLine(Math.Round(average, 2));
+        Console.WriteLine(Math.Round(average, 3));
         // end
 
-        return Math.Round(average,2);
+        return average;
     }
     public double[] Task_2_10(double[] array)
     {
@@ -618,7 +627,7 @@ public class Program
 
         // end
 
-        return Math.Round(average,2);
+        return average;
     }
     public double[] Task_2_18(double[] array)
     {
