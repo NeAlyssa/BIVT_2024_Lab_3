@@ -251,7 +251,12 @@ public class Program
         for (int i = 0; i < array.Length; i++)
         {
             if (array[i] == mn)
-                array[i] = mn * 2;
+            {
+                if (array[i] >= 0)
+                    array[i] = mn * 2;
+                else
+                    array[i] = mn * 0.5; // исправила ошибку, но в тестах увеличение в 2 раза отрицательных чисел рассматривается как умножение, а не деление 
+            }
         }
 
         return array;
