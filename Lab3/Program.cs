@@ -181,16 +181,23 @@ public class Program
     public double[] Task_1_11(double[] array)
     {
         double[] output = null;
-
-        // code here
-        output = new double[array.Length];
         int count = 0;
+        // code here
         for (int i = 0; i < array.Length; i++)
         {
             if (array[i] > 0)
             {
-                output[count] = array[i];
                 count++;
+            }
+        }
+        output = new double[count];
+        int j = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > 0)
+            {
+                output[j] = array[i];
+                j++;
             }
         }
         // end
@@ -671,38 +678,36 @@ public class Program
         double sum = 0;
 
         // code here
-        int first_dif = -1;
+        int indexNegativeMember = -1;
+        double MinValue = double.MaxValue;
+        int indexMinValue = 0;
+
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] < MinValue)
+            {
+                MinValue = array[i];
+                indexMinValue = i;
+            }
+        }
 
         for (int i = 0; i < array.Length; i++)
         {
             if (array[i] < 0)
             {
-                first_dif = i;
+                indexNegativeMember = i;
                 break;
             }
         }
-        if (first_dif == -1)
-        {
-            return 0;
-        }
-        double min = 1000000000;
-        int min_index = -1;
-        for (int i = 0; i < array.Length; i++)
-        {
-            if (array[i] < min)
-            {
-                min = array[i];
-                min_index = i;
-            }
-        }
 
-        if (first_dif < min_index)
+        if (indexNegativeMember < indexMinValue)
         {
-            for (int i = 0; i < array.Length; i+=2)
+            for (int i = 0; i < array.Length; i += 2)
             {
                 sum += array[i];
             }
-        } else
+        }
+        else
         {
             for (int i = 1; i < array.Length; i += 2)
             {
