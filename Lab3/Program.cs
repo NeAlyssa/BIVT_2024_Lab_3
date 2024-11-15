@@ -673,7 +673,7 @@ public class Program
         double sum = 0;
 
         // code here
-        int indexNegativeMember = array.Length+1;
+        int indexNegativeMember = -1;//array.Length+1
         double MinValue = double.MaxValue;
         int indexMinValue = 0;
 
