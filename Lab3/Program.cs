@@ -247,8 +247,9 @@ public class Program
     }
     public (double[], double[]) Task_1_13(double[] array)
     {
-        double[] even = new double[array.Length / 2];
-        double[] odd = new double[array.Length/2];
+        double[] even = new double[array.Length /2];
+        double[] odd = new double[array.Length / 2];
+
         // code here
         int k = 0; 
         int j = 0;
@@ -921,10 +922,9 @@ public class Program
         for (int i = 0; i < n; i++)
         {
             x = a + i * p;
+            Y[i] = Math.Round(Math.Cos(x) + x * Math.Sin(x), 2);
             x = Math.Round(x, 2);
             X[i] = x;
-            Y[i] = Math.Round(Math.Cos(x) + x * Math.Sin(x), 2);
-
         }
         globalMax = Y[0];
         globalMin = Y[0];
