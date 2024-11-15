@@ -274,7 +274,10 @@ public class Program
             minElem = Math.Min(minElem, iter);
         for (int i = 0; i < array.Length; i++)
             if (array[i] == minElem)
-                array[i] = minElem * 2;
+                if (minElem > 0)
+                    array[i] = minElem * 2;
+                else
+                    array[i] = minElem / 2;
         // end
 
         return array;
@@ -335,10 +338,20 @@ public class Program
                 minIDx = i;
             }
         }
-        double[] ansArray = new double[Math.Abs(minIDx - maxIDx) - 1];
+
+        int negCnt = 0;
+        for (int i = Math.Min(minIDx, maxIDx) + 1; i < Math.Max(minIDx, maxIDx); i++)
+            if (array[i] < 0) 
+                negCnt++;
+
+        if (negCnt == 0)
+            return new double[negCnt];
+
+        double[] ansArray = new double[negCnt];
         int iter = 0;
         for (int i = Math.Min(minIDx, maxIDx) + 1; i < Math.Max(minIDx, maxIDx); i++)
-            ansArray[iter++] = array[i];
+            if (array[i] < 0)
+                ansArray[iter++] = array[i];
         array = ansArray;
         // end
 
@@ -409,7 +422,7 @@ public class Program
 
         for (int i = Math.Min(minIDx, maxIDx) + 1; i < Math.Max(minIDx, maxIDx); i++)
             average += array[i];
-        average = Math.Round(average / ln, 2);
+        average = average / ln;
         // end
 
         return average;
@@ -557,7 +570,6 @@ public class Program
                 return 0;
             average = negSum / negCnt;
         }
-        average = Math.Round(average, 2);
         // end
 
         return average;
@@ -622,7 +634,13 @@ public class Program
     public double[] Task_3_2(double[] array)
     {
         // code here
-        double maxElem = array.Max();
+        double maxElem = double.MinValue;
+
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > maxElem)
+                maxElem = array[i];
+        }
         int add = 1;
         for (int i = 0; i < array.Length; i++)
         {
@@ -740,7 +758,7 @@ public class Program
         int iter = 0;
         for (double i = a; i <= b; i += diff)
         {
-            X[iter] = Math.Round((double)i, 2);
+            X[iter] = (double)i;
             Y[iter] = Math.Round(X[iter] * Math.Sin(X[iter]) + Math.Cos(X[iter]), 2);
             iter++;
         }
@@ -802,7 +820,7 @@ public class Program
             normalizedArray[i] = Math.Round(2 * (array[i] - minValue) / (maxValue - minValue) - 1, 2);
             Console.WriteLine(normalizedArray[i]);
         }
-            
+
         // end
 
         return normalizedArray;
