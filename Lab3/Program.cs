@@ -642,10 +642,7 @@ public class Program
                 sum += array[i];
             }
         }     
-
-        if (indexNegativeMember == array.Length+1){
-            sum = 0;
-        }   
+  
         // end
         System.Console.WriteLine($"{indexNegativeMember}, {indexMinValue}");
         return sum;
@@ -656,7 +653,7 @@ public class Program
     {
         // code here
         int count = 0;
-        double maxValue = double.MaxValue;
+        double maxValue = double.MinValue;
         for (int i = 0; i < array.Length; i++){
             if (array[i] > maxValue){
                 maxValue = array[i];
