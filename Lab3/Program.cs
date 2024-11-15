@@ -15,7 +15,7 @@ public class Program
     public static void Main()
     {
         Program program = new Program();
-        //program.Task_3_10(new double[] { 0, 1.5, 1, 3, 0, 0, 0, 0 });
+        program.Task_3_13(new double[] { -1, -2, -8, -1, -9, -1, -1, -4, -6, -2 });
     }
     #region Level 1
     public double[] Task_1_1(double[] array)
@@ -185,18 +185,33 @@ public class Program
     }
     public double[] Task_1_11(double[] array)
     {
-        double[] output = new double[array.Length];
+        
         
             int j = 0;
+            
             foreach(double x in array)
             {
                 if (x > 0)
                 {
-                    output[j] = x;
+                   
                     j++;
+
                 }
             }
-    
+        double[] output = new double[j];
+        int k = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > 0)
+            {
+                output[k] = array[i];
+                k++;
+            }
+        }
+        for (int i = 0; i < output.Length; i++)
+        {
+            Console.WriteLine(output[i]);
+        }
         
         return output;
     }
@@ -221,8 +236,8 @@ public class Program
     }
     public (double[], double[]) Task_1_13(double[] array)
     {
-        double[] even = new double[array.Length / 2];
-        double[] odd = new double[array.Length/2];
+        double[] even = new double[5];
+        double[] odd = new double[5];
         int j = 0;
         int l = 0;
         for (int i=0;i<=9;i++)
@@ -716,6 +731,12 @@ public class Program
                     sum+= array[i];
                 }
             }
+        }else
+        {
+            for (int i=0; i<array.Length; i+=2)
+            {
+                sum+= array[i];
+            }
         }
         
 
@@ -726,24 +747,23 @@ public class Program
     public int[] Task_3_1(double[] array)
     {
        
-        double amax = -100000;
+        double amax = -10000000;
         int imax = 0;
-        int k = 0;
-        for (int i = 0; i < array.Length; i++)
-        {
-            if (array [i] > amax)
-            {
-                amax= array [i];
-                imax= i;
-            }
-        }
+        int k = 1;
         for (int i = 0; i < array.Length; i++)
         {
             if (array[i] == amax)
             {
                 k++;
             }
+            if (array [i] > amax)
+            {
+                amax= array [i];
+                imax= i;
+            }
+            
         }
+
         int[] output = new int[k];
         int j = 0;
         for (int i = 0; i < array.Length; i++)
@@ -929,34 +949,38 @@ public class Program
     }
     public double[] Task_3_13(double[] array)
     {
-        int k = 0;
-        int ipov = 0;
-        for (int i = 0; i < array.Length - 1; i++)
+        bool[] isPov = new bool[array.Length];
+
+        for (int i = 0; i < array.Length; i++)
         {
-            
             for (int j = i + 1; j < array.Length; j++)
             {
                 if (array[i] == array[j])
                 {
-                    ipov = j;
-                   k++; 
-                 
+                    isPov[j] = true;
                 }
             }
         }
-        
-        for (int i = ipov; i < array.Length - k; i++)
+       
+        int n = 0;
+        for (int i = 0; i < array.Length; i++)
         {
-            array[i] = array[i + 1];
+            if (!isPov[i])
+            {
+                n++;
+            }
         }
-        double[] pov = new double[array.Length - k];
-        int l = 0;
-        for (int i = 0; i < pov.Length; i++)
+
+        double[] nepov = new double[n];
+        for (int i = 0, j = 0; i < array.Length; i++)
         {
-            pov[l] = array[i];
-            l++;
+            if (!isPov[i])
+            {
+                nepov[j] = array[i];
+                j++;
+            }
         }
-        array = pov;
+        array = nepov;
         return array;
     }
     public double[] Task_3_14(double[] array)
