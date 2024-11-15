@@ -16,8 +16,11 @@ public class Program
         Program program = new Program();
         //program.Task_3_11(-2.5, 2.5, 9);
         //program.Task_3_11(1.5, 3, 4);
-        program.Task_3_14(new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 3 });
+       // program.Task_3_14(new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 3 });
 
+
+
+        Console.WriteLine(Math.Round(3.66666666665, 2));
 
 
     }
@@ -292,7 +295,8 @@ public class Program
                 min_index = i;
             }
         }
-        array[min_index] *= 2;
+        if (min_value >= 0) array[min_index] *= 2;
+        else array[min_index] /= 2;
         // end
 
         return array;
@@ -357,7 +361,14 @@ public class Program
             }
         }
 
-        double[] new_array = new double[Math.Abs(min_index - max_index) - 1];
+        int cnt = 0;
+
+        for (int i = Math.Min(min_index, max_index) + 1; i < Math.Max(min_index, max_index); i++)
+        {
+            if (array[i] < 0) cnt += 1;
+        }
+
+            double[] new_array = new double[cnt];
 
         for (int i = Math.Min(min_index, max_index) + 1, j = 0; i < Math.Max(min_index, max_index); i++)
         {
@@ -432,7 +443,6 @@ public class Program
         }
         if (average == 0) return 0;
         average /= Math.Abs(min_index - max_index) - 1;
-        average = Math.Round(average, 2);
         // end
 
         return average;
@@ -569,7 +579,6 @@ public class Program
 
         if (max_index < min_index && pos_cnt != 0) average = pos_sum / pos_cnt;
         else if (neg_cnt!= 0) average = neg_sum / neg_cnt;
-        average = Math.Round(average,2);
         // end
 
         return average;
@@ -771,7 +780,7 @@ public class Program
         {
 
             X_[ind] = Math.Round(x, 2);
-            Y_[ind] = Math.Round(Math.Cos(X_[ind]) + X_[ind] * Math.Sin(X_[ind]), 2);
+            Y_[ind] = Math.Round(Math.Cos(x) + x * Math.Sin(x), 2);
             //Console.WriteLine(x);
             Console.WriteLine(Y_[ind]);
             ind++;
