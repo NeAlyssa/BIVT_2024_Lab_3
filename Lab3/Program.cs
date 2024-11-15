@@ -251,7 +251,12 @@ public class Program
                 index = i;
             }
         }
+        if (array[index] > 0) { 
         array[index] = min * 2;
+        } else
+        {
+            array[index] = min / 2;
+        }
 
         return array;
     }
@@ -411,7 +416,7 @@ public class Program
         }
         if (count == 0) { return 0; }
 
-           return Math.Round(average/count, 2);
+           return average/count;
     }
     public double[] Task_2_10(double[] array)
     {
@@ -432,7 +437,7 @@ public class Program
             }
         }
 
-        double[] result = new double[array.Length + 1];
+        double[] result = new double[array.Length + (lastPositiveIndex != -1 ? 1 : 0)];
         int j = 0;
 
         for (int i = 0; i <= lastPositiveIndex; i++)
@@ -550,7 +555,7 @@ public class Program
             }
         }
         if (count == 0) { return 0; }
-        return Math.Round(average/count, 2);
+        return average / count;
     }
     public double[] Task_2_18(double[] array)
     {
