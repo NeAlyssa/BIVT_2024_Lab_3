@@ -511,43 +511,37 @@ public class Program
 
         return array;
     }
+
     public double[] Task_2_11(double[] array, double P)
     {
         // code here
-        double[] a = new double[array.Length+1];
+
+        double[] a = new double[array.Length + 1];
         int k = 0;
-        for (int i=0; i<array.Length; i++)
+        for (int i = 0; i < array.Length; i++)
         {
             if (array[i] > 0) k = i;
         }
-        if (k+1 == array.Length)
+        if (array[k] == 0 || k == 0) return array;
+        for (int i = 0; i <= k; i++)
         {
-            for (int i = 0; i < array.Length; i++)
-            {
-                a[i] = array[i];
-            }
-            a[array.Length] = P;
+            a[i] = array[i];
         }
+        if (k+1==array.Length) a[array.Length] = P;
         else
         {
-            for (int i = 0; i < k+1; i++)
-            {
-                a[i] = array[i];
-            }
-            a[k+1] = P;
-            for (int i = k + 1; i < array.Length; i++)
+            a[k + 1] = P;
+            for (int i = k+1; i < array.Length; i++)
             {
                 a[i+1] = array[i];
             }
         }
-        // end
-
         return a;
     }
     public double[] Task_2_12(double[] array)
     {
         // code here
-
+        
         // end
 
         return array;
@@ -900,13 +894,33 @@ public class Program
     }
     public double[] Task_3_14(double[] array)
     {
-        double[] normalizedArray = null;
+        double[] a = new double[array.Length];
 
         // code here
-
+        double m = array[0];
+        double n = array[0];
+        int x,y = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > m)
+            {
+                m = array[i];
+                x = i;
+            }
+            if (array[i] < n)
+            {
+                n = array[i];
+                y = i;
+            }
+        }
+        for (int i = 0; i < array.Length; i++)
+        {
+            a[i] = Math.Round((2 * (array[i] - n) / (m - n)) - 1, 2);
+        }
+        
         // end
 
-        return normalizedArray;
+        return a;
     }
     #endregion
 }
