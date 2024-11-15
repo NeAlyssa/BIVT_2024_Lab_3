@@ -14,7 +14,66 @@ public class Program
     public static void Main()
     {
         Program program = new Program();
-        program.Task_3_13(new double[]{ -1, -2, -8, -1, -9, -1, -1, -4, -6, -2 });
+
+        int[] a = new int[]{2, 4, 3, 1, 5};
+
+        foreach (int member in a){
+            System.Console.WriteLine(member);
+        }
+
+
+        for (int i = 1; i < a.Length; i++){
+            var key = a[i];
+            int j = i-1;
+            while (j >= 0 && a[j] > key){
+                a[j+1] = a[j];
+                j--;
+            }
+            a[j+1] = key;
+        }
+
+
+        // for (int i = 1, j = 2; i < a.Length;){
+        //     if (i==0 || a[i]>=a[i-1]){
+        //         i=j;
+        //         j++;
+        //     }
+        //     else{
+        //         int tmp = a[i];
+        //         a[i] = a[i-1];
+        //         a[i-1] = tmp;
+        //         i--;
+        //     }
+        // }
+
+
+        // for (int i = 1; i < a.Length; ){
+        //     if (i == 0 || a[i-1] <= a[i]){
+        //         i++;
+        //     }
+        //     else{
+        //         int tmp = a[i];
+        //         a[i] = a[i-1];
+        //         a[i-1] = tmp;
+        //         i--;
+        //     }
+        // }
+
+        // for (int i = 0; i < a.Length; i++){
+        //     for (int j = 0; j < a.Length-i-1; j++){
+        //         if (a[j] > a[j+1]){
+        //             int tmp = a[j+1];
+        //             a[j+1] = a[j];
+        //             a[j] = tmp;
+        //         }
+        //     }
+        // }
+
+        foreach (int memeber in a){
+            System.Console.WriteLine(memeber);
+        }
+
+        //program.Task_3_13(new double[]{ -1, -2, -8, -1, -9, -1, -1, -4, -6, -2 });
     }
     #region Level 1
     public double[] Task_1_1(double[] array)
