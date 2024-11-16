@@ -709,7 +709,7 @@ public class Program
     public double[] Task_3_3(double[] array)
     {
         // code here
-        double mx = -1e18; 
+        double mx = double.MinValue; 
         int mxpos = 0;
         for (int i = 0; i < array.Length; i++)
         {
