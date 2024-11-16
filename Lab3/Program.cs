@@ -597,19 +597,20 @@ public class Program
 
         // code here
         int ind_min = 0;
-        int start = 0;
+        int start = 1;
         for (int i = 0; i < array.Length; i++){
             if (array[i] < array[ind_min]){
                 ind_min = i;
             }
         }
-        for (int i = 0; i < array.Length; i++){
+
+        for (int i = 0; i < ind_min; i++){
             if (array[i] < 0){
-                if (i > ind_min) start = 1;
+                start = 0;
                 break;
             }
         }
-
+      
         for (int i = start; i < array.Length; i+=2){
             sum += array[i];
         }
@@ -625,18 +626,18 @@ public class Program
 
         // code here
         double max = -Double.MaxValue;
+        int count = 0;
         foreach (double val in array){
             if(val > max){
                 max = val;
+                count = 1;
+            }
+            else if (val == max){
+                count++;
             }
         }
-        int n = 0;
-        for (int i = 0; i < array.Length; i++){
-            if (array[i] == max){
-                n++;
-            }
-        }
-        output = new int[n];
+        
+        output = new int[count];
         for (int i = 0, j = 0; i < array.Length; i++){
             if (array[i] == max){
                 output[j] = i;
@@ -667,7 +668,14 @@ public class Program
     public double[] Task_3_4(double[] array)
     {
         // code here
-        double max = array.Max(), sum = 0;
+        double max = -Double.MaxValue, sum = 0;
+
+        foreach (double val in array){
+            if (val > max){
+                max = val;
+            }
+        }
+        
         for (int i = 0; i < array.Length; i++){
             sum += array[i];
             if (array[i] == max){
