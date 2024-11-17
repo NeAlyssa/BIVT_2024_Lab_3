@@ -202,10 +202,19 @@ public class Program
     }
     public double[] Task_1_11(double[] array)
     {
-        double[] output = new double[10];
+        
 
         // code here
         int j = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > 0)
+            {
+                j++;
+            }
+        }
+        double[] output = new double[j];
+        j = 0;
         for (int i = 0; i < array.Length; i++)
         {
             if (array[i] > 0)
@@ -320,7 +329,15 @@ public class Program
         {
             if (array[i] == num)
             {
-                array[i] = num * 2;
+                if (array[i] < 0)
+                {
+                    array[i] = num / 2;
+                }
+                else
+                {
+                    array[i] = num * 2;
+                }
+                
             }
         }
 
@@ -400,14 +417,29 @@ public class Program
                 i_max = i;
             }
         }
-        double[] num = new double[i_max - i_min - 1];
         int j = 0;
         for (int i = 0; i < array.Length; i++)
         {
             if(i > i_min && i < i_max)
             {
-                num[j] = array[i];
-                j++;
+                if(array[i] < 0)
+                {
+                    j++;
+                }
+            }
+        }
+        double[] num = new double[j];
+        j = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (i > i_min && i < i_max)
+            {
+                if (array[i] < 0)
+                {
+                    num[j] = array[i];
+                    j++;
+                }
+                
             }
         }
         // end 13
@@ -510,7 +542,7 @@ public class Program
         
         // end
 
-        return Math.Round(average, 2);
+        return average;
     }
     public double[] Task_2_10(double[] array)
     {
@@ -605,28 +637,38 @@ public class Program
         double[] output = new double[A.Length + B.Length] ;
 
         // code here ffff
-        for (int i = 0; i < A.Length; i++)
+        if (k < B.Length)
         {
-            if(i < k)
+
+            for (int i = 0; i < A.Length; i++)
             {
-                output[i] = A[i];
-            }
-            else if (i == k)
-            {
-                output[i] = A[i];
-                for (int j = 0; j < B.Length; j++)
+                if (i < k)
                 {
-                    output[i + j + 1] = B[j];
+                    output[i] = A[i];
                 }
+                else if (i == k)
+                {
+                    output[i] = A[i];
+                    for (int j = 0; j < B.Length; j++)
+                    {
+                        output[i + j + 1] = B[j];
+                    }
+                }
+                else
+                {
+                    output[i + B.Length] = A[i];
+                }
+                Console.WriteLine(output[i]);
             }
-            else
-            {
-                output[i + B.Length] = A[i];
-            }
+        return output;
+        }
+        else
+        {
+            return A;
         }
         // end
 
-        return output;
+        
     }
     public int[] Task_2_16(double[] array)
     {
@@ -687,7 +729,7 @@ public class Program
         }
         // end
 
-        return Math.Round(average, 2);
+        return average;
     }
     public double[] Task_2_18(double[] array)
     {
