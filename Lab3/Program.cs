@@ -755,11 +755,14 @@ public class Program
             if (array[i] == amax)
             {
                 k++;
+                
             }
             if (array [i] > amax)
             {
                 amax= array [i];
                 imax= i;
+                k = 1;
+                
             }
             
         }
