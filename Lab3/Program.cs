@@ -547,14 +547,13 @@ public class Program
             }
         }
       
-        if (negativeindex == -1) return 0;
 
         for (int i = 0; i < array.Length; i++)
         {
             if (i % 2 == 0) sumeven += array[i];
             else sumodd += array[i];
         }
-        if (negativeindex < minindex) return Math.Round(sumeven, 2);
+        if (negativeindex != -1 && negativeindex < minindex) return Math.Round(sumeven, 2);
         else return Math.Round(sumodd, 2);
         // end
     }
