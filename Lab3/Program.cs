@@ -14,7 +14,7 @@ public class Program
     public static void Main()
     {
         Program program = new Program();
-        program.Task_3_14(new double[] { -1, -2, -8, -1, -9, -1, -1, -4, -6, -2  });
+        program.Task_1_11(new double[] { 1.5, 1, 3, -2.2, -0.5   });
     }
     #region Level 1
     public double[] Task_1_1(double[] array)
@@ -116,7 +116,8 @@ public class Program
             length+=vector[i]* vector[i];
         }
         // end
-
+        length = Math.Round(Math.Sqrt(length),2);
+        Console.WriteLine(length);
         return Math.Round(length, 4); ;
     }
     public double[] Task_1_7(double[] array)
@@ -185,9 +186,14 @@ public class Program
     }
     public double[] Task_1_11(double[] array)
     {
-        double[] output = new double[10];
         int j =0;
+        int n=0;
         // code here
+        foreach (double x in array)
+        {
+            if (x>0) n++;
+        }
+        double[] output = new double[n];
         foreach(double x in array)
         {
             if (x>0)
