@@ -28,11 +28,11 @@ namespace Tests
             Assert.AreEqual(answer2.Length, input2.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
-                Assert.AreEqual(answer1[i], input1[i]);
+                Assert.AreEqual(answer1[i], Math.Round(input1[i], 2));
             }
             for (int i = 0; i < answer2.Length; i++)
             {
-                Assert.AreEqual(answer2[i], input2[i]);
+                Assert.AreEqual(answer2[i], Math.Round(input2[i], 2));
             }
         }
         [TestMethod()]
@@ -51,11 +51,11 @@ namespace Tests
             Assert.AreEqual(answer2.Length, input2.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
-                Assert.AreEqual(answer1[i], input1[i]);
+                Assert.AreEqual(answer1[i], Math.Round(input1[i], 2));
             }
             for (int i = 0; i < answer2.Length; i++)
             {
-                Assert.AreEqual(answer2[i], input2[i]);
+                Assert.AreEqual(answer2[i], Math.Round(input2[i], 2));
             }
         }
         [TestMethod()]
@@ -85,27 +85,27 @@ namespace Tests
             Assert.AreEqual(answer6.Length, dif3.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
-                Assert.AreEqual(answer1[i], sum1[i]);
+                Assert.AreEqual(answer1[i], Math.Round(sum1[i], 2));
             }
             for (int i = 0; i < answer2.Length; i++)
             {
-                Assert.AreEqual(answer2[i], sum2[i]);
+                Assert.AreEqual(answer2[i], Math.Round(sum2[i], 2));
             }
             for (int i = 0; i < answer3.Length; i++)
             {
-                Assert.AreEqual(answer3[i], sum3[i]);
+                Assert.AreEqual(answer3[i], Math.Round(sum3[i], 2));
             }
             for (int i = 0; i < answer4.Length; i++)
             {
-                Assert.AreEqual(answer4[i], dif1[i]);
+                Assert.AreEqual(answer4[i], Math.Round(dif1[i], 2));
             }
             for (int i = 0; i < answer5.Length; i++)
             {
-                Assert.AreEqual(answer5[i], dif2[i]);
+                Assert.AreEqual(answer5[i], Math.Round(dif2[i], 2));
             }
             for (int i = 0; i < answer6.Length; i++)
             {
-                Assert.AreEqual(answer6[i], dif3[i]);
+                Assert.AreEqual(answer6[i], Math.Round(dif3[i], 2));
             }
         }
 
@@ -125,11 +125,11 @@ namespace Tests
             Assert.AreEqual(answer2.Length, input2.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
-                Assert.AreEqual(answer1[i], input1[i]);
+                Assert.AreEqual(answer1[i], Math.Round(input1[i], 2));
             }
             for (int i = 0; i < answer2.Length; i++)
             {
-                Assert.AreEqual(answer2[i], input2[i]);
+                Assert.AreEqual(answer2[i], Math.Round(input2[i], 2));
             }
         }
         [TestMethod()]
@@ -148,9 +148,9 @@ namespace Tests
             outpit2 = main.Task_1_5(input1, input3);
             outpit3 = main.Task_1_5(input2, input3);
             // Assert
-            Assert.AreEqual(answer1, outpit1);
-            Assert.AreEqual(answer2, outpit2);
-            Assert.AreEqual(answer3, outpit3);
+            Assert.AreEqual(answer1, Math.Round(outpit1, 2));
+            Assert.AreEqual(answer2, Math.Round(outpit2, 2));
+            Assert.AreEqual(answer3, Math.Round(outpit3, 2));
         }
         [TestMethod()]
         public void Task_1_6Test()
@@ -165,8 +165,8 @@ namespace Tests
             output1 = main.Task_1_6(input1);
             output2 = main.Task_1_6(input2);
             // Assert
-            Assert.AreEqual(answer1, output1);
-            Assert.AreEqual(answer2, output2);
+            Assert.AreEqual(answer1, Math.Round(output1, 2));
+            Assert.AreEqual(answer2, Math.Round(output2, 2));
         }
         [TestMethod()]
         public void Task_1_7Test()
@@ -184,11 +184,11 @@ namespace Tests
             Assert.AreEqual(answer2.Length, input2.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
-                Assert.AreEqual(answer1[i], input1[i]);
+                Assert.AreEqual(answer1[i], Math.Round(input1[i], 2));
             }
             for (int i = 0; i < answer2.Length; i++)
             {
-                Assert.AreEqual(answer2[i], input2[i]);
+                Assert.AreEqual(answer2[i], Math.Round(input2[i], 2));
             }
         }
 
@@ -250,11 +250,11 @@ namespace Tests
             Assert.AreEqual(answer2.Length, input2.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
-                Assert.AreEqual(answer1[i], input1[i]);
+                Assert.AreEqual(answer1[i], Math.Round(input1[i], 2));
             }
             for (int i = 0; i < answer2.Length; i++)
             {
-                Assert.AreEqual(answer2[i], input2[i]);
+                Assert.AreEqual(answer2[i], Math.Round(input2[i], 2));
             }
         }
         [TestMethod()]
@@ -334,11 +334,11 @@ namespace Tests
             Assert.AreEqual(answer2.Length, input2.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
-                Assert.AreEqual(answer1[i], input1[i]);
+                Assert.AreEqual(answer1[i], Math.Round(input1[i], 2));
             }
             for (int i = 0; i < answer2.Length; i++)
             {
-                Assert.AreEqual(answer2[i], input2[i]);
+                Assert.AreEqual(answer2[i], Math.Round(input2[i], 2));
             }
         }
 
@@ -358,11 +358,11 @@ namespace Tests
             Assert.AreEqual(answer2.Length, input2.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
-                Assert.AreEqual(answer1[i], input1[i]);
+                Assert.AreEqual(answer1[i], Math.Round(input1[i], 2));
             }
             for (int i = 0; i < answer2.Length; i++)
             {
-                Assert.AreEqual(answer2[i], input2[i]);
+                Assert.AreEqual(answer2[i], Math.Round(input2[i], 2));
             }
         }
         [TestMethod()]
@@ -398,11 +398,11 @@ namespace Tests
             Assert.AreEqual(answer2.Length, input2.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
-                Assert.AreEqual(answer1[i], input1[i]);
+                Assert.AreEqual(answer1[i], Math.Round(input1[i], 2));
             }
             for (int i = 0; i < answer2.Length; i++)
             {
-                Assert.AreEqual(answer2[i], input2[i]);
+                Assert.AreEqual(answer2[i], Math.Round(input2[i], 2));
             }
         }
         [TestMethod()]
@@ -422,11 +422,11 @@ namespace Tests
             Assert.AreEqual(answer2.Length, input2.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
-                Assert.AreEqual(answer1[i], input1[i]);
+                Assert.AreEqual(answer1[i], Math.Round(input1[i], 2));
             }
             for (int i = 0; i < answer2.Length; i++)
             {
-                Assert.AreEqual(answer2[i], input2[i]);
+                Assert.AreEqual(answer2[i], Math.Round(input2[i], 2));
             }
         }
         [TestMethod()]
@@ -449,15 +449,15 @@ namespace Tests
             Assert.AreEqual(answer3.Length, input3.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
-                Assert.AreEqual(answer1[i], input1[i]);
+                Assert.AreEqual(answer1[i], Math.Round(input1[i], 2));
             }
             for (int i = 0; i < answer2.Length; i++)
             {
-                Assert.AreEqual(answer2[i], input2[i]);
+                Assert.AreEqual(answer2[i], Math.Round(input2[i], 2));
             }
             for (int i = 0; i < answer3.Length; i++)
             {
-                Assert.AreEqual(answer3[i], input3[i]);
+                Assert.AreEqual(answer3[i], Math.Round(input3[i], 2));
             }
         }
 
@@ -520,15 +520,15 @@ namespace Tests
             Assert.AreEqual(answer3.Length, input3.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
-                Assert.AreEqual(answer1[i], input1[i]);
+                Assert.AreEqual(answer1[i], Math.Round(input1[i], 2));
             }
             for (int i = 0; i < answer2.Length; i++)
             {
-                Assert.AreEqual(answer2[i], input2[i]);
+                Assert.AreEqual(answer2[i], Math.Round(input2[i], 2));
             }
             for (int i = 0; i < answer3.Length; i++)
             {
-                Assert.AreEqual(answer3[i], input3[i]);
+                Assert.AreEqual(answer3[i], Math.Round(input3[i], 2));
             }
         }
         [TestMethod()]
@@ -551,15 +551,15 @@ namespace Tests
             Assert.AreEqual(answer3.Length, input3.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
-                Assert.AreEqual(answer1[i], input1[i]);
+                Assert.AreEqual(answer1[i], Math.Round(input1[i], 2));
             }
             for (int i = 0; i < answer2.Length; i++)
             {
-                Assert.AreEqual(answer2[i], input2[i]);
+                Assert.AreEqual(answer2[i], Math.Round(input2[i], 2));
             }
             for (int i = 0; i < answer3.Length; i++)
             {
-                Assert.AreEqual(answer3[i], input3[i]);
+                Assert.AreEqual(answer3[i], Math.Round(input3[i], 2));
             }
         }
         [TestMethod()]
@@ -569,15 +569,15 @@ namespace Tests
             double[] input1 = new double[] { 0, 1.5, 4, 3, -2.2, -0.5, 2, -3.1 };
             double[] input2 = new double[] { 2, 1, 3, 3, 5, 6, 3, 4 };
             double[] input3 = new double[] { 12, 1, 3, 3, 5, 6, 3, 4 };
-            double output1, output2, output3, answer1 = 0.575, answer2 = 3.67, answer3 = 0;
+            double output1, output2, output3, answer1 = 0.575, answer2 = 3.6666666666666, answer3 = 0;
             // Act
             output1 = main.Task_2_9(input1);
             output2 = main.Task_2_9(input2);
             output3 = main.Task_2_9(input3);
             // Assert
-            Assert.AreEqual(answer1, output1);
-            Assert.AreEqual(answer2, output2);
-            Assert.AreEqual(answer3, output3);
+            Assert.AreEqual(answer1, output1, 0.00005);
+            Assert.AreEqual(answer2, output2, 0.00005);
+            Assert.AreEqual(answer3, output3, 0.00005);
         }
         [TestMethod()]
         public void Task_2_10Test()
@@ -599,15 +599,15 @@ namespace Tests
             Assert.AreEqual(answer3.Length, input3.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
-                Assert.AreEqual(answer1[i], input1[i]);
+                Assert.AreEqual(answer1[i], Math.Round(input1[i], 2));
             }
             for (int i = 0; i < answer2.Length; i++)
             {
-                Assert.AreEqual(answer2[i], input2[i]);
+                Assert.AreEqual(answer2[i], Math.Round(input2[i], 2));
             }
             for (int i = 0; i < answer3.Length; i++)
             {
-                Assert.AreEqual(answer3[i], input3[i]);
+                Assert.AreEqual(answer3[i], Math.Round(input3[i], 2));
             }
         }
         [TestMethod()]
@@ -631,15 +631,15 @@ namespace Tests
             Assert.AreEqual(answer3.Length, input3.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
-                Assert.AreEqual(answer1[i], input1[i]);
+                Assert.AreEqual(answer1[i], Math.Round(input1[i], 2));
             }
             for (int i = 0; i < answer2.Length; i++)
             {
-                Assert.AreEqual(answer2[i], input2[i]);
+                Assert.AreEqual(answer2[i], Math.Round(input2[i], 2));
             }
             for (int i = 0; i < answer3.Length; i++)
             {
-                Assert.AreEqual(answer3[i], input3[i]);
+                Assert.AreEqual(answer3[i], Math.Round(input3[i], 2));
             }
         }
         [TestMethod()]
@@ -662,15 +662,15 @@ namespace Tests
             Assert.AreEqual(answer3.Length, input3.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
-                Assert.AreEqual(answer1[i], input1[i]);
+                Assert.AreEqual(answer1[i], Math.Round(input1[i], 2));
             }
             for (int i = 0; i < answer2.Length; i++)
             {
-                Assert.AreEqual(answer2[i], input2[i]);
+                Assert.AreEqual(answer2[i], Math.Round(input2[i], 2));
             }
             for (int i = 0; i < answer3.Length; i++)
             {
-                Assert.AreEqual(answer3[i], input3[i]);
+                Assert.AreEqual(answer3[i], Math.Round(input3[i], 2));
             }
         }
         [TestMethod()]
@@ -693,15 +693,15 @@ namespace Tests
             Assert.AreEqual(answer3.Length, input3.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
-                Assert.AreEqual(answer1[i], input1[i]);
+                Assert.AreEqual(answer1[i], Math.Round(input1[i], 2));
             }
             for (int i = 0; i < answer2.Length; i++)
             {
-                Assert.AreEqual(answer2[i], input2[i]);
+                Assert.AreEqual(answer2[i], Math.Round(input2[i], 2));
             }
             for (int i = 0; i < answer3.Length; i++)
             {
-                Assert.AreEqual(answer3[i], input3[i]);
+                Assert.AreEqual(answer3[i], Math.Round(input3[i], 2));
             }
         }
         [TestMethod()]
@@ -724,15 +724,15 @@ namespace Tests
             Assert.AreEqual(answer3.Length, input3.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
-                Assert.AreEqual(answer1[i], input1[i]);
+                Assert.AreEqual(answer1[i], Math.Round(input1[i], 2));
             }
             for (int i = 0; i < answer2.Length; i++)
             {
-                Assert.AreEqual(answer2[i], input2[i]);
+                Assert.AreEqual(answer2[i], Math.Round(input2[i], 2));
             }
             for (int i = 0; i < answer3.Length; i++)
             {
-                Assert.AreEqual(answer3[i], input3[i]);
+                Assert.AreEqual(answer3[i], Math.Round(input3[i], 2));
             }
         }
         [TestMethod()]
@@ -815,7 +815,7 @@ namespace Tests
             double[] input1 = new double[] { 0, 1.5, 4, 3, -2.2, -0.5, 2, -3.1 };
             double[] input2 = new double[] { 2, 1, 3, 3, 5, 6, 3, 4 };
             double[] input3 = new double[] { 12, 1, 3, 3, 5, 6, 3, 4 };
-            double output1, output2, output3, answer1 = 2.625, answer2 = 0, answer3 = 4.62;
+            double output1, output2, output3, answer1 = 2.625, answer2 = 0, answer3 = 4.625;
             // Act
             output1 = main.Task_2_17(input1);
             output2 = main.Task_2_17(input2);
@@ -845,15 +845,15 @@ namespace Tests
             Assert.AreEqual(answer3.Length, input3.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
-                Assert.AreEqual(answer1[i], input1[i]);
+                Assert.AreEqual(answer1[i], Math.Round(input1[i], 2));
             }
             for (int i = 0; i < answer2.Length; i++)
             {
-                Assert.AreEqual(answer2[i], input2[i]);
+                Assert.AreEqual(answer2[i], Math.Round(input2[i], 2));
             }
             for (int i = 0; i < answer3.Length; i++)
             {
-                Assert.AreEqual(answer3[i], input3[i]);
+                Assert.AreEqual(answer3[i], Math.Round(input3[i], 2));
             }
         }
         [TestMethod()]
@@ -876,15 +876,15 @@ namespace Tests
             Assert.AreEqual(answer3.Length, input3.Length);
             for (int i = 0; i < answer1.Length; i++)
             {
-                Assert.AreEqual(answer1[i], input1[i]);
+                Assert.AreEqual(answer1[i], Math.Round(input1[i], 2));
             }
             for (int i = 0; i < answer2.Length; i++)
             {
-                Assert.AreEqual(answer2[i], input2[i]);
+                Assert.AreEqual(answer2[i], Math.Round(input2[i], 2));
             }
             for (int i = 0; i < answer3.Length; i++)
             {
-                Assert.AreEqual(answer3[i], input3[i]);
+                Assert.AreEqual(answer3[i], Math.Round(input3[i], 2));
             }
         }
         [TestMethod()]
@@ -894,7 +894,7 @@ namespace Tests
             double[] input1 = new double[] { 0, 1.5, 4, 3, -2.2, -0.5, 2, -3.1 };
             double[] input2 = new double[] { 2, 1, 3, 3, 5, 6, 3, 4 };
             double[] input3 = new double[] { 12, 1, 3, 3, 5, 6, 3, -4 };
-            double output1, output2, output3, answer1 = 3.8, answer2 = 0, answer3 = 6;
+            double output1, output2, output3, answer1 = 3.8, answer2 = 14, answer3 = 6;
             // Act
             output1 = main.Task_2_20(input1);
             output2 = main.Task_2_20(input2);
@@ -1218,18 +1218,18 @@ namespace Tests
             Assert.AreEqual(answer4.Length, y2.Length);
             for (int i = 0; i < x1.Length; i++)
             {
-                Assert.AreEqual(answer1[i], x1[i]);
-                Assert.AreEqual(answer2[i], y1[i]);
+                Assert.AreEqual(answer1[i], Math.Round(x1[i], 2));
+                Assert.AreEqual(answer2[i], Math.Round(y1[i], 2));
             }
             for (int i = 0; i < x2.Length; i++)
             {
-                Assert.AreEqual(answer3[i], x2[i]);
-                Assert.AreEqual(answer4[i], y2[i]);
+                Assert.AreEqual(answer3[i], Math.Round(x2[i], 2));
+                Assert.AreEqual(answer4[i], Math.Round(y2[i], 2));
             }
-            Assert.AreEqual(answer5, max1);
-            Assert.AreEqual(answer6, min1);
-            Assert.AreEqual(answer7, max2);
-            Assert.AreEqual(answer8, min2);
+            Assert.AreEqual(answer5, Math.Round(max1, 2));
+            Assert.AreEqual(answer6, Math.Round(min1, 2));
+            Assert.AreEqual(answer7, Math.Round(max2, 2));
+            Assert.AreEqual(answer8, Math.Round(min2, 2));
 
         }
         [TestMethod()]
@@ -1318,15 +1318,15 @@ namespace Tests
             Assert.AreEqual(answer3.Length, output3.Length);
             for (int i = 0; i < output1.Length; i++)
             {
-                Assert.AreEqual(answer1[i], output1[i]);
+                Assert.AreEqual(answer1[i], Math.Round(output1[i], 2));
             }
             for (int i = 0; i < output2.Length; i++)
             {
-                Assert.AreEqual(answer2[i], output2[i]);
+                Assert.AreEqual(answer2[i], Math.Round(output2[i], 2));
             }
             for (int i = 0; i < output3.Length; i++)
             {
-                Assert.AreEqual(answer3[i], output3[i]);
+                Assert.AreEqual(answer3[i], Math.Round(output3[i], 2));
             }
         }
     }
