@@ -681,7 +681,7 @@ public class Program
         double sum = 0;
 
         // code here
-        /*double mini = double.MaxValue;
+        double mini = double.MaxValue;
         int ind1 = 0;
         int ind2 = 0;
         for (int i = 0; i < array.Length; i++)
@@ -727,42 +727,6 @@ public class Program
                     }
                 }
                 break;
-            }
-        }
-        Console.WriteLine(sum);*/
-        double otr = -10000000;
-        int indexotr = 0;
-        double min = 1000000;
-        int indexmin = 0;
-        for (int i = 0; i < array.Length; i++)
-        {
-            if (array[i] < 0)
-            {
-                otr = array[i];
-                indexotr = i;
-                break;
-            }
-        }
-        for (int i = 0; i < array.Length; i++)
-        {
-            if (array[i] < min)
-            {
-                min = array[i];
-                indexmin = i;
-            }
-        }
-        if (indexotr < indexmin)
-        {
-            for (int i = 0; i < array.Length; i += 2)
-            {
-                sum += array[i];
-            }
-        }
-        else
-        {
-            for (int i = 1; i < array.Length; i += 2)
-            {
-                sum += array[i];
             }
         }
         Console.WriteLine(sum);
