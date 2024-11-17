@@ -741,7 +741,6 @@ public class Program
             }
         }
 
-        if (firstNegativeIndex == -1) return sum;
         if (firstNegativeIndex != -1 && firstNegativeIndex < minIndex)
         {
             for (int i = 0; i < array.Length; i += 2)
