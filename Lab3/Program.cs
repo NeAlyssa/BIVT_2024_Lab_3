@@ -711,30 +711,28 @@ public class Program
             }
         }
 
-        if(indexFirst != -1)
+        for (int i = 0; i < array.Length; i++)
         {
-            for(int i = 0; i < array.Length; i++)
+            if (array[i] < min)
             {
-                if (array[i] < min)
-                {
-                    min = array[i];
-                    indexMin = i;
-                }
+                min = array[i];
+                indexMin = i;
             }
+        }
 
-            if(indexFirst < indexMin)
+        if (indexFirst != -1 && indexFirst < indexMin)
+        {
+            for (int i = 0; i < array.Length; i++)
             {
-                for(int i = 0; i < array.Length; i++)
-                {
-                    if (i % 2 == 0) sum += array[i];
-                }
+                if (i % 2 == 0) sum += array[i];
             }
-            else
+        }
+
+        else
+        {
+            for (int i = 0; i < array.Length; i++)
             {
-                for (int i = 0; i < array.Length; i++)
-                {
-                    if (i % 2 != 0) sum += array[i];
-                }
+                if (i % 2 != 0) sum += array[i];
             }
         }
         // end
