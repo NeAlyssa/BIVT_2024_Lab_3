@@ -618,7 +618,7 @@ public class Program
                 return sum;
             }
         }
-        if (otr == -1) return 0;
+        
         for (int j = 1; j < array.Length; j += 2)
         {
             sum += array[j];
