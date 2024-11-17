@@ -226,7 +226,6 @@ public class Program
     {
         double value = 0;
         int index = -1;
-
         // code here
         for(int i = 0; i < array.Length; i++)
         {
@@ -547,6 +546,7 @@ public class Program
         {
             sum += array[i];
         }
+
         for(int i = 0; i < array.Length; i++) 
         {
             if (array[i] < 0)
@@ -555,6 +555,7 @@ public class Program
                 break;
             }
         }
+    
         // end
 
         return array;
