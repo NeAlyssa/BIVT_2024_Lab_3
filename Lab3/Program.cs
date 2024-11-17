@@ -31,11 +31,11 @@ public class Program
         //program.Task_1_13(new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 2, -1.9, 3.9, -0.1 });
         //program.Task_1_14(new double[] {  0, 1.5, 1, 3, -2.2, -0.5, 2, -1, 2, 2.5, -1.4 });
         //program.Task_1_15(new double[] {  0, 1.5, 1, 3, -2.2, -0.5, 2, 2, 3.1, -0.7});
-        //program.Task_2_10(new double[] { -5, -2, -8, -1, -9, -3, -7, -4, -6, -2 });
-        //program.Task_2_20(new double[] { 12, 1, 3, 3, 5, 6, 3, -4 });
+        //program.Task_2_10(new double[] { 5, 2, 8, 1, 9, 3, 7, 4, 6, 10 });
+        //program.Task_2_20(new double[] { 2, 1, 3, 3, 5, 6, 3, 4 });
         //program.Task_2_6(new double[] { 0, 1.5, -1, -3, -2.2, -0.5, 6 }, 2.3);
         //program.Task_2_16(new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 2 });
-        //program.Task_3_13(new double[] { 5, 2, 8, 1, 9, 3, 7, 4, 10 });
+        program.Task_3_1(new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 3 });
     }
     #region Level 1
     public double[] Task_1_1(double[] array)
@@ -206,21 +206,32 @@ public class Program
     }
     public double[] Task_1_11(double[] array)
     {
-        double[] output = new double[array.Length];
+        
         int cnt = 0;
+       
         // code here
         for (int i = 0; i<array.Length; i++)
         {
             if (array[i] > 0)
             {
-               
-                output[cnt] = array[i];
+
+                
                 cnt++;
             }
                 
         }
+        double[] output = new double[cnt];
+        int c = 0;
+        foreach(double el in array)
+        {
+            if (el > 0)
+            {
+                output[c++] = el;
+            }
+        }
+
         // end
-        Console.WriteLine(output);
+        foreach (double x in output) Console.WriteLine(x);
         return output;
     }
     public (double, int) Task_1_12(double[] array)
@@ -470,28 +481,35 @@ public class Program
         
         double minElem = double.MaxValue;
         int mini = 0;
+        int cnt = 0;
+        int n = 0;
         for (int i = 0; i < array.Length; i++)
         {
             if (array[i] < minElem && array[i]>0)
             {
                 minElem = array[i];
                 mini = i;
+                
             }
         }
         if (minElem != double.MaxValue)
         {
-            int n = array.Length - 1;
-            for (int i = mini; i < n; i++)
+            double[] output = new double[array.Length - 1];
+            for (int i = 0; i < array.Length; i++)
             {
-                array[i] = array[i + 1];
-
+                if (i < mini)
+                {
+                    output[i] = array[i];
+                }
+                else if (i > mini)
+                {
+                    output[i - 1] = array[i];
+                }
             }
+            array = output;
+            // end
         }
-       
-
-        // end
-        
-        return array;
+            return array;
     }
     public double[] Task_2_11(double[] array, double P)
     {
@@ -692,11 +710,11 @@ public class Program
             }
         }
         Console.WriteLine(flag);
-        if (minuscnt == 1)
+        if (minuscnt >=0)
         {
             if (flag)
             {
-                for (int k = 0; k < array.Length; k++)
+                for (int k = 0; k < array.Length; k+=2)
                 {
                     if (k % 2 == 0)
                         sum += array[k];
@@ -704,12 +722,17 @@ public class Program
             }
             else
             {
-                for (int k = 0; k < array.Length; k++)
+                for (int k = 1; k < array.Length; k+=2)
                 {
                     if (k % 2 != 0)
                         sum += array[k];
                 }
             }
+        }
+        else
+        {
+            for (int i = 0; i < array.Length; i += 2)
+                sum += array[i];
         }
         // code here
 
@@ -724,7 +747,7 @@ public class Program
         int[] a= new int[array.Length];
         double maxElem = double.MinValue;
         int k = 0;
-        
+        int n = 1;
         for(int i = 0; i < array.Length; i++)
         {
             if (array[i] > maxElem)
@@ -737,15 +760,18 @@ public class Program
             {
                 k++;
                 a[k] = i;
+                n++;
             }
         }
-       
-        
-        // code here
+        int[] output = new int[n];
+        for (int i = 0; i < output.Length; i++)
+            output[i] = a[i];
 
+        // code here
+        foreach (int x in output) Console.WriteLine(x);
         // end
 
-        return a;
+        return output;
     }
     public double[] Task_3_2(double[] array)
     {
