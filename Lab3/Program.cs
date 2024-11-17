@@ -14,12 +14,12 @@ public class Program
     public static void Main()
     {
         Program program = new Program();
-        int k1 = 1, k2 = 7;
+        /*int k1 = 1, k2 = 7;
         double[] A1 = new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 2 };
         double[] B1 = new double[] { 5, 2, 8, 1, 9, 10 };
         double[] A2 = new double[] { -5, -2, -8, -1, -6, -2 };
         double[] B2 = new double[] { 5, 2, 8, 1, 9, 10 };
-        program.Task_2_15(A1, B1, k2);
+        program.Task_2_15(A1, B1, k2);*/
     }
     #region Level 1
     public double[] Task_1_1(double[] array)
