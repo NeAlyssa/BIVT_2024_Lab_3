@@ -300,7 +300,7 @@ public class Program
     {
         // code here
         int index = 0;
-        double min_number = 1000000000000000;
+        double min_number = array[0];
         for (int i = 0; i < array.Length; i++)
         {
             if (array[i] < min_number)
@@ -309,7 +309,10 @@ public class Program
                 index = i;
             }
         }
-        array[index] *= 2;
+        if (array[index] > 0) 
+            array[index] *= 2;
+        else 
+            array[index] /= 2;
 
         // end
 
