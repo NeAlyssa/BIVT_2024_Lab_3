@@ -620,13 +620,13 @@ public class Program
                 break;
             }
         }
-
-        if (indexMinEl == -1 || indexNegative == -1) return 0;
         
-        if (indexMinEl > indexNegative) {
+        if (indexMinEl > indexNegative && indexMinEl != -1 && indexNegative != -1) {
             for (int i=0; i<array.Length; i+=2) sum += array[i];
+            Console.WriteLine((indexMinEl, indexNegative));
         } else {
             for (int i=1; i<array.Length; i+=2) sum += array[i];
+            Console.WriteLine((indexMinEl, indexNegative, "хуй"));
         }
         // end
 
