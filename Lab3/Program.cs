@@ -25,14 +25,14 @@ public class Program
         //program.Task_2_4(new double[] { 0, 1.5, -1, 3, -2.2, -0.5, 2 });
         //program.Task_2_6(new double[] { 0, 1.5, -1, -3, -2.2, -0.5, 6 }, 2.3);
         //program.Task_2_8(new double[] { 5, 2, 8, 1, 9, 3, 7, 4, 6, 10 });
-        //program.Task_2_10(new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 2 });
+        program.Task_2_10(new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 2 });
         //program.Task_2_12(new double[] { 2, 1, 3, 3, 5, 6 });
         //program.Task_2_14(new double[] { 2, 1, 3, 3, 5, 6 });
         //program.Task_2_14(new double[] { 2, 1, 3, 3, 5, 6 });
         //program.Task_2_18(new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 2 });
         //program.Task_2_20(new double[] { 12, 1, 3, 3, 5, 6, 3, -4 });
         //program.Task_3_1(new double[] { -1, -2, -8, -1, -9, -1, -1, -4, -6, -2 });
-        program.Task_3_4(new double[] { 5, 2, 8, 1, 9, 3, 7, 4, 10, 10 });
+        //program.Task_3_4(new double[] { 5, 2, 8, 1, 9, 3, 7, 4, 10, 10 });
         //program.Task_3_7(new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 3 });
         //program.Task_3_10(new double[] { 0, 1.5, 1, 3, 0, 0, 0, 0 });
         //program.Task_3_13(new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 3 });
@@ -494,15 +494,17 @@ public class Program
                 mini = i;
             }
         }
+        int len = array.Length;
         if (min != 10000000)
         {
             for (int i = mini + 1; i < array.Length; i++)
             {
                 array[i-1] = array[i];
             }
+            len = array.Length - 1;
         }
-        double[] arr = new double[array.Length-1];
-        for (int i = 0; i < array.Length - 1; i++)
+        double[] arr = new double[len];
+        for (int i = 0; i < len; i++)
             arr[i] = array[i];
         array = arr;
         foreach (double i in array)
