@@ -19,7 +19,7 @@ public class Program
         double[] B1 = new double[] { 5, 2, 8, 1, 9, 10 };
         double[] A2 = new double[] { -5, -2, -8, -1, -6, -2 };
         double[] B2 = new double[] { 5, 2, 8, 1, 9, 10 };
-        program.Task_2_15(A1,B1,k2);
+        program.Task_2_15(A1, B1, k2);
     }
     #region Level 1
     public double[] Task_1_1(double[] array)
@@ -124,7 +124,7 @@ public class Program
         length = Math.Sqrt(length);
         // end
 
-        return Math.Round(length, 2); 
+        return Math.Round(length, 2);
     }
     public double[] Task_1_7(double[] array)
     {
@@ -323,8 +323,15 @@ public class Program
             }
             i++;
         }
+        if (array[ind] < 0)
+        {
+            array[ind] /= 2;
+        }
+        else
+        {
+            array[ind] *= 2;
+        }
         // end
-        array[ind] *= 2;
         return array;
     }
     public double Task_2_2(double[] array)
@@ -405,9 +412,13 @@ public class Program
             indmin = indmax;
             indmax = (int)t;
         }
-        x = indmax - indmin - 1;
-        double[] arr = new double[x];
         int ind = 0;
+        for (int i = indmin + 1; i < indmax; i++)
+        {
+            if (array[i]<0) ind++;
+        }
+        double[] arr = new double[ind];
+        ind = 0;
         for (int i = indmin + 1; i < indmax; i++)
         {
             if (array[i] < 0)
@@ -417,7 +428,10 @@ public class Program
             ind++;
         }
         // end
-
+        foreach (int i in arr)
+        {
+            Console.WriteLine(i);
+        }
         return arr;
     }
     public double[] Task_2_6(double[] array, double P)
@@ -494,9 +508,8 @@ public class Program
         {
             average += array[i];
         }
-        average = Math.Round(average /= x, 4);
+        average /= x;
         if (x == 0) average = 0;
-        average = Math.Round(average, 2);
         // end
 
         return average;
@@ -591,10 +604,10 @@ public class Program
         double[] output = null;
 
         // code here
-        output = new double[A.Length + B.Length];
         int ind = 0;
         if (A.Length > k)
         {
+            output = new double[A.Length + B.Length];
             for (int i = 0; i <= k; i++)
             {
                 output[ind] = A[i];
@@ -605,7 +618,7 @@ public class Program
                 output[ind] = B[i];
                 ind++;
             }
-            for (int i = k+1; i < A.Length; i++)
+            for (int i = k + 1; i < A.Length; i++)
             {
                 output[ind] = A[i];
                 ind++;
@@ -613,14 +626,15 @@ public class Program
         }
         else
         {
+            output = new double[A.Length];
             for (int i = 0; i < A.Length; i++)
             {
                 output[i] = A[i];
             }
         }
         // end
-        //for(int i=0;i< output.Length;i++)
-        //    Console.WriteLine(output[i]);
+        for(int i=0;i< output.Length;i++)
+            Console.WriteLine(output[i]);
         return output;
     }
     public int[] Task_2_16(double[] array)
@@ -681,9 +695,8 @@ public class Program
         {
             average /= n;
         }
-        average = Math.Round(average,2);
         // end
-       
+
         return average;
     }
     public double[] Task_2_18(double[] array)
@@ -893,11 +906,12 @@ public class Program
     {
         // code here
         int n = 0, ind = 0;
-        double[] ost = new double[40];
+        
         foreach (double x in array)
         {
-            if (x > 0) n++;
+            if (x >= 0) n++;
         }
+        double[] ost = new double[n];
         for (int i = 0; i < array.Length; i++)
         {
             if (array[i] >= 0)
@@ -907,14 +921,9 @@ public class Program
 
             }
         }
-        array = new double[n];
-        for (int i = 0; i < n; i++)
-        {
-            array[i] = ost[i];
-        }
         // end
 
-        return array;
+        return ost;
     }
     public double[] Task_3_13(double[] array)
     {
