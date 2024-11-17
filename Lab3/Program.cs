@@ -223,7 +223,7 @@ public class Program
                 count++;
             }
         }
-        output = new double[array.Length];
+        output = new double[count];
         count = 0;
         for (int i = 0; i < array.Length; i++)
         {
@@ -770,7 +770,11 @@ public class Program
         }
         if (firstNegativeIndex == -1)
         {
-            return 0;
+            for (int i = 1; i < array.Length; i += 2)
+            {
+                sum += array[i];
+            }
+            return Math.Round(sum, 2);
         }
         int minimumIndex = -1;
         for (int i = 0; i < array.Length; i++)
@@ -780,7 +784,14 @@ public class Program
                 minimumIndex = i;
             }
         }
-         
+        if (minimumIndex == -1)
+        {
+            for (int i = 1; i < array.Length; i += 2)
+            {
+                sum += array[i];
+            }
+            return Math.Round(sum, 2);
+        }
         if (firstNegativeIndex < minimumIndex)
         {
             for (int i = 0; i < array.Length; i += 2) 
@@ -1000,7 +1011,7 @@ public class Program
 
         //return array;
     }
-    public double[] Task_3_13(double[] array)
+    public double[] Task_3_13(double[] array)            
     {
         // code here
 
