@@ -265,24 +265,27 @@ public class Program
     {
         // code here
         double len = array[1];
-        foreach (double i in array)
+        double min = array[0];
+        int nmin = 0;
+        for (int n = 0; n < array.Length; n++)
         {
-            if (i < len)
+            if (array[n] < min)
             {
-                len = i;
+                min = array[n];
+                nmin = n;
             }
         }
-        for (int j = 0; j < array.Length; j++)
+        if (array[nmin] > 0)
         {
-            if (array[j] == len)
-            {
-                array[j] *= 2;
-            }
+            array[nmin] *= 2;
         }
+        else
+        {
+            array[nmin] /= 2;
+        }
+        // end
 
-            // end
-
-            return array;
+        return array;
     }
     public double Task_2_2(double[] array)
     {
@@ -320,39 +323,44 @@ public class Program
     public double[] Task_2_5(double[] array)
     {
         // code here
-        double min = array[1], max = array[1];
-        int minIndex = 0, maxIndex = 0;
+        int nmin = 0;
+        int nmax = 0;
+        double max = array[0];
+        double min = array[0];
         for (int i = 0; i < array.Length; i++)
         {
-            if (array[i] < min)
-            {
-                min = array[i];
-                minIndex = i;
-            }
             if (array[i] > max)
             {
                 max = array[i];
-                maxIndex = i;
+                nmax = i;
+            }
+            if (array[i] < min)
+            {
+                min = array[i];
+                nmin = i;
             }
         }
-        int index = Math.Abs(minIndex - maxIndex - 1), d = 0;double [] h= new double[index];
-        if (minIndex < maxIndex)
+        int k = 0;
+        for (int j = Math.Min(nmin, nmax) + 1; j < Math.Max(nmin, nmax); j++)
         {
-            for (int i = minIndex + 1; i < maxIndex; i++)
+            if (array[j] < 0)
             {
-                if (array[i] < 0) { h[d] = array[i]; d++; }
+                k++;
             }
         }
-        else
+        double[] arraych = new double[k];
+        int g = 0;
+        for (int j = Math.Min(nmin, nmax) + 1; j < Math.Max(nmin, nmax); j++)
         {
-            for (int i = maxIndex + 1; i < minIndex; i++)
+            if (array[j] < 0)
             {
-                if (array[i] < 0) { h[d] = array[i]; d++; }
+                arraych[g] = array[j];
+                g++;
             }
         }
         // end
 
-        return h;
+        return arraych;
     }
     public double[] Task_2_6(double[] array, double P)
     {
@@ -426,7 +434,7 @@ public class Program
                 count++;
             }
 
-            average = Math.Round(sum / count, 2);
+            average = sum / count;
             
         }
         else
@@ -577,7 +585,7 @@ public class Program
         {
             average = countOtr == 0 ? 0 : sumOtr / countOtr;
         }
-        average = Math.Round(average, 2);
+        
         // end
 
         return average;
