@@ -14,7 +14,7 @@ public class Program
     public static void Main()
     {
         Program program = new Program();
-        program.Task_1_11(new double[] { 1.5, 1, 3, -2.2, -0.5   });
+        program.Task_2_20(new double[] { 0, 1.5, 4, 3, -2.2, -0.5, 2, -3.1/*  */ });
     }
     #region Level 1
     public double[] Task_1_1(double[] array)
@@ -675,8 +675,6 @@ public class Program
     public double Task_2_20(double[] array)
     {
         double sum = 0;
-
-        // code here
         int omin=-1;
         double amin=10000000000;
         int imin=0;
@@ -700,7 +698,10 @@ public class Program
                 for (int i=1;i<array.Length;i+=2) sum+=array[i];
             }
         }
-        // end
+        else
+        {
+            for (int i=1;i<array.Length;i+=2) sum+=array[i];
+        }
         Console.WriteLine(sum);
         return sum;
     }
@@ -942,10 +943,10 @@ public class Program
         // code here
 
         // end
-        foreach (double x in answer)
-        {
-            Console.WriteLine(x);
-        }
+        //foreach (double x in answer)
+        //{
+            //Console.WriteLine(x);
+        //}
         return answer;
     }
     #endregion
