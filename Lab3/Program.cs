@@ -432,7 +432,7 @@ public class Program
         return answer;
     }
     
-    }
+
     public double[] Task_2_6(double[] array, double P)
     {
         // code here
@@ -604,7 +604,7 @@ public class Program
     }
     public double[] Task_2_15(double[] A, double[] B, int k)
     {
-        double[] output = null;
+        
 
         // code here
         int c = 0;
