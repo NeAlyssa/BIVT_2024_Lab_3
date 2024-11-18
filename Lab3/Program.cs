@@ -613,7 +613,7 @@ public class Program
 
         // code here
         double amin = array[0];
-        int imin = 0, iotr = -100;
+        int imin = 0, iotr = 100;
         for (int i = 1; i < array.Length; i++)
         {
             if (array[i] < amin)
