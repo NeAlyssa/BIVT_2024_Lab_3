@@ -717,7 +717,7 @@ public class Program
 
         // code here
         int length = array.Length;
-        double index_minus = 0;
+        double index_minus = -1;
         double min_el = double.MaxValue;
         int index_min = -1;
 
@@ -737,7 +737,7 @@ public class Program
                 break;
             }
         }
-        if (index_minus < index_min)
+        if (index_minus < index_min && index_minus != -1)
         {
             for (int i = 0; i < length; i += 2)
             {
