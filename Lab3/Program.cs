@@ -702,7 +702,7 @@ public class Program
         }
         if(count == 0)
         {
-            for (int j = 0; j < array.Length; j += 2)
+            for (int j = 1; j < array.Length; j += 2)
             {
                 sum += array[j];
             }
