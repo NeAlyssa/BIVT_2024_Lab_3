@@ -458,23 +458,8 @@ public class Program
         double br = max;
         array[ind] = min;
         array[a] = br;
-        //for (int i = ind; i < array.Length; i++)
-        //{
-        //    if (i == a)
-        //    {
-                //        array[a] = max;
-                //    }
-                //    if (i == ind)
-                //    {
-                //        array[ind] = min;
-                //    }
-
-                //}
-
-
-
-
-          return array;
+     
+        return array;
     }
     public double Task_2_9(double[] array)
     {
@@ -761,26 +746,34 @@ public class Program
             }    
         }
 
-        if (minind < a)
-        {
-            for (int i = 0; i < array.Length; i+= 2) 
-            { 
-                sum += array[i];
-            }
-            return sum;
-        }
         if (minind == 999)
         {
-            return 0;
-        }
-        else
-        {
-            for (int i = 1; i < array.Length; i+= 2) 
+            for (int i = 1; i < array.Length; i += 2)
             {
                 sum += array[i];
             }
-            return sum;
+            
         }
+        if (minind != 999)
+        {
+            if (minind < a)
+            {
+                for (int i = 0; i < array.Length; i += 2)
+                {
+                    sum += array[i];
+                }
+                
+            }
+            else
+            {
+                for (int i = 1; i < array.Length; i += 2)
+                {
+                    sum += array[i];
+                }
+                
+            }
+        }
+        return sum;
     }
     #endregion
     #region Level 3
