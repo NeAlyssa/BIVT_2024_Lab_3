@@ -324,7 +324,11 @@ public class Program
         }
         for (int i = 0; i < n; i++)
         {
-            array[i] *= 2;
+            if (array[i] > 0)
+            {
+                array[i] *= 2;
+            }
+            else array[i]/= 2;
         }
 
         // end
@@ -349,11 +353,14 @@ public class Program
         {
             if (array[i] < array[min]) min = i;
             else max = i;
-            if (array[i] < 0) cnt++;
         }
-        double[] array2 = new double[cnt];
         int j = 0;
         for (int i = Math.Min(max,min)+1; i < Math.Max(max,min); i++)
+        {
+            if (array[i] < 0) cnt++;
+        }
+        double[]array2 = new double[cnt];
+        for (int i = Math.Min(max, min) + 1; i < Math.Max(max, min); i++)
         {
             if (array[i] < 0)
             {
@@ -382,7 +389,11 @@ public class Program
         }
         if (n < array.Length - 1)
         {
-            array[n + 1] *= 2;
+            if (array[n+1] > 0)
+            {
+                array[n + 1] *= 2;
+            }
+            else array[n + 1] /= 2;
         }
         
         // end
@@ -426,7 +437,7 @@ public class Program
         else return 0;
         // end
 
-        return Math.Round(average,2);
+        return average;
     }
     public double[] Task_2_10(double[] array)
     {
@@ -503,21 +514,24 @@ public class Program
     }
     public double[] Task_2_15(double[] A, double[] B, int k)
     {
-        double[] output = new double[A.Length+B.Length];
-
         // code here
+        double[] output = new double[A.Length + B.Length];
         int i = 0,j=0,n=0;
-        while (i < A.Length&&i<=k)
+        if (k >= A.Length) return A;
+        else
         {
-            output[n++] = A[i++];
-        }
-        while (j < B.Length)
-        {
-            output[n++] = B[j++];
-        }
-        while (i < A.Length)
-        {
-            output[n++] = A[i++];
+            while (i < A.Length && i <= k)
+            {
+                output[n++] = A[i++];
+            }
+            while (j < B.Length)
+            {
+                output[n++] = B[j++];
+            }
+            while (i < A.Length)
+            {
+                output[n++] = A[i++];
+            }
         }
         Console.WriteLine(output);
         // end
@@ -555,7 +569,7 @@ public class Program
                     cnt++;
                 }
             }
-            if (cnt > 0) return Math.Round(average / cnt, 2);
+            if (cnt > 0) return average / cnt;
             else return 0;
         }
         else
@@ -568,7 +582,7 @@ public class Program
                     cnt++;
                 }
             }
-            if (cnt > 0) return Math.Round(average / cnt, 2);
+            if (cnt > 0) return average / cnt;
             else return 0;
         }
 
