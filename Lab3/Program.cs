@@ -672,8 +672,11 @@ public class Program
                 min_index = i;
             }
         }
-        if (index == -1) 
-            return 0;
+        if (index == -1)
+        {
+            for (int i = 1; i < array.Length; i += 2) sum += array[i];
+            return sum;
+        }
         if (index < min_index)
         {
             for (int i = 0; i < array.Length; i += 2) sum += array[i]; 
