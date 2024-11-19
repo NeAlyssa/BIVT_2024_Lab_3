@@ -303,7 +303,11 @@ public class Program
         double sum = 0;
         double m = 0;
         // code here
-        m = array.Max();
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i]>m)
+                m = array[i];
+        }
         for (int i = 0; i < array.Length; i++)
         {
             if (array[i] != m)
@@ -729,7 +733,7 @@ public class Program
         }
         else
         {
-            for (int i = 0; i < array.Length; i += 2)
+            for (int i = 1; i < array.Length; i += 2)
                 sum += array[i];
         }
         // end
