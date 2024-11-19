@@ -682,8 +682,8 @@ public class Program
                 break;
             }
         }
-        if (array.Length == pos)
-            return sum;
+        //if (array.Length == pos)
+        //    return sum;
         if (pos < posm)
         {
             for (int i = 0; i < array.Length; i++)
