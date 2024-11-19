@@ -567,7 +567,7 @@ public class Program
                 m = i;
             }
         }
-        if (f < m || f == l)
+        if (f < m)
             for (int i = 0; i < l; i += 2)
             {
 
