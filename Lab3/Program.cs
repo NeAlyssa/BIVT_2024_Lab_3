@@ -334,7 +334,7 @@ public class Program
     {
         double nz = double.MaxValue;
         int nzi = -1;
-        for (int i = 0; i < array.Length; i+=2)
+        for (int i = 0; i < array.Length; i+=1)
         {
             if ((array[i] > 0) && (array[i] < nz))
             {
@@ -348,7 +348,7 @@ public class Program
             for (int i = 0; i < array.Length; i++) Console.Write($"{array[i]} ");
             return array;
         }
-
+        if (nzi < 0) return array;
         double[] narray = new double[array.Length-1];
         for (int i = 0; i < array.Length; i++)
         {
@@ -364,7 +364,7 @@ public class Program
         
         array = narray;
         for (int i = 0; i < array.Length; i++) Console.Write($"{array[i]} ");
-        return narray;
+        return array;
     }
     public double[] Task_2_11(double[] array, double P)
     {
