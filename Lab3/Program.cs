@@ -348,7 +348,7 @@ public class Program
             for (int i = 0; i < array.Length; i++) Console.Write($"{array[i]} ");
             return array;
         }
-        if (nzi < 0) return array;
+        
         double[] narray = new double[array.Length-1];
         for (int i = 0; i < array.Length; i++)
         {
