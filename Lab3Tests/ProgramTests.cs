@@ -1021,7 +1021,7 @@ namespace Tests
             double[] answer1 = new double[] { 1.5, 2, 2.5, 3 };
             double[] answer2 = new double[] { 1.57, 1.40, 0.7, -0.57};
             double[] answer3 = new double[] { -2.5, -1.88, -1.25, -0.62, 0, 0.62, 1.25, 1.88, 2.5 };
-            double[] answer4 = new double[] { 0.7, 1.49, 1.50, 1.17, 1, 1.17, 1.50, 1.49, 0.7};
+            double[] answer4 = new double[] { 0.7, 1.49, 1.50, 1.18, 1, 1.18, 1.50, 1.49, 0.7};
             double answer5 = 1.57, answer6 = -0.57, answer7 = 1.50, answer8 = 0.7;
             // Act
             (x1, y1, max1, min1) = main.Task_3_11(a1, b1, n1);
@@ -1078,10 +1078,10 @@ namespace Tests
             // Arrange
             double[] input1 = new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 3 };
             double[] input2 = new double[] { 5, 2, 8, 1, 9, 3, 7, 4, 10, 10 };
-            double[] input3 = new double[] { -1, -2, -8, -1, -9, -1, -1, -4, -6, -2 };
+            double[] input3 = new double[] { -1, -4, -8, -1, -9, -1, -1, -4, -2, -8 };
             double[] answer1 = new double[] { 0, 1.5, 1, 3, -2.2, -0.5 };
             double[] answer2 = new double[] { 5, 2, 8, 1, 9, 3, 7, 4, 10 };
-            double[] answer3 = new double[] { -1, -2, -8, -9, -4, -6, -2 };
+            double[] answer3 = new double[] { -1, -4, -8, -9, -2 };
             double[] output1, output2, output3;
             // Act
             output1 = main.Task_3_13(input1);
