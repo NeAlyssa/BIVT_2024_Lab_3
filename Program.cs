@@ -588,7 +588,46 @@ public class Program
     public double[] Task_2_19(double[] array)
     {
         // code here
-
+        double min = double.MaxValue;
+        int index1 = 0;
+        int index2 = 0;
+        int count = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] < min)
+            {
+                min = array[i];
+                index1 = i;
+            }
+        }
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] < 0)
+                count++;
+        }
+        if (count == 0)
+        {
+            for (int j = 1; j < array.Length; j += 2)
+                sum += array[j];
+        }
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] < 0)
+            {
+                index2 = i;
+                if (index2 < index1 && count != 0)
+                {
+                    for (int j = 0; j < array.Length; j += 2)
+                        sum += array[j];
+                }
+                else
+                {
+                    for (int j = 1; j < array.Length; j += 2)
+                        sum += array[j];
+                }
+                break;
+            }
+        }
         // end
 
         return array;
@@ -598,35 +637,7 @@ public class Program
         double sum = 0;
 
         // code here
-        int g = -1;
-        for (int i = 0; i < array.Length; i++)
-        {
-            if (array[i] < 0)
-            {
-                g = i;
-                break;
-            }
-        }
-        double min = double.MaxValue;
-        int r = -1;
-        for (int j = 0; j < array.Length; j++)
-        {
-            if (array[j] < min)
-            {
-                min = array[j];
-                r = j;
-            }
-        }
-        if (g >= 0)
-        {
-            if (r > g)
-            {
-                for (int k = 0; k < array.Length; k += 2)
-                    sum += array[k];
-            }
-            else for (int w = 1; w < array.Length; w += 2)
-                    sum += array[w];
-        }
+        
         // end
 
         return sum;
