@@ -769,9 +769,9 @@ public class Program
         double sum = 0;
 
         // code here
-        double min = 1100;
-        int mini = -1;
-        int otri = -1;
+        double min = double.MaxValue;
+        int mini = 0;
+        int otri = int.MaxValue;
         for (int i = 0; i < array.Length; i++)
         {
             if (array[i] < min)
@@ -793,7 +793,7 @@ public class Program
             for (int i = 0; i < array.Length; i += 2)
                 sum += array[i];
         }
-        else  
+        else 
         {
             for (int i = 1; i < array.Length; i += 2)
                 sum += array[i];
