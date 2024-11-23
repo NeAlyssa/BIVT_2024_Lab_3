@@ -196,7 +196,16 @@ public class Program
 
         // code here
         int count = 0;
-        for (int i = 0;i < 10; ++i)
+        for (int i = 0; i < 10; ++i)
+        {
+            if (array[i] > 0)
+            {
+                count++;
+            }
+        }
+        output = new double[count];
+        count = 0;
+        for (int i = 0; i < 10; ++i)
         {
             if (array[i] > 0)
             {
@@ -208,6 +217,7 @@ public class Program
 
         return output;
     }
+
     public (double, int) Task_1_12(double[] array)
     {
         double value = 0;
@@ -300,7 +310,14 @@ public class Program
                 nom = i;
             }
         }
-        array[nom] *= 2;
+        if (array[nom] > 0)
+        {
+            array[nom] *= 2;
+        }
+        else
+        {
+            array[nom] /= 2;
+        }
         // end
 
         return array;
@@ -376,9 +393,18 @@ public class Program
             index2 = index1;
             index1 = p;
         }
+        for (int i = index1 + 1; i < index2; ++i)
+        {
+            if (s[i] < 0)
+            {
+                count++;
+            }
+        }
+        array = new double[count];
+        count = 0;
         for (int i = index1 + 1;i < index2; ++i)
         {
-            if (array[i] < 0)
+            if (s[i] < 0)
             {
                 array[count] = s[i];
                 count++;
@@ -550,15 +576,15 @@ public class Program
         // code here
         if (k  < A.Length)
         {
-            for (int i = 0; i < k; i++)
+            for (int i = 0; i <= k; i++)
             {
                 output[i] = A[i];
             }
             for (int i = 0;i <  B.Length; i++)
             {
-                output[i+k] = B[i];
+                output[i+k+1] = B[i];
             }
-            for (int i = k; i < A.Length; i++)
+            for (int i = k + 1; i < A.Length; i++)
             {
                 output[i + B.Length] = A[i];
             }
