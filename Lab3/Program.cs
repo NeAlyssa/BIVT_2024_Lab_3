@@ -317,20 +317,20 @@ public class Program
     public double[] Task_2_1(double[] array)
     {
         // code here
-        double m = 12345678900987654321;
         int index = 0;
-        for (int i = 0; i < array.Length; i++)
+
+        for (int i = 1; i < array.Length; i++)
         {
-            if (array[i] < m)
+            if (array[i] < array[index])
             {
                 index = i;
-                m = array[i];
             }
         }
         array[index] *= 2;
-        // end
+        //end
 
         return array;
+        
     }
     public double Task_2_2(double[] array)
     {
@@ -376,40 +376,71 @@ public class Program
     public double[] Task_2_5(double[] array)
     {
         // code here
-        double mini = 12345678900987654321;
-        double maxi = -12345678900987;
-        int minindex = 0;
-        int maxindex = 0;
-        for (int i = 0; i < array.Length; i++)
+        int minindex = 0, maxindex = 0;
+        int l = 0;
+
+       
+        for (int i = 1; i < array.Length; i++)
         {
-            if (array[i] < mini)
+            if (array[i] < array[minindex])
             {
                 minindex = i;
-                mini = array[i];
             }
+            
         }
-        for (int i = 0; i < array.Length; i++)
+        for (int i = 1; i < array.Length; i++)
         {
-            if (array[i] > maxi)
+            if (array[i] > array[maxindex])
             {
                 maxindex = i;
-                maxi = array[i];
             }
-        }
-        double[] negativeArray = new double[Math.Max(maxindex, minindex) - Math.Min(minindex, maxindex) - 1];
-        int count = 0;
-        for (int i = Math.Min(minindex, maxindex) + 1; i < Math.Max(minindex, maxindex); i++)
-        {
-            if (array[i] < 0)
-            {
-                negativeArray[count] = array[i];
-                count++;
-            }
-        }
-        array = negativeArray;
-        // end
 
-        return array;
+        }
+        
+        if (maxindex > minindex)
+        {
+            for(int i = minindex + 1; i < maxindex; i++)
+            {
+                if (array[i] < 0) l++;
+            }
+        }
+        if (maxindex < minindex)
+        {
+            for (int i = maxindex + 1; i < minindex; i++)
+            {
+                if (array[i] < 0) l++;
+            }
+        }
+
+
+        double[] negativeArray = new double[l];
+
+        int count = 0;
+        if (maxindex > minindex)
+        {
+            for (int i = minindex + 1; i < maxindex; i++)
+            {
+                if (array[i] < 0)
+                {
+                    negativeArray[count] = array[i];
+                    count++;
+                }
+            }
+        }
+        if (maxindex < minindex)
+        {
+            for (int i = maxindex + 1; i < minindex; i++)
+            {
+                if (array[i] < 0)
+                {
+                    negativeArray[count] = array[i];
+                    count++;
+                }
+            }
+        }
+       
+
+        return negativeArray;
     }
     public double[] Task_2_6(double[] array, double P)
     {
@@ -486,7 +517,7 @@ public class Program
         }
         if (count == 0) return 0;
         average = sum / count;
-        average = Math.Round(average, 2);
+        
         
        
         // end
@@ -657,7 +688,7 @@ public class Program
         }
         if (count == 0) return average;
         average = sum/count;
-        average = Math.Round(average, 2);
+        
 
         // end
 
