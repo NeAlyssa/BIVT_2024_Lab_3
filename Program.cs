@@ -588,6 +588,18 @@ public class Program
     public double[] Task_2_19(double[] array)
     {
         // code here
+    
+        
+        // end
+
+        return sum;
+    }
+
+    public double Task_2_20(double[] array)
+    {
+        double sum = 0;
+    
+        // code here
         double min = double.MaxValue;
         int index1 = 0;
         int index2 = 0;
@@ -629,17 +641,7 @@ public class Program
             }
         }
         // end
-
-        return array;
-    }
-    public double Task_2_20(double[] array)
-    {
-        double sum = 0;
-
-        // code here
-        
-        // end
-
+    
         return sum;
     }
     #endregion
