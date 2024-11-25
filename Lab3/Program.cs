@@ -26,16 +26,16 @@ public class Program
     {
         // code here
         double s = 0;
-        for (int i = 0; i < 6; i ++)
+        for (int i = 0; i < 6; i++)
         {
             s += array[i];
         }
-        for (int i = 0; i < 6; i ++)
+        for (int i = 0; i < 6; i++)
         {
-            array[i] = Math.Round(array[i]/s, 2);
+            array[i] = Math.Round(array[i] / s, 2);
         }
         // end
-        
+
         return array;
     }
     public double[] Task_1_2(double[] array)
@@ -89,7 +89,7 @@ public class Program
         double sr = Math.Round(sum / 5, 2);
         for (int i = 0; i < 5; i++)
         {
-            array[i] = Math.Round(array[i]-sr, 2);
+            array[i] = Math.Round(array[i] - sr, 2);
         }
         // end
 
@@ -173,7 +173,6 @@ public class Program
             if (array[i] > sr) count++;
         }
         // end
-
         return count;
     }
     public int Task_1_10(double[] array, int P, int Q)
@@ -198,7 +197,7 @@ public class Program
         {
             if (array[i] > 0)
             {
-                count ++;
+                count++;
             }
         }
         int countOut = 0;
@@ -208,7 +207,7 @@ public class Program
             if (array[i] > 0)
             {
                 output[countOut] = array[i];
-                countOut ++;
+                countOut++;
             }
         }
         // end
@@ -236,7 +235,7 @@ public class Program
     public (double[], double[]) Task_1_13(double[] array)
     {
         double[] even = new double[array.Length / 2];
-        double[] odd = new double[array.Length/2];
+        double[] odd = new double[array.Length / 2];
 
         // code here
         int evenI = 0;
@@ -362,7 +361,6 @@ public class Program
             array[i] = sr;
         }
         // end
-
         return array;
     }
     public double[] Task_2_5(double[] array)
@@ -390,7 +388,7 @@ public class Program
         {
             if (Math.Abs(array[i] - sr) < minDif)
             {
-                minDif = Math.Abs(array[i]-sr);
+                minDif = Math.Abs(array[i] - sr);
                 index = i;
             }
         }
@@ -474,7 +472,7 @@ public class Program
                 if (array[i] < minElement)
                 {
                     minElement = array[i];
-                }          
+                }
             }
         }
         if (minElement == 10000000) return array;
@@ -548,7 +546,6 @@ public class Program
     public double[] Task_2_13(double[] array)
     {
         // code here
-
         // end
 
         return array;
@@ -681,7 +678,7 @@ public class Program
             {
                 array[i] = 0;
             }
-        } 
+        }
         else
         {
             for (int i = array.Length / 2; i < array.Length; i++)
@@ -706,7 +703,7 @@ public class Program
         double sum = 0;
 
         // code here
-        int indexOtric = -111;
+        int indexOtric = -1;
         for (int i = 0; i < array.Length; i++)
         {
             if (array[i] < 0)
@@ -715,10 +712,9 @@ public class Program
                 break;
             }
         }
-        if (indexOtric == -111) return sum;
 
-        int indexMinim = -111;
-        double minElement = 100000;
+        int indexMinim = -1;
+        double minElement = 100000000;
         for (int i = 0; i < array.Length; i++)
         {
             if (array[i] < minElement)
@@ -727,8 +723,8 @@ public class Program
                 indexMinim = i;
             }
         }
-
-        if (indexMinim > indexOtric)
+        
+        if (indexMinim > indexOtric && indexOtric != -1)
         {
             for (int i = 0; i < array.Length; i++)
             {
@@ -781,7 +777,7 @@ public class Program
         }
         if (indexMax == -1) return array;
 
-        for (int i = 0; i < indexMax - 1; i +=2)
+        for (int i = 0; i < indexMax - 1; i += 2)
         {
             double dop = array[i];
             array[i] = array[i + 1];
@@ -918,8 +914,7 @@ public class Program
         // code here
 
         // end
-
-        return (X, Y, globalMax,globalMin);
+        return (X, Y, globalMax, globalMin);
     }
     public double[] Task_3_12(double[] array)
     {
