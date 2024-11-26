@@ -495,7 +495,6 @@ public class Program
         {
             average = sum / (index2 - index1 - 1);
         }
-        average = Math.Round(average,2);
         // end
 
         return average;
@@ -665,7 +664,6 @@ public class Program
                 average = 0;
             }
         }
-        average = Math.Round(average, 2);
         // end
 
         return average;
@@ -853,7 +851,7 @@ public class Program
         double min = double.MaxValue;
         for (int i = 0; i < n; i++)
         {
-            X[i] = Math.Round(a + i * (b - a) / (n - 1), 2);
+            X[i] = a + i * (b - a) / (n - 1);
             per = Math.Cos(X[i]) + X[i] * Math.Sin(X[i]);
             Y[i] = Math.Round(per, 2);
 
