@@ -335,7 +335,15 @@ public class Program
                 minIndex = i;
             }
         }
-        array[minIndex] *= 2;
+
+        if (minValue < 0)
+        {
+            array[minIndex] /= -2; 
+        }
+        else
+        {
+            array[minIndex] *= 2;  
+        }
         //end
 
         return array;
