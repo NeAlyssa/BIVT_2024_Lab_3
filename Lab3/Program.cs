@@ -13,7 +13,13 @@ public class Program
     public static void Main()
     {
         Program program = new Program();
-        double[] x = program.Task_3_10(new double[] { 5, 2, 8, 1, 9, 0, 0, 0, 0, 0 });
+        double[] x = program.Task_3_4(new double[] { 0, 1.5, 1, 3, -2.2, -0.5, 3 });
+    }
+
+    public double increase(double x)
+    {
+        if (x >= 0) return x * 2.0;
+        else return x / 2.0;
     }
     #region Level 1
     public double[] Task_1_1(double[] array)
@@ -150,7 +156,7 @@ public class Program
     {
         double[] y = new double[x.Length];
 
-        for (int i = 0; i < y.Length; i++) if (x[i] > 0) y[i] = Math.Round(Math.Log(x[i]), 2); else y[i] = double.NaN;
+        for (int i = 0; i < y.Length; i++) if (x[i] > 0) y[i] = Math.Log(x[i]) / 2; else y[i] = double.NaN;
 
         return y;
     }
@@ -163,7 +169,7 @@ public class Program
 
         for (int i = 1; i < array.Length; i++) if (array[i] < array[index_mini]) index_mini = i;
 
-        array[index_mini] *= 2;
+        array[index_mini] = increase(array[index_mini]);
 
         return array;
     }
@@ -183,7 +189,7 @@ public class Program
 
         for (int i = 1; i < array.Length; i++) if (array[i] < array[index_mini]) index_mini = i;
 
-        for (int i = 0; i < index_mini; i++) array[i] *= 2;
+        for (int i = 0; i < index_mini; i++) array[i] = increase(array[i]);
 
         return array;
     }
@@ -233,7 +239,7 @@ public class Program
             if (array[i] > array[index_maxi]) index_maxi = i;
         }
 
-        if (index_maxi != array.Length - 1) array[index_maxi + 1] *= 2;
+        if (index_maxi != array.Length - 1) array[index_maxi + 1] = increase(array[index_maxi + 1]);
 
         return array;
     }
@@ -310,6 +316,10 @@ public class Program
     }
     public double[] Task_2_15(double[] A, double[] B, int k)
     {
+        if (k >= A.Length)
+        {
+            return A;
+        }
         double[] output = new double[A.Length + B.Length];
 
         int cur = 0;
@@ -442,16 +452,15 @@ public class Program
 
         for (int i = 1; i < array.Length; i++)
         {
-            if (array[i] > array[index_maxi]) index_maxi = i;
+            if (array[i] >= array[index_maxi]) index_maxi = i;
         }
 
         double sumi = 0;
 
-        for (int i = 0; i < array.Length; i++)
+        for (int j = 0; j < array.Length; j++)
         {
-            Console.WriteLine(sumi);
-            if (array[i] == array[index_maxi]) { array[i] = sumi; }
-            sumi += array[i];
+            sumi += array[j];
+            if (array[j] == array[index_maxi]) { array[j] = sumi - array[j]; }
         }
 
         return array;
