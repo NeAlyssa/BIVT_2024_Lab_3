@@ -326,7 +326,15 @@ public class Program
                 index = i;
             }
         }
-        array[index] *= 2;
+        if (array[index] >= 0)
+        {
+            array[index] *= 2;
+        }
+        else
+        {
+            array[index] /= 2;
+        }
+        
         //end
 
         return array;
