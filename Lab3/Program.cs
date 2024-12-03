@@ -344,12 +344,19 @@ public class Program
                 difference = Math.Abs(average - array[i]);
             }
         }
-        Array.Resize(ref array, array.Length + 1);
-        Array.Copy(array, num, array, num + 1, array.Length - num - 1);
-        array[num] = P;
-        
-        
-        return array;
+        double[] newarray = new double[array.Length + 1];
+        double[] secondhalf = new double[array.Length - num];
+        for (int i = 0; i < num; i++)
+        {
+            newarray[i] = array[i];
+        }
+        newarray[num] = P;
+        for (int i = num + 1; i < newarray.Length; i++)
+        {
+            newarray[i] = array[i - 1];
+        }
+
+        return newarray;
     }
     public double[] Task_2_7(double[] array)
     {
