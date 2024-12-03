@@ -660,9 +660,44 @@ public class Program
     }
     public double[] Task_3_3(double[] array)
     {
-        // code here
+        int duos = 0;
+        double max = -99999; int max_index = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > max)
+            {
+                max = array[i];
+                max_index = i;
+            }
+        }
 
-        // end
+        if ((max_index + 1) % 2 == 0)
+        {
+            duos += (max_index + 1) / 2;
+        }
+        else
+        {
+            duos += max_index / 2;
+        }
+
+        if (max_index % 2 != 0)
+        {
+            duos -= 1;
+        }
+
+        if (duos > 0)
+        {
+            for (int i = 0; i < duos; i++)
+            {
+                double x = array[i * 2];
+                array[i * 2] = array[i * 2 + 1];
+                array[i * 2 + 1] = x;
+            }
+        }
+        else
+        {
+            return array;
+        }
 
         return array;
     }
@@ -684,11 +719,20 @@ public class Program
     }
     public int Task_3_6(double[] array)
     {
-        int count = 0;
+        int count = 0; int local_count = 1;
 
-        // code here
-
-        // end
+        for (int index = 0; index < array.Length - 1; index++)
+        {
+            if (array[index] > array[index + 1])
+            {
+                local_count++;
+                count = Math.Max(count, local_count);
+            }
+            else
+            {
+                local_count = 1;
+            }
+        }
 
         return count;
     }
@@ -742,11 +786,33 @@ public class Program
     }
     public int Task_3_9(double[] array)
     {
-        int count = 0;
 
-        // code here
+        int count = 0; int local_count = 1;
 
-        // end
+        for (int index = 0; index < array.Length - 1; index++)
+        {
+            if (array[index] > array[index + 1])
+            {
+                local_count++;
+                count = Math.Max(count, local_count);
+            }
+            else
+            {
+                local_count = 1;
+            }
+        }
+        for (int index = 0; index < array.Length - 1; index++)
+        {
+            if (array[index] < array[index + 1])
+            {
+                local_count++;
+                count = Math.Max(count, local_count);
+            }
+            else
+            {
+                local_count = 1;
+            }
+        }
 
         return count;
     }
@@ -771,11 +837,26 @@ public class Program
     }
     public double[] Task_3_12(double[] array)
     {
-        // code here
 
-        // end
-
-        return array;
+        int subcount = 0;
+        foreach (double x in array)
+        {
+            if (x < 0)
+            {
+                subcount++;
+            }
+        }
+        double [] newarray = new double[array.Length - subcount];
+        int index = 0;
+        foreach(double x in array)
+        {
+            if (x >= 0)
+            {
+                newarray[index] = x;
+                index++;
+            }
+        }
+        return newarray;
     }
     public double[] Task_3_13(double[] array)
     {
