@@ -433,7 +433,13 @@ namespace Tests
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
+            }
+            for (int i = 0; i < answer2.Length; i++)
+            {
                 Assert.AreEqual(answer2[i], input2[i]);
+            }
+            for (int i = 0; i < answer3.Length; i++)
+            {
                 Assert.AreEqual(answer3[i], input3[i]);
             }
         }
@@ -455,7 +461,13 @@ namespace Tests
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
+            }
+            for (int i = 0; i < answer2.Length; i++)
+            {
                 Assert.AreEqual(answer2[i], input2[i]);
+            }
+            for (int i = 0; i < answer3.Length; i++)
+            {
                 Assert.AreEqual(answer3[i], input3[i]);
             }
         }
@@ -494,6 +506,9 @@ namespace Tests
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
+            }
+            for (int i = 0; i < answer2.Length; i++)
+            {
                 Assert.AreEqual(answer2[i], input2[i]);
             }
             for (int i = 0; i < answer3.Length; i++)
@@ -520,6 +535,9 @@ namespace Tests
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
+            }
+            for (int i = 0; i < answer2.Length; i++)
+            {
                 Assert.AreEqual(answer2[i], input2[i]);
             }
             for (int i = 0; i < answer3.Length; i++)
@@ -545,7 +563,13 @@ namespace Tests
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
+            }
+            for (int i = 0; i < answer2.Length; i++)
+            {
                 Assert.AreEqual(answer2[i], input2[i]);
+            }
+            for (int i = 0; i < answer3.Length; i++)
+            {
                 Assert.AreEqual(answer3[i], input3[i]);
             }
         }
@@ -567,7 +591,13 @@ namespace Tests
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
+            }
+            for (int i = 0; i < answer2.Length; i++)
+            {
                 Assert.AreEqual(answer2[i], input2[i]);
+            }
+            for (int i = 0; i < answer3.Length; i++)
+            {
                 Assert.AreEqual(answer3[i], input3[i]);
             }
         }
@@ -579,7 +609,7 @@ namespace Tests
             double[] input2 = new double[] { 5, 2, 8, 1, 9, 3, 7, 4, 6, 10 };
             double[] input3 = new double[] { -5, -2, -8, -1, -9, -3, -7, -4, -6, -2 };
             double[] answer1 = new double[] { 0, 1.5, 1, -2.2, 3, -0.5, 2 };
-            double[] answer2 = new double[] { 5, 2, 8, 1, 9, 3, 7, 10, 6, 4 };
+            double[] answer2 = new double[] { 5, 2, 8, 1, 9, 3, 7, 4, 6, 10 };
             double[] answer3 = new double[] { -1, -2, -8, -5, -9, -3, -7, -4, -6, -2 };
             // Act
             input1 = main.Task_2_14(input1);
@@ -589,7 +619,13 @@ namespace Tests
             for (int i = 0; i < answer1.Length; i++)
             {
                 Assert.AreEqual(answer1[i], input1[i]);
+            }
+            for (int i = 0; i < answer2.Length; i++)
+            {
                 Assert.AreEqual(answer2[i], input2[i]);
+            }
+            for (int i = 0; i < answer3.Length; i++)
+            {
                 Assert.AreEqual(answer3[i], input3[i]);
             }
         }
@@ -698,6 +734,9 @@ namespace Tests
             for (int i = 0; i < answer2.Length; i++)
             {
                 Assert.AreEqual(answer2[i], input2[i]);
+            }
+            for (int i = 0; i < answer3.Length; i++)
+            {
                 Assert.AreEqual(answer3[i], input3[i]);
             }
         }
@@ -723,6 +762,9 @@ namespace Tests
             for (int i = 0; i < answer2.Length; i++)
             {
                 Assert.AreEqual(answer2[i], input2[i]);
+            }
+            for (int i = 0; i < answer3.Length; i++)
+            {
                 Assert.AreEqual(answer3[i], input3[i]);
             }
         }
@@ -990,7 +1032,7 @@ namespace Tests
             double[] input2 = new double[] { 5, 2, 8, 1, 9, 0, 0, 0, 0, 0 };
             double[] input3 = new double[] { -1, -2, -8, -1, -9, 0, 0, 0, 0, 0 };
             double[] answer1 = new double[] { 0, 0, 1.5, 1.5, 1, 1, 3, 3 };
-            double[] answer2 = new double[] { 5, 5, 2, 2, 8, 8, 1, 1, 9, 9};
+            double[] answer2 = new double[] { 5, 5, 2, 2, 8, 8, 1, 1, 9, 9 };
             double[] answer3 = new double[] { -1, -1, -2, -2, -8, -8, -1, -1, -9, -9 };
             double[] output1, output2, output3;
             // Act
@@ -1019,9 +1061,9 @@ namespace Tests
             int n1 = 4, n2 = 9;
             double[] x1, x2, y1, y2;
             double[] answer1 = new double[] { 1.5, 2, 2.5, 3 };
-            double[] answer2 = new double[] { 1.57, 1.40, 0.7, -0.57};
+            double[] answer2 = new double[] { 1.57, 1.40, 0.7, -0.57 };
             double[] answer3 = new double[] { -2.5, -1.88, -1.25, -0.62, 0, 0.62, 1.25, 1.88, 2.5 };
-            double[] answer4 = new double[] { 0.7, 1.49, 1.50, 1.17, 1, 1.17, 1.50, 1.49, 0.7};
+            double[] answer4 = new double[] { 0.7, 1.49, 1.50, 1.18, 1, 1.18, 1.50, 1.49, 0.7 };
             double answer5 = 1.57, answer6 = -0.57, answer7 = 1.50, answer8 = 0.7;
             // Act
             (x1, y1, max1, min1) = main.Task_3_11(a1, b1, n1);
@@ -1110,7 +1152,7 @@ namespace Tests
             double[] input3 = new double[] { -1, -2, -8, -1, -9, -1, -1, -4, -6, -2 };
             double[] answer1 = new double[] { -0.15, 0.42, 0.23, 1, -1, -0.35, 1 };
             double[] answer2 = new double[] { -0.11, -0.78, 0.56, -1, 0.78, -0.56, 0.33, -0.33, 1, 1 };
-            double[] answer3 = new double[] { 1, 0.75, -0.75, 1, -1, 1, 1, 0.25, -0.25, 0.75};
+            double[] answer3 = new double[] { 1, 0.75, -0.75, 1, -1, 1, 1, 0.25, -0.25, 0.75 };
             double[] output1, output2, output3;
             // Act
             output1 = main.Task_3_14(input1);
