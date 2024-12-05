@@ -617,7 +617,7 @@ public class Program
     {
         double[] output = null;
 
-        double[] output = null;
+        
         // code here
 
         if (k >= A.Length) return A;
@@ -907,7 +907,7 @@ public class Program
     }
     public (double[], double[], double, double) Task_3_11(double a, double b, int n)
     {
-        double[] X = null, Y = null;
+        
         double[] X = new double[n], Y = new double[n];
         double globalMax = 0, globalMin = 0;
 
@@ -950,7 +950,7 @@ public class Program
     }
     public double[] Task_3_14(double[] array)
     {
-        double[] normalizedArray = null;
+        
         double[] normalizedArray = new double[array.Length];
 
         // code here
