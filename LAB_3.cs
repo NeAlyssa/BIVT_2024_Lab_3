@@ -338,7 +338,7 @@ public class Program
 
         if (minValue < 0)
         {
-            array[minIndex] /= -2; 
+            array[minIndex] /= 2; 
         }
         else
         {
@@ -907,11 +907,11 @@ public class Program
     }
     public (double[], double[], double, double) Task_3_11(double a, double b, int n)
     {
-        
+       
         double[] X = new double[n], Y = new double[n];
         double globalMax = 0, globalMin = 0;
 
-        // code here
+       
         double k = 0;
         // code here
         double h = (b - a) / (n - 1);
