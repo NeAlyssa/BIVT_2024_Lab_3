@@ -272,7 +272,7 @@ public class Program
         {
             if (x[i] > 0)
             {
-                each = 0.5 * Math.Log(Math.E, x[i]);
+                each = 0.5 * Math.Log(x[i], Math.E);
                 y[i] = each;
             }
             else
@@ -574,31 +574,34 @@ public class Program
         return array;
     }
     public double[] Task_2_15(double[] A, double[] B, int k)
-    {
+    { 
         double[] output = null;
 
         // code here
         int stop = 0, count = 0;
-        int k2 = k + B.Length;
-        output = new double[A.Length + B.Length];
-        for(int i = 0; i < output.Length; i++)
-        {
-            if(i <= k)
+        int kk = k + B.Length;
+        if (k < A.Length){
+            output = new double[A.Length + B.Length];
+            for (int i = 0; i <= k; i++)
             {
                 output[i] = A[i];
                 stop++;
             }
-            if(i > k && i < k2)
+            for(int i = 0; i < B.Length; i++)
             {
-                output[i] = B[count];
-                count++;
-                k2++;
-            }
-            if(i >= k2)
-            {
-                output[i] = A[stop];
+                output[stop] = B[i];
                 stop++;
             }
+            for (int i = k + 1; i < A.Length; i++)
+            {
+                output[stop] = A[i];
+                stop++;
+            }
+            
+        }
+        else
+        {
+            output = A;
         }
         //end
 
@@ -901,13 +904,15 @@ public class Program
             X[i] = a + each * i;
             Y[i] = Math.Cos(X[i]) + X[i] * Math.Sin(X[i]);
         }
-        for(int i = 0;i < n; i++)
+        globalMin = Y[0];
+        globalMax = Y[0];
+        for (int i = 0;i < n; i++)
         {
-            if (Y[i] < globalMin)
+            if (Y[i] <= globalMin)
             {
                 globalMin = Y[i];
             }
-            if (Y[i] > globalMax)
+            if (Y[i] >= globalMax)
             {
                 globalMax = Y[i];
             }
@@ -937,7 +942,23 @@ public class Program
         double[] normalizedArray = null;
 
         // code here
-
+        normalizedArray = new double[array.Length];
+        int max = 0, min = 0;
+        for(int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > array[max])
+            {
+                max = i;
+            }
+            if (array[i] < array[min])
+            {
+                min = i;
+            }
+        }
+        for (int i = 0; i < array.Length; i++)
+        {
+            normalizedArray[i] = ((2 * (array[i] - array[min]) / (array[max] - array[min]))-1);
+        }
         // end
 
         return normalizedArray;
