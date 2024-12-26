@@ -794,41 +794,7 @@ public class Program
     public double[] Task_3_13(double[] array)
     {
         // code here
-        int n = 0; int p = 0;
-        double[] newarray = new double[array.Length];
-        for (int i = 0; i < array.Length; i++)
-        {
-            bool dubl = true;
-            for (int j = 0; j < newarray.Length; j++)
-            {
-                if (array[i] == newarray[j])
-                {
-                    dubl = false;
-                }
-            }
-            if (dubl == true)
-            {
-                newarray[i] = array[i];
-            }
-        }
-        for (int i = 0; i < newarray.Length; i++)
-        {
-            if (newarray[i] == 0 && newarray[i] != array[i])
-            {
-                n++;
-            }
-        }
-        double[] res = new double[newarray.Length - n];
 
-        for (int i = 0; i < newarray.Length; i++)
-        {
-            if (newarray[i] == array[i])
-            {
-                res[p] = newarray[i];
-                p++;
-            }
-        }
-        array = res;
         // end
 
         return array;
